@@ -1,0 +1,51 @@
+/* CSS Document */
+#hot_wrapper {
+	width: 100%;
+	left: 0;
+	bottom: 20px;
+	position:relative;
+}
+
+#carousel {
+	margin-top: 10px;
+	margin:30px 0 0;
+}
+
+#carousel div {
+	text-align: center;
+	width: 125px;
+	height: 160px;
+	padding: 0 20px;
+	float: left;
+}
+
+#carousel div #img_content{
+	height:20px;
+}
+
+#carousel div h1{
+	font-size:14px;
+	color:#333;
+}
+
+#carousel div img {
+	border: none;
+	margin:0 0 20px;
+}
+
+
+#carousel div span{
+	color: #666;
+	width:90px;
+	padding:5px 0;
+	margin:0 0 0 50px;
+	font-weight:bold;
+	border-radius:2px;
+	border:1px solid #ccc;
+	display:block;
+	
+	background: -moz-linear-gradient(bottom, #e0e1e1,  #f7f9f9);
+    background: -o-linear-gradient(bottom, #e0e1e1,  #f7f9f9);
+    background: -ms-linear-gradient(bottom, #e0e1e1,  #f7f9f9);
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #e0e1e1),color-stop(1, #f7f9f9));
+}

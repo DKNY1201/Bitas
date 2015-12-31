@@ -1,0 +1,15 @@
+<?php
+	session_start();
+	unset($_SESSION['id']);
+	unset($_SESSION['email']);
+	unset($_SESSION['group']);
+	unset($_SESSION['hoten']);
+	unset($_SESSION['gioitinh']);
+	unset($_SESSION['dienthoai']);
+	unset($_SESSION['diachi']);
+	unset($_SESSION['tinhthanh']);
+	unset($_SESSION['quanhuyen']);
+	unset($_SESSION['phuong']);
+	unset($_SESSION['ngaysinh']);
+	header("location:index.php");
+?>

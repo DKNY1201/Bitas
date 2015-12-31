@@ -1,0 +1,84 @@
+RewriteEngine on
+
+#Redirect from www to non www
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteRule ^home\.bitas$ / [R=301,L]
+RewriteRule ^(.*)/home\.bitas$ /$1/ [R=301,L]
+RewriteRule ^home\.php$ / [R=301,L]
+RewriteRule ^(.*)/home\.php$ /$1/ [R=301,L]
+RewriteRule ^index\.php$ / [R=301,L]
+RewriteRule ^(.*)/index\.php$ /$1/ [R=301,L]
+
+#REWRITE URL MENU 
+RewriteRule ^cat/gioi-thieu/$ /?p=gioithieu [L]
+RewriteRule ^cat/shopping/$ /?p=online_shopping [L]
+RewriteRule ^cat/he-thong-phan-phoi/$ /?p=delivery_system [L]
+RewriteRule ^cat/khuyen-mai/$ /?p=khuyenmai [L]
+RewriteRule ^cat/tin-tuc/$ /?p=tintuc [L]
+RewriteRule ^cat/tuyen-dung/$ /?p=tuyendung [L]
+RewriteRule ^cat/lien-he/$ /?p=lienhe [L]
+RewriteRule ^cat/dia-diem-doi-bao-hanh/$ /?p=doi_baohanh_map [L]
+RewriteRule ^cat/he-thong-cua-hang-le/$ /?p=hethongcuahangle [L]
+RewriteRule ^cat/chinh-sach-bao-mat/$ /?p=chinhsach_baomat [L]
+RewriteRule ^cat/chinh-sach-ho-tro-van-chuyen/$ /?p=chinhsach_hotrovanchuyen [L]
+RewriteRule ^cat/chinh-sach-doi-hang/$ /?p=chinhsach_doihang [L]
+RewriteRule ^cat/chinh-sach-bao-hanh/$ /?p=chinhsach_baohanh [L]
+RewriteRule ^cat/chinh-sach-huy-don-hang/$ /?p=chinhsach_huydonhang [L]
+RewriteRule ^cat/huong-dan-mua-hang/$ /?p=huongdan_muahang [L]
+RewriteRule ^cat/huong-dan-thanh-toan/$ /?p=huongdan_thanhtoan [L]
+RewriteRule ^cat/huong-dan-chon-size/$ /?p=huongdan_chonsize [L]
+RewriteRule ^cat/bao-chi-truyen-thong/$ /?p=baochitruyenthong [L]
+RewriteRule ^cat/faq/$ /?p=faq [L]
+RewriteRule ^cat/quay-so/$ /?p=quayso [L]
+RewriteRule ^cat/dieu-khoan-su-dung/$ /?p=dieukhoansudung [L]
+
+#REWRITE URL USER
+RewriteRule ^user/dang-ki/$ /?p=dangki [L]
+RewriteRule ^user/dang-nhap/$ /?p=dangnhap [L]
+RewriteRule ^user/tai-khoan/$ /?p=taikhoan [L]
+RewriteRule ^user/doi-mat-khau/$ /?p=taikhoan&pi=taikhoan_doimatkhau [L]
+RewriteRule ^user/quen-mat-khau/$ /?p=quenpass [L]
+RewriteRule ^user/quen-mat-khau-doi-mat-khau/(.*)/(.*)/$ /?p=quenpass_doipass&rdk=$1&email=$2 [L]
+RewriteRule ^user/doi-thong-tin/$ /?p=taikhoan&pi=taikhoan_doithongtin [L]
+RewriteRule ^user/doi-dia-chi/$ /?p=taikhoan&pi=taikhoan_doidiachi [L]
+RewriteRule ^user/wish-list/$ /?p=taikhoan&pi=taikhoan_wishlist [L]
+RewriteRule ^user/tien-thuong/$ /?p=taikhoan&pi=taikhoan_tienthuong [L]
+RewriteRule ^user/don-hang/$ /?p=taikhoan&pi=taikhoan_donhang [L]
+RewriteRule ^user/don-hang-chi-tiet/(.*)/$ /?p=taikhoan&pi=taikhoan_donhangchitiet&idDH=$1 [L]
+RewriteRule ^user/doi-dia-chi-giao-hang/(.*)/$ /?p=taikhoan&pi=taikhoan_doidiachigiaohang&idAB=$1 [L]
+RewriteRule ^user/them-dia-chi-giao-hang/$ /?p=taikhoan&pi=taikhoan_themdiachigiaohang [L]
+
+#REWRITE URL CART
+RewriteRule ^gio-hang/tong-quan/$ /?p=cart [L]
+RewriteRule ^gio-hang/dang-nhap-dang-ki/$ /?p=cart_dn_dk [L]
+RewriteRule ^gio-hang/thong-tin-khach-hang/$ /?p=cart_ttkh [L]
+RewriteRule ^gio-hang/hoan-tat-mua-hang/$ /?p=cart_finish [L]
+
+#REWRITE URL DETAIL NEWS
+RewriteRule news/detail/(.*)/$ /?p=detail_news&idTin=$1 [L]
+
+#REWRITE URL San pham theo Moi, Discount
+RewriteRule san-pham/option/(.*)/(.*)/$ /?p=product&option=$1&lsp=$2 [L]
+RewriteRule san-pham/option/(.*)/$ /?p=product&option=$1 [L]
+
+#REWRITE URL San pham theo Giay Dep Sandal
+RewriteRule san-pham/(.*)/(.*)/$ /?p=product&lspgt=$1&lspdsg=$2 [L]
+#REWRITE URL San pham theo Gioi Tinh
+RewriteRule san-pham/(.*)/$ /?p=product&lspgt=$1 [L]
+
+#REWRITE URL DETAIL PRODUCT
+RewriteCond %{REQUEST_URI} !^/admin(/.*|)$ [NC]
+RewriteRule ^(.*)/$ /?p=detail&idNSP=$1 [L]
+
+#Chuyen tat ca file .php ve file .bitas
+RewriteRule ^(.*)\.bitas$ $1.php
+
+ErrorDocument 404 http://bitas.com.vn/404.php
+
+#Tu dong truy cap vao file home.php khi vao website thay vi index.php
+DirectoryIndex home.php
+
+AddDefaultCharset UTF-8

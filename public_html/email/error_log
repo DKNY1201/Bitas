@@ -1,0 +1,2 @@
+[08-Jun-2015 14:33:10 Asia/Bangkok] PHP Parse error:  syntax error, unexpected 'send' (T_STRING) in /home/bitas/public_html/email/smtp.php on line 463
+[08-Jun-2015 14:33:14 Asia/Bangkok] PHP Parse error:  syntax error, unexpected 'send' (T_STRING) in /home/bitas/public_html/email/smtp.php on line 463
