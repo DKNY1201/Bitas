@@ -14,9 +14,10 @@
 
             <div id="slider" class="nivoSlider">
             	<?php 
-  					if($checkPA){
-				?>			
-                <!--<a href="http://bitas.com.vn/news/detail/51/"><img alt="don xuan 2016" src="img/slider_home/don-xuan-2016.jpg" /></a>-->
+  					if($checkPA && $pro_code=="DONXUAN2016"){
+				?>
+                
+                <a href="http://bitas.com.vn/news/detail/51/"><img alt="don xuan 2016" src="img/slider_home/don-xuan-2016.jpg" /></a>
                 <?php }?>
                 <a href="http://bitas.com.vn/news/detail/50/"><img alt="giang sinh 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>
             	<a href="javascript:void(0)"><img alt="trung thu 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>
