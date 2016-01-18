@@ -108,7 +108,7 @@
 <thead>
   <tr>
     <th>idNSP</th>
-    <th>SKU</th>
+    <th>Mã SP</th>
     <th>Tên</th>
     <th>Ngày tạo/<br />cập nhật</th>
     <th>Follow/<br />Đại diện</th>
@@ -126,7 +126,7 @@
 <tfoot>
   <tr>
     <th>idNSP</th>
-    <th>SKU</th>
+    <th>Mã SP</th>
     <th>Tên</th>
     <th>Ngày tạo/<br />cập nhật</th>
     <th>Follow/<br />Đại diện</th>
