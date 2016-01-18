@@ -562,9 +562,9 @@
 			$madh=$row_dh['MaDH'];
 			$title="Bitas.com.vn - Yêu cầu hủy đơn hàng - Đơn hàng ".$madh;
 			$send_email=$_SESSION['email'];
-			$recieve_email="banbanle@bitas.com.vn,grace.hdo@gmail.com";
+			$recieve_email="banbanle@bitas.com.vn,grace.hdo@gmail.com,bitasdigital@gmail.com,quytran288@gmail.com";
 			include_once "../email/smtp.php";
-			$content="<p>Có yêu cầu hủy đơn hàng từ nhân viên: ".$_SESSION['hoten'].".</p><p> Vui lòng nhấn vào <a href=http://bitas.com.vn/admin/index.php?p=donhang_huy&idDH=".$idDH.">đây</a> để xử lí đơn hàng.</p><p>Lý do: <strong>".$lydo."</strong></p>";
+			$content="<p>Có yêu cầu hủy đơn hàng từ nhân viên: ".$_SESSION['hoten'].".</p><p> Vui lòng nhấn vào <a href=http://bitas.com.vn/admin/index.php?p=donhang_huy&idDH=".$idDH.">đây</a> để xử lí đơn hàng.</p><p>Lý do: <strong>".$lydo."</strong></p><p>Nhấn vào <a href=http://bitas.com.vn/admin/index.php?p=donhang_chitiet&idDH=".$idDH.">đây</a> để xem chi tiết đơn hàng.</p>";
 			SendMail($send_email,$recieve_email,$title,$content);
 		}
 		function CheckDHHuy($idDH){
