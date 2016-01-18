@@ -10,7 +10,7 @@
 <form action="" method="post">
     <table class="them" width="800px" border="0" cellspacing="0" cellpadding="4">
       <tr>
-        <td>Tên</td>
+        <td>SKU</td>
         <td colspan="3"><input type="text" name="ten" class="txt" /></td>
       </tr>
       <tr>

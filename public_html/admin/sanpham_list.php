@@ -29,7 +29,7 @@
 <thead>
   <tr>
     <th>idSP</th>
-    <th>Tên</th>
+    <th>SKU</th>
     <th>Ngày tạo/<br />cập nhật</th>
     <th>Giá</th>
     <th>Giá chưa giảm</th>

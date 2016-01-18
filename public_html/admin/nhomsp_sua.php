@@ -130,7 +130,7 @@ function ShowThumbnails( fileUrl, data ){
         <td colspan="3"><input type="text" name="ten" class="txt validate[required]" value="<?php echo $row_nsp['Ten']?>" /></td>
       </tr>      
       <tr>
-        <td>SKU</td>
+        <td>Mã SP</td>
         <td colspan="3"><input type="text" name="sku" class="txt validate[required]" value="<?php echo $row_nsp['SKU']?>" /></td>
       </tr>
       <tr>

@@ -319,6 +319,10 @@
 					require_once "donhang_chinhsua_edit.php";
 				elseif($p=='donhang_chinhsua_add')
 					require_once "donhang_chinhsua_add.php";
+				elseif($p=='temp_updatemasp')
+					require_once "Temp_UpdateMaSP.php";
+				elseif($p=='temp_updateskusp')
+					require_once "Temp_UpdateSKUSP.php";
 				else require_once "main.php";
 			?>
         </div><!--end_content-->

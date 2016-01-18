@@ -118,7 +118,7 @@ function ShowThumbnails( fileUrl, data ){
         <td colspan="3"><input type="text" name="ten" class="txt validate[required]" /></td>
       </tr>
       <tr>
-        <td>SKU</td>
+        <td>Mã SP</td>
         <td colspan="3"><input type="text" name="sku" class="txt validate[required]" /></td>
       </tr>
       <tr>

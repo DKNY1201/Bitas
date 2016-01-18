@@ -17,7 +17,7 @@
         	<td colspan="4"><strong style="font-size:16px; text-transform:uppercase; color:#48a6d2">Sản phẩm <?php echo $j?></strong></td>
         </tr>
       <tr>
-        <td>Tên</td>
+        <td>SKU</td>
         <td colspan="3"><input type="text" name="ten_<?php echo $j?>" class="txt" /></td>
       </tr>
       <tr>
