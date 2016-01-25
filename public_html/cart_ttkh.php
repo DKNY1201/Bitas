@@ -904,6 +904,16 @@ $(document).ready(function(e) {
 							}
 							echo '</td></tr>';
 						}
+                        // TETTA2016
+                        if($pro_code=='TETTA2016'){
+                            echo '<tr class="tongcong"><td colspan="3">';
+                            if($tongtien_khongtinhhanggiamgia >= $promotion_price){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }else{
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }
+                            echo '</td></tr>';
+                        }
 					}// end checkPA
 					?>
                     <tr class="tongcong">
@@ -1034,8 +1044,8 @@ $(document).ready(function(e) {
 											echo '0';
 										}
 									}
-									// TRIANNHAGIAO2015 | NOEL2015
-									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){
+									// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
+									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){
 										if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 											echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
 										}else{
@@ -1177,8 +1187,8 @@ $(document).ready(function(e) {
 										}
 										echo '<input type="hidden" name="tongtien" value="'.$tongtien_promotion.'" />';
 									}
-									// TRIANNHAGIAO2015 | NOEL2015
-									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){										
+									// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
+									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){										
 										if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
 											echo number_format($tongtien_promotion,0,".",",");

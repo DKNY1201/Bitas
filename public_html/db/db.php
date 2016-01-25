@@ -1537,7 +1537,7 @@
 								$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 								mysql_query($sql_t) or die(mysql_error());
 							}
-						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016'){
+						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016'){
 							$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 							mysql_query($sql_t) or die(mysql_error());
 						}
@@ -2015,7 +2015,7 @@
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 						}
 					}// QUATANGYEUTHUONG
-					elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015"){
+					elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015" || $row_pro['code']=="TETTA2016"){
 						$dhct=$this->DonHangChiTiet($idDH);
 						$tongsl=0;
 						$tongtien=0;
@@ -2042,7 +2042,7 @@
 						}else{
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
 						}
-					}// TRIANNHAGIAO2015 | NOEL2015
+					}// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
 					elseif($row_pro['code']=="DONXUAN2016"){
 						$dhct=$this->DonHangChiTiet($idDH);
 						$tongsl=0;
@@ -2482,7 +2482,7 @@
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 						}
 					}// QUATANGYEUTHUONG
-					elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015"){
+					elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015" || $row_pro['code']=="TETTA2016"){
 						$dhct=$this->DonHangChiTiet($idDH);
 						$tongtien=0;
 						$tongtiengiam=0;
@@ -2504,7 +2504,7 @@
 						}else{
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
 						}
-					}// TRIANNHAGIAO2015 | NOEL2015
+					}// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
 					elseif($row_pro['code']=="DONXUAN2016"){
 						$dhct=$this->DonHangChiTiet($idDH);
 						$tongtien=0;
@@ -4137,7 +4137,7 @@
 						$saleoff = 0;
 					}
 				}// QUATANGYEUTHUONG
-				elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015"){
+				elseif($row_pro['code']=="TRIANNHAGIAO2015" || $row_pro['code']=="NOEL2015" || $row_pro['code']=="TETTA2016"){
 					$dhct=$this->DonHangChiTiet($idDH);
 					while($row_dhct=mysql_fetch_assoc($dhct)){
 						$soluong = $row_dhct['SoLuong'];

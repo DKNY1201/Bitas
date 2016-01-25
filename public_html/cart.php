@@ -373,6 +373,13 @@
 										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/51/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 									}
 								}
+								if($pro_code=='TETTA2016'){
+									if($tongtien_khongtinhhanggiamgia >= $promotion_price){
+										echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}else{
+										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}
+								}
 							}
                         ?>
                     </div>
@@ -508,8 +515,8 @@
 											echo '0';
 										}
 									}
-									// TRIANNHAGIAO2015 | NOEL2015
-									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){
+									// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
+									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){
 										if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 											echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
 										}else{
@@ -636,7 +643,7 @@
 										}
 									}
 									// TRIANNHAGIAO2015 | NOEL2015
-									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){										
+									if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){										
 										if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
 											echo number_format($tongtien_promotion,0,".",",");
@@ -969,6 +976,13 @@
 									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/51/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 								}
 							}
+							if($pro_code=='TETTA2016'){
+								if($tongtien_khongtinhhanggiamgia >= $promotion_price){
+									echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}else{
+									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}
+							}
 						}
                     ?>
                 </div>
@@ -1101,8 +1115,8 @@
 										echo '0';
 									}
 								}
-								// TRIANNHAGIAO2015 | NOEL2015
-								if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){
+								// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
+								if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){
 									if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 										echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
 									}else{
@@ -1232,8 +1246,8 @@
 										echo number_format($tongtien,0,".",",");
 									}
 								}
-								// TRIANNHAGIAO2015 | NOEL2015
-								if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015'){										
+								// TRIANNHAGIAO2015 | NOEL2015 | TETTA2016
+								if($pro_code=='TRIANNHAGIAO2015' || $pro_code=='NOEL2015' || $pro_code=='TETTA2016'){										
 									if($tongtien_khongtinhhanggiamgia >= $promotion_price){
 										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
 										echo number_format($tongtien_promotion,0,".",",");
