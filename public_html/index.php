@@ -300,10 +300,12 @@
     	
         <div class="promotion-banner">
         	<?php if($pro_code=="NOEL2015"){?>
-        		<a href="http://bitas.com.vn/news/detail/50/" ><img src="img/banner/giang-sinh-2015-banner-small.jpg" alt="giang sinh an lanh" /></a>
+       			<a href="http://bitas.com.vn/news/detail/50/" ><img src="img/banner/giang-sinh-2015-banner-small.jpg" alt="giang sinh an lanh" /></a>
             <?php }elseif($pro_code=="DONXUAN2016"){?>
             	<a href="http://bitas.com.vn/news/detail/51/" ><img src="img/banner/banner-don-xuan-2016.jpg" alt="giang sinh an lanh" /></a>
-            <?php }?>
+            <?php } elseif($pro_code=="TETTA2016"){?>
+            	<a href="http://bitas.com.vn/news/detail/52/" ><img src="img/banner/tet-nguyen-dan-2016-small.jpg" alt="tet nguyen dan 2016" /></a>
+            <?php } ?>
         </div>
         
         <?php }//end check promotion active?>
