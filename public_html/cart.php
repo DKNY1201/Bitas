@@ -375,9 +375,9 @@
 								}
 								if($pro_code=='TETTA2016'){
 									if($tongtien_khongtinhhanggiamgia >= $promotion_price){
-										echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+										echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 									}else{
-										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 									}
 								}
 							}
@@ -978,9 +978,9 @@
 							}
 							if($pro_code=='TETTA2016'){
 								if($tongtien_khongtinhhanggiamgia >= $promotion_price){
-									echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 								}else{
-									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 								}
 							}
 						}

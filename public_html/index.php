@@ -304,7 +304,7 @@
             <?php }elseif($pro_code=="DONXUAN2016"){?>
             	<a href="http://bitas.com.vn/news/detail/51/" ><img src="img/banner/banner-don-xuan-2016.jpg" alt="giang sinh an lanh" /></a>
             <?php } elseif($pro_code=="TETTA2016"){?>
-            	<a href="http://bitas.com.vn/news/detail/52/" ><img src="img/banner/tet-nguyen-dan-2016-small.jpg" alt="tet nguyen dan 2016" /></a>
+            	<a href="http://bitas.com.vn/news/detail/53/" ><img src="img/banner/tet-nguyen-dan-2016-small.jpg" alt="tet nguyen dan 2016" /></a>
             <?php } ?>
         </div>
         
@@ -615,7 +615,7 @@
 				$(".nav-search").slideToggle(300);
 			});
 			//Show POPUP
-			/*
+			
 			if(typeof(Storage) !== "undefined"){
 				if(localStorage.getCacheItem("popup")!="show"){
 				
@@ -624,7 +624,7 @@
 					setTimeout(function(){	
 						$( "#dialog" ).dialog({
 							modal: true,
-							width: 38 + '%',
+							width: 50 + '%',
 							show: {
 								effect: "fade",
 								duration: 500
@@ -634,8 +634,8 @@
 								duration: 300
 							}	
 						});
-						$(".ui-dialog").css({"position":"fixed","top":"10%","background":"transparent","border":"none","left":"50%","margin-left":"-19%"});
-						localStorage.setCacheItem("popup", "show", { days: 1 });
+						$(".ui-dialog").css({"position":"fixed","top":"10%","background":"transparent","border":"none","left":"44%","margin-left":"-19%"});
+						localStorage.setCacheItem("popup", "show", { minutes: 30 });
 					}, 500);
 				}
 				else{
@@ -653,15 +653,15 @@
 							}	
 						});
 						$(".ui-dialog").css({"position":"fixed","top":"10%","background":"transparent","border":"none","left":"50%","margin-left":"-45%"});
-						localStorage.setCacheItem("popup", "show", { days: 1 });
+						localStorage.setCacheItem("popup", "show", { minutes: 30 });
 					}, 500);
 				}
 				}else{
 				}
 			}else{
-				alert("Lalalalalala, I love u baby");
+				alert("Bitas.com.vn");
 			}
-			*/
+			
 			// display site down notice
 			/*
 			if($.cookie("enter")=="yes")
@@ -686,7 +686,7 @@
 </script>
 <div id="to_top">{To_Top}</div>
 <div id="dialog" title="" style="display: none">
-<a href="#"><img src="img/st/thong-bao-dut-cap.jpg" usemap="#popup" alt="thong bao dut cap"  /></a>
+<a href="http://bitas.com.vn/news/detail/52/"><img src="img/st/thong-bao-nghi-tet-am-lich-2016.jpg" usemap="#popup" alt="thong bao nghi tet am lich"  /></a>
 </div>
 <div class="modal"></div>
 <!-- display site down -->

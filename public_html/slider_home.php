@@ -14,7 +14,7 @@
 
             <div id="slider" class="nivoSlider">
             	<?php if($checkPA && $pro_code=="TETTA2016"){ ?>
-            		<a href="http://bitas.com.vn/news/detail/52/"><img alt="tet nguyen dan 2016" src="img/slider_home/tet-nguyen-dan-2016.jpg" /></a>        
+            		<a href="http://bitas.com.vn/news/detail/53/"><img alt="tet nguyen dan 2016" src="img/slider_home/tet-nguyen-dan-2016.jpg" /></a>        
             	<?php } ?>
                 <a href="http://bitas.com.vn/news/detail/51/"><img alt="don xuan 2016" src="img/slider_home/don-xuan-2016.jpg" /></a>
                 <a href="http://bitas.com.vn/news/detail/50/"><img alt="giang sinh 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>

@@ -908,9 +908,9 @@ $(document).ready(function(e) {
                         if($pro_code=='TETTA2016'){
                             echo '<tr class="tongcong"><td colspan="3">';
                             if($tongtien_khongtinhhanggiamgia >= $promotion_price){
-                                echo '<p class="promotion_text"><strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
                             }else{
-                                echo '<p class="promotion_text"><strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/52/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/53/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
                             }
                             echo '</td></tr>';
                         }
