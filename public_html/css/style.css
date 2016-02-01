@@ -4415,3 +4415,16 @@ img.in_news {
     opacity: 0.65;
 }
 /*====== END QUAY SO ======*/
+
+.breaking-news{
+	text-align: center;
+    height: 35px;
+    line-height: 35px;
+    background: #4F1312;
+    color: #fff;
+    font-size: 15px;
+}
+
+.breaking-news a{
+	text-decoration: underline;
+}

@@ -1,3 +1,6 @@
+<div class="breaking-news">
+    <span>Thông báo lịch nghỉ và khai trương cửa hàng lẻ <a href="http://bitas.com.vn/news/detail/54/">Xem chi tiết >></a></span>
+</div><!-- /.breaking-news -->
 <div id="header_top">
   <div id="header_top_content">
     <div id="hotline" class="box_size">{Hotline}: <?php echo $row_info['hotline']?>

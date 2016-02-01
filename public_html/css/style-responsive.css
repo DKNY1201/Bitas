@@ -987,6 +987,9 @@ and (max-width : 480px) {
 		font-size: 20px;
 	}
 	/*========== END GAME ==========*/
+	.breaking-news{
+	    font-size: 12px;
+	}
 } /* End max-width 480px */
 
 @media only screen 
