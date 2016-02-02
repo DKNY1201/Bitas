@@ -914,6 +914,16 @@ $(document).ready(function(e) {
                             }
                             echo '</td></tr>';
                         }
+                        // KHAITRUONG2016
+                        if($pro_code=='KHAITRUONG2016'){
+                            echo '<tr class="tongcong"><td colspan="3">';
+                            if($soluong_khongtinhhanggiamgia > 1){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/55/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }elseif($soluong_khongtinhhanggiamgia == 1){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 300,000 VNĐ để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/55/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }
+                            echo '</td></tr>';
+                        }
 					}// end checkPA
 					?>
                     <tr class="tongcong">
@@ -1062,6 +1072,14 @@ $(document).ready(function(e) {
 											echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
 										}
 									}
+                                    // KHAITRUONG2016
+                                    if($pro_code=='KHAITRUONG2016'){
+                                        if($soluong_khongtinhhanggiamgia > 1){
+                                            echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+                                        }elseif($soluong_khongtinhhanggiamgia == 1){
+                                            echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
+                                        }
+                                    }
 								}else{
 									echo "0";
 								}
@@ -1211,7 +1229,18 @@ $(document).ready(function(e) {
 											echo number_format($tongtien_promotion,0,".",",");
 										}
 										echo '<input type="hidden" name="tongtien" value="'.$tongtien_promotion.'" />';
-									}					
+									}
+                                    // KHAITRUONG2016
+                                    if($pro_code=='KHAITRUONG2016'){                                       
+                                        if($soluong_khongtinhhanggiamgia > 1){
+                                            $tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+                                            echo number_format($tongtien_promotion,0,".",",");
+                                        }elseif($soluong_khongtinhhanggiamgia == 1){
+                                            $tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
+                                            echo number_format($tongtien_promotion,0,".",",");
+                                        }
+                                        echo '<input type="hidden" name="tongtien" value="'.$tongtien_promotion.'" />';
+                                    }				
 								}else{
 									echo '<input type="hidden" name="tongtien" value="'.$tongtien.'" />';
 									echo number_format($tongtien,0,".",",");

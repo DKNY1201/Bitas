@@ -1537,7 +1537,7 @@
 								$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 								mysql_query($sql_t) or die(mysql_error());
 							}
-						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016'){
+						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016' || $row_promo['code']=='KHAITRUONG2016'){
 							$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 							mysql_query($sql_t) or die(mysql_error());
 						}
@@ -2073,6 +2073,35 @@
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 						}
 					}// DONXUAN2016
+					elseif($row_pro['code']=="KHAITRUONG2016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongsl=0;
+						$tongtien=0;
+						$tongtiengiam=0;
+						$sl_giamgia=0;
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$idsp=$row_dhct['idSP'];
+							$soluong=$row_dhct['SoLuong'];
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongsl+=$soluong;
+							$tongtien+=$tien;
+							$giachuagiam=$row_dhct['GiaChuaGiam'];
+							//PROMOTION
+							if($dongia<$giachuagiam){
+								$tiengiam=$soluong*$dongia;
+								$tongtiengiam+=$tiengiam;
+								$sl_giamgia+=$soluong;
+							}
+						}
+						$tongtien_khongtinhhanggiamgia=$tongtien - $tongtiengiam;
+						$soluong_khongtinhhanggiamgia=$tongsl - $sl_giamgia;
+						if($soluong_khongtinhhanggiamgia > 1){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+						}elseif($soluong_khongtinhhanggiamgia == 1){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
+						}
+					}// KHAITRUONG2016
 				}// $pro_code
 				if($row_pro['code'] != "HAPPYHOUR"){
 					$cpvc_dh=$this->ChiPhiVanChuyen($tongtien,$idTinh,$idQH);
@@ -2529,7 +2558,36 @@
 						}else{
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 						}
-					}// DONXUAN2016	
+					}// DONXUAN2016
+					elseif($row_pro['code']=="KHAITRUONG2016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongsl=0;
+						$tongtien=0;
+						$tongtiengiam=0;
+						$sl_giamgia=0;
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$idsp=$row_dhct['idSP'];
+							$soluong=$row_dhct['SoLuong'];
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongsl+=$soluong;
+							$tongtien+=$tien;
+							$giachuagiam=$row_dhct['GiaChuaGiam'];
+							//PROMOTION
+							if($dongia<$giachuagiam){
+								$tiengiam=$soluong*$dongia;
+								$tongtiengiam+=$tiengiam;
+								$sl_giamgia+=$soluong;
+							}
+						}
+						$tongtien_khongtinhhanggiamgia=$tongtien - $tongtiengiam;
+						$soluong_khongtinhhanggiamgia=$tongsl - $sl_giamgia;
+						if($soluong_khongtinhhanggiamgia > 1){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+						}elseif($soluong_khongtinhhanggiamgia == 1){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
+						}
+					}// KHAITRUONG2016
 				}
 				return $tongtien;				
 			}
@@ -4175,6 +4233,30 @@
 						$saleoff=$tongtienchuagiam * 0.1;
 					}
 				}// DONXUAN2016
+				elseif($row_pro['code']=="KHAITRUONG2016"){
+					$dhct=$this->DonHangChiTiet($idDH);
+					$tongsl=0;
+					$sl_giamgia=0;
+					while($row_dhct=mysql_fetch_assoc($dhct)){
+						$soluong = $row_dhct['SoLuong'];
+						$dongia=$row_dhct['Gia'];			
+						$giachuagiam=$row_dhct['GiaChuaGiam'];
+						$tongsl+=$soluong;
+						//PROMOTION
+						if($dongia==$giachuagiam){
+							$tienchuagiam=$soluong*$dongia;
+							$tongtienchuagiam+=$tienchuagiam;
+						}elseif($dongia<$giachuagiam){
+							$sl_giamgia+=$soluong;
+						}
+					}
+					$soluong_khongtinhhanggiamgia=$tongsl - $sl_giamgia;
+					if($soluong_khongtinhhanggiamgia > 1){
+						$saleoff=$tongtienchuagiam * 0.2;
+					}elseif($soluong_khongtinhhanggiamgia == 1){
+						$saleoff=$tongtienchuagiam * 0.1;
+					}
+				}// KHAITRUONG2016
 				else{
 					$saleoff=0;
 				}
