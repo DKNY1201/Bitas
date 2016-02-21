@@ -11,8 +11,8 @@
 	<div id="wrapper">
 
         <div class="slider-wrapper theme-default">
-
             <div id="slider" class="nivoSlider">
+            	<a href="http://bitas.com.vn/news/detail/55/"><img alt="khai truong ron rang 2016" src="img/slider_home/khai-truong-ron-rang-2016.jpg" /></a>
             	<a href="http://bitas.com.vn/news/detail/53/"><img alt="tet nguyen dan 2016" src="img/slider_home/tet-nguyen-dan-2016.jpg" /></a>        
                 <a href="http://bitas.com.vn/news/detail/51/"><img alt="don xuan 2016" src="img/slider_home/don-xuan-2016.jpg" /></a>
                 <a href="http://bitas.com.vn/news/detail/50/"><img alt="giang sinh 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>

@@ -299,13 +299,7 @@
 	?>
     	
         <div class="promotion-banner">
-        	<?php if($pro_code=="NOEL2015"){?>
-       			<a href="http://bitas.com.vn/news/detail/50/" ><img src="img/banner/giang-sinh-2015-banner-small.jpg" alt="giang sinh an lanh" /></a>
-            <?php }elseif($pro_code=="DONXUAN2016"){?>
-            	<a href="http://bitas.com.vn/news/detail/51/" ><img src="img/banner/banner-don-xuan-2016.jpg" alt="giang sinh an lanh" /></a>
-            <?php } elseif($pro_code=="TETTA2016"){?>
-            	<a href="http://bitas.com.vn/news/detail/53/" ><img src="img/banner/tet-nguyen-dan-2016-small.jpg" alt="tet nguyen dan 2016" /></a>
-            <?php } ?>
+            <a href="http://bitas.com.vn/news/detail/55/" ><img src="img/banner/khai-truong-ron-rang-banner-2016.jpg" alt="khai truong ron rang 2016" /></a>
         </div>
         
         <?php }//end check promotion active?>
@@ -615,7 +609,7 @@
 				$(".nav-search").slideToggle(300);
 			});
 			//Show POPUP
-			
+			/*
 			if(typeof(Storage) !== "undefined"){
 				if(localStorage.getCacheItem("popup")!="show"){
 				
@@ -661,7 +655,7 @@
 			}else{
 				alert("Bitas.com.vn");
 			}
-			
+			*/
 			// display site down notice
 			/*
 			if($.cookie("enter")=="yes")

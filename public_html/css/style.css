@@ -4423,6 +4423,7 @@ img.in_news {
     background: #4F1312;
     color: #fff;
     font-size: 15px;
+    display: none;
 }
 
 .breaking-news a{
