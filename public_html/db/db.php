@@ -2651,6 +2651,7 @@
 					case 83:
 						$cpvc = 30000;
 						break;
+					case 1:
 					case 77:
 					case 70:
 					case 60:
@@ -2697,22 +2698,6 @@
 					case 22:
 					case 8:
 						$cpvc = 50000;
-						break;
-					case 1:
-						$check_nt=$this->KiemTraNoiThanh($idQH);
-						if($check_nt==1){
-							if($giatriDH>=300000){
-								$cpvc=0;
-							}else{
-								$cpvc=20000;
-							}
-						}
-						else{
-							if($giatriDH>=500000)
-								$cpvc=0;
-							else
-								$cpvc=40000;
-						}
 						break;
 					case 79:
 						$check_nt=$this->KiemTraNoiThanh($idQH);
