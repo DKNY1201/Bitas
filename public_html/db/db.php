@@ -2923,7 +2923,7 @@
 					$checkEmail=$this->KTEmail($email);
 					if($checkEmail==true){
 						$success=false;
-						$error['email']="Địa chỉ email này đã được đăng kí. <a style='color: #48A6D2; font-weight: bold' href='quenpass.php'>Quên mật khẩu?</a>";
+						$error['email']="Địa chỉ email này đã được đăng kí. <a style='color: #48A6D2; font-weight: bold' href='user/quen-mat-khau/'>Quên mật khẩu?</a>";
 					}
 				}
 				if($pass==NULL){

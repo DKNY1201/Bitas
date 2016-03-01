@@ -445,7 +445,7 @@ $(document).ready(function(e) {
                         <p>Ghi chú*</p>
                         <textarea placeholder="{Note_Text}" name="ghichu_kh"></textarea>
                     </div>
-                    <p><input class="validate[required]" type="checkbox" id="dongydieukhoan" name="dongydieukhoan"> <label for="dongydieukhoan" class="radioLabel">Đồng ý với <a href="cat/dieu-khoan-su-dung/" class="link">điều khoản sử dụng</a></label></p>
+                    <p><input class="validate[required]" type="checkbox" id="dongydieukhoan" name="dongydieukhoan"> <label for="dongydieukhoan" class="radioLabel">Đồng ý với <a href="cat/dieu-khoan-su-dung/" class="link" target="_blank">điều khoản sử dụng</a></label></p>
                     <?php }else{//logged
                         $tt_my=$i->LayQuanHuyenTinhThanhTheoEmail($_SESSION['email']);
                         $row_tt_my=mysql_fetch_assoc($tt_my);
