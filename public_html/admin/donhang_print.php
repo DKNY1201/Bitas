@@ -310,7 +310,7 @@
                   }
 				  $tongtien_pro=$i->TongGiaTriDonHang_ChuaChiPhi($idDH);
 				  if($row_dh['proCode'] != "HAPPYHOUR"){
-						$phivanchuyen=$i->ChiPhiVanChuyen($tongtien_pro,$idTinh,$idQH);
+						$phivanchuyen=$row_dh['TongCPVC'];
 					}else{
 						$phivanchuyen = 0;
 					}

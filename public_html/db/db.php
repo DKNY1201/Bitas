@@ -810,7 +810,7 @@
 								$khuyenmai=$tongcong_km-$tongcong;
 								$subTotal=$this->TongGiaTriDonHang_ChuaChiPhi($idDH);
 								if($row_dh['proCode'] != "HAPPYHOUR"){
-									$phivc=$this->ChiPhiVanChuyen($subTotal,$idTinh,$idQH);
+									$phivc=$row_dh['TongCPVC'];
 								}else{
 									$phivc = 0;
 								}
@@ -1020,7 +1020,7 @@
 								$khuyenmai=$tongcong_km-$tongcong;
 								$subTotal=$this->TongGiaTriDonHang_ChuaChiPhi($idDH);
 								if($row_dh['proCode'] != "HAPPYHOUR"){
-									$phivc=$this->ChiPhiVanChuyen($subTotal,$idTinh,$idQH);
+									$phivc=$row_dh['TongCPVC'];
 								}else{
 									$phivc = 0;
 								}
@@ -2104,7 +2104,9 @@
 					}// KHAITRUONG2016
 				}// $pro_code
 				if($row_pro['code'] != "HAPPYHOUR"){
-					$cpvc_dh=$this->ChiPhiVanChuyen($tongtien,$idTinh,$idQH);
+					$dh = $this -> ChiTietDonHang($idDH);
+					$row_dh = mysql_fetch_assoc($dh);
+					$cpvc_dh=$row_dh['TongCPVC'];
 					$tongtien+=$cpvc_dh;
 				}
 				$pdv_dh=$this->PhiDichVu($tongtien,$idPTTT);
@@ -2668,7 +2670,7 @@
 						$cpvc = 35000;
 						break;
 					case 89:
-					case 93:
+					case 93: 
 					case 94:
 					case 84:
 					case 51:

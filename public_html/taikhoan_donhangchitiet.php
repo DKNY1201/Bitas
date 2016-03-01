@@ -68,7 +68,7 @@
         <?php }
             $tongtien=$i->TongGiaTriDonHang_ChuaChiPhi($idDH);
 			if($row_dh['proCode'] != "HAPPYHOUR"){
-				$cpvc=$i->ChiPhiVanChuyen($tongtien,$idTinh,$idQH);
+				$cpvc=$row_dh['TongCPVC'];
 			}else{
 				$cpvc = 0;
 			}

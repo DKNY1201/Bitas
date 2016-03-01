@@ -716,7 +716,7 @@
 								$khuyenmai=$tongcong_km-$tongcong;
 								$subTotal=$this->TongGiaTriDonHang_ChuaChiPhi($idDH);
 								if($row_dh['proCode'] != "HAPPYHOUR"){
-									$phivc=$this->ChiPhiVanChuyen($subTotal,$idTinh,$idQH);
+									$phivc=$row_dh['TongCPVC'];
 								}else{
 									$phivc = 0;
 								}
