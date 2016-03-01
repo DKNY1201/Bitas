@@ -41,16 +41,6 @@
             <ul class="chiphivanchuyen">
                 <li>
                     <h3 class="faq-expan">
-                        <p>Hà Nội</p>
-                        <span class="drop-down"></span>
-                    </h3>
-                    <div class="clear"></div>
-                    <div class="guide">
-                        <img src="img/st/bang-phi-van-chuyen-toan-quoc-hanoi.jpg" alt="chinh sach ho tro van chuyen Ha Noi" title="Chính sách hổ trợ vận chuyển Hà Nội" />
-                    </div>
-                </li>
-                <li>
-                    <h3 class="faq-expan">
                         <p>TP. Hồ Chí Minh</p>
                         <span class="drop-down"></span>
                     </h3>
@@ -63,7 +53,7 @@
                 	<select name="tinhthanh" class="tinhthanh">
                     	<option value="0">Các tỉnh thành khác</option>
                 	<?php
-                    	$tt = $i->ListTinhThanhTruHN_HCM();
+                    	$tt = $i->ListTinhThanhTruHCM();
 						while($row_tt = mysql_fetch_assoc($tt)){
 					?>
                     	<option value="<?php echo number_format($row_tt['CPVC'],0,".",","); ?>"><?php echo $row_tt['Ten']?></option>

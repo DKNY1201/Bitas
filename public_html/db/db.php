@@ -3037,8 +3037,8 @@
 				$kq=mysql_query($sql) or die(mysql_error());
 				return $kq;
 			}
-			function ListTinhThanhTruHN_HCM(){
-				$sql="SELECT idTinh,Ten,idKV,idTienThuong,CPVC FROM tinhthanh WHERE idTinh NOT IN (1,79) AND AnHien=1 ORDER BY Ten ASC";
+			function ListTinhThanhTruHCM(){
+				$sql="SELECT idTinh,Ten,idKV,idTienThuong,CPVC FROM tinhthanh WHERE idTinh NOT IN (79) AND AnHien=1 ORDER BY Ten ASC";
 				$kq=mysql_query($sql) or die(mysql_error());
 				return $kq;
 			}
