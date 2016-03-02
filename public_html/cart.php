@@ -387,6 +387,15 @@
 										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 2 sản phẩm để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/55/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 									}
 								}
+								if($pro_code=='832016'){
+									$productIDArr = $i->ConvertArrIndexToNonIndex($_SESSION['idPro']);
+									$hasFemaleInBasket = $i->HasFemaleInBasket($productIDArr);
+									if($hasFemaleInBasket) {
+										echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';	
+									}else{
+										echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua ít nhất 1 sản phẩm thuộc "Bé gái" hoặc "Nữ" để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';
+									}
+								}
 							}
                         ?>
                     </div>
@@ -548,6 +557,14 @@
 											echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
 										}
 									}
+									// 832016
+									if($pro_code=='832016'){
+										if($hasFemaleInBasket) {
+											echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+										}else{
+											echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
+										}
+									}
 								}else{
 									echo "0";
 								}
@@ -686,6 +703,16 @@
 											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
 											echo number_format($tongtien_promotion,0,".",",");
 										}elseif($soluong_khongtinhhanggiamgia == 1){
+											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
+											echo number_format($tongtien_promotion,0,".",",");
+										}
+									}
+									// 832016
+									if($pro_code=='832016'){
+										if($hasFemaleInBasket) {
+											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+											echo number_format($tongtien_promotion,0,".",",");
+										}else{
 											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 											echo number_format($tongtien_promotion,0,".",",");
 										}
@@ -1015,6 +1042,13 @@
 									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua trên 2 sản phẩm để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/55/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
 								}
 							}
+							if($pro_code=='832016'){
+								if($hasFemaleInBasket) {
+									echo '<strong>(Bạn được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';	
+								}else{
+									echo '<strong>(Bạn được giảm 10% giá trị đơn hàng, mua ít nhất 1 sản phẩm thuộc "Bé gái" hoặc "Nữ" để được giảm 20% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';
+								}
+							}
 						}
                     ?>
                 </div>
@@ -1173,6 +1207,14 @@
 										echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
 									}
 								}
+								// 832016
+								if($pro_code=='832016'){
+									if($hasFemaleInBasket) {
+										echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+									}else{
+										echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
+									}
+								}
 							}else{
 								echo "0";
 							}
@@ -1315,6 +1357,16 @@
 										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
 										echo number_format($tongtien_promotion,0,".",",");
 									}elseif($soluong_khongtinhhanggiamgia == 1){
+										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
+										echo number_format($tongtien_promotion,0,".",",");
+									}
+								}
+								// 832016
+								if($pro_code=='832016'){
+									if($hasFemaleInBasket) {
+										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+										echo number_format($tongtien_promotion,0,".",",");
+									}else{
 										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;
 										echo number_format($tongtien_promotion,0,".",",");
 									}

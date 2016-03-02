@@ -4386,5 +4386,41 @@
 			$ogJSON = json_encode($ogArr);
 			return $ogJSON;
 		}
+
+		/*========== PROMOTION ==========*/
+		function ConvertArrIndexToNonIndex($arrIndex){
+			$strTemp = implode(",", $arrIndex);
+			$arr = explode(",", $strTemp);
+			return $arr;
+		}
+
+		function IsSaleProduct($productID){
+			$isSaleProduct = false;
+			$sql = "SELECT Gia_vn, GiaChuaGiam_vn FROM sanpham WHERE idSP = $productID";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			if($row['Gia_vn'] < $row['GiaChuaGiam_vn']){
+				$isSaleProduct = true;
+			}
+			return $isSaleProduct;
+		}
+
+		function HasFemaleInBasket($productIDArray){
+			$hasFemaleInBasket = false;
+			for($i = 0; $i < count($productIDArray); $i++){
+				$productID = $productIDArray[$i];
+				if($this->IsSaleProduct($productID)){
+					continue;
+				}
+				$sql = "SELECT loaispdsg.idlspgt as idGT FROM sanpham, nhomsp, loaispdsg WHERE sanpham.idSP = $productID AND sanpham.idNSP = nhomsp.idNSP AND nhomsp.idlspdsg = loaispdsg.idlspdsg";
+				$result = mysql_query($sql) or die(mysql_error());
+				$row = mysql_fetch_assoc($result);
+				if($row['idGT'] == 1 || $row['idGT'] == 3){
+					$hasFemaleInBasket = true;
+				}
+			}
+			return $hasFemaleInBasket;
+		}
+		/*========== END PROMOTION ==========*/
 	}//END_db
 ?>
