@@ -1537,7 +1537,7 @@
 								$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 								mysql_query($sql_t) or die(mysql_error());
 							}
-						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016' || $row_promo['code']=='KHAITRUONG2016'){
+						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016' || $row_promo['code']=='KHAITRUONG2016' || $row_promo['code']=='832016'){
 							$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 							mysql_query($sql_t) or die(mysql_error());
 						}
@@ -2102,6 +2102,26 @@
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
 						}
 					}// KHAITRUONG2016
+					elseif($row_pro['code']=="832016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongtien=0;
+						$listID = "";
+						$listQuantity = "";
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$idsp=$row_dhct['idSP'];
+							$soluong=$row_dhct['SoLuong'];
+							$listID .= "," . $idsp;
+							$listQuantity .= "," . $soluong;
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongtien+=$tien;
+						}
+						$listID = trim($listID,",");
+						$listQuantity = trim($listQuantity,",");
+
+						$discount = $this->CalcDiscountFor832016($listID,$listQuantity);
+						$tongtien = $tongtien - $discount;
+					}// 832016
 				}// $pro_code
 				if($row_pro['code'] != "HAPPYHOUR"){
 					$dh = $this -> ChiTietDonHang($idDH);
@@ -2590,6 +2610,26 @@
 							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.9;	
 						}
 					}// KHAITRUONG2016
+					elseif($row_pro['code']=="832016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongtien=0;
+						$listID = "";
+						$listQuantity = "";
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$idsp=$row_dhct['idSP'];
+							$soluong=$row_dhct['SoLuong'];
+							$listID .= "," . $idsp;
+							$listQuantity .= "," . $soluong;
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongtien+=$tien;
+						}
+						$listID = trim($listID,",");
+						$listQuantity = trim($listQuantity,",");
+
+						$discount = $this->CalcDiscountFor832016($listID,$listQuantity);
+						$tongtien = $tongtien - $discount;
+					}// 832016
 				}
 				return $tongtien;				
 			}
@@ -4244,6 +4284,21 @@
 						$saleoff=$tongtienchuagiam * 0.1;
 					}
 				}// KHAITRUONG2016
+				elseif($row_pro['code']=="832016"){
+					$dhct=$this->DonHangChiTiet($idDH);
+					$listID = "";
+					$listQuantity = "";
+					while($row_dhct=mysql_fetch_assoc($dhct)){
+						$idsp=$row_dhct['idSP'];
+						$soluong=$row_dhct['SoLuong'];
+						$listID .= "," . $idsp;
+						$listQuantity .= "," . $soluong;
+					}
+					$listID = trim($listID,",");
+					$listQuantity = trim($listQuantity,",");
+
+					$saleoff = $this->CalcDiscountFor832016($listID,$listQuantity);
+				}// 832016
 				else{
 					$saleoff=0;
 				}

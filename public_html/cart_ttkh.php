@@ -924,6 +924,12 @@ $(document).ready(function(e) {
                             }
                             echo '</td></tr>';
                         }
+                         // 832016
+                        if($pro_code=='832016'){
+                            echo '<tr class="tongcong"><td colspan="3">';
+                            echo '<p class="promotion_text"><strong>(Bạn được giảm 10% cho sản phẩm "Nam" và "Bé trai", 20% cho sản phẩm "Nữ" và "Bé gái" <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            echo '</td></tr>';
+                        }
 					}// end checkPA
 					?>
                     <tr class="tongcong">
@@ -1079,6 +1085,13 @@ $(document).ready(function(e) {
                                         }elseif($soluong_khongtinhhanggiamgia == 1){
                                             echo number_format($tongtien_khongtinhhanggiamgia * 0.1,0,".",",");
                                         }
+                                    }
+                                    // 832016
+                                    if($pro_code=='832016'){
+                                        $listID=implode(",",$_SESSION['idPro']);
+                                        $listQuantity = implode(",",$_SESSION['SoLuong']);
+                                        $discount = $i->CalcDiscountFor832016($listID,$listQuantity);
+                                        echo number_format($discount,0,".",",");
                                     }
 								}else{
 									echo "0";
@@ -1240,7 +1253,13 @@ $(document).ready(function(e) {
                                             echo number_format($tongtien_promotion,0,".",",");
                                         }
                                         echo '<input type="hidden" name="tongtien" value="'.$tongtien_promotion.'" />';
-                                    }				
+                                    }
+                                    // 832016
+                                    if($pro_code=='832016'){
+                                        $remain_total = $tongtien - $discount;
+                                        echo number_format($remain_total,0,".",",");
+                                        echo '<input type="hidden" name="tongtien" value="'.$remain_total.'" />';
+                                    }			
 								}else{
 									echo '<input type="hidden" name="tongtien" value="'.$tongtien.'" />';
 									echo number_format($tongtien,0,".",",");

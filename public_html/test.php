@@ -2,34 +2,23 @@
 	session_start();
 	require_once('db/db.php');
 	$i = new db;
-	$listID=implode(",",$_SESSION['idPro']);
-
-	$tongsl=0;
+	$idDH = 3923;
+	$dhct=$i->DonHangChiTiet($idDH);
 	$tongtien=0;
-	$tongtiengiam=0;
-	$sl_giamgia=0;
-	$listID=implode(",",$_SESSION['idPro']);
-	$sql="SELECT idSP,Gia_vn,GiaChuaGiam_vn FROM sanpham WHERE idSP in ($listID)";
-	$sp=mysql_query($sql) or die(mysql_error());
-	while($row_sp=mysql_fetch_assoc($sp))
-	{
-		$idsp=$row_sp['idSP'];
-		$soluong=$_SESSION['SoLuong'][$idsp];
-		$dongia=$row_sp['Gia_vn'];
+	$listID = "";
+	$listQuantity = "";
+	while($row_dhct=mysql_fetch_assoc($dhct)){
+		$idsp=$row_dhct['idSP'];
+		$soluong=$row_dhct['SoLuong'];
+		$listID .= $idsp . ",";
+		$listQuantity .= $soluong . ",";
+		$dongia=$row_dhct['Gia'];
 		$tien=$soluong*$dongia;
-		$tongsl+=$soluong;
 		$tongtien+=$tien;
-		
-		$giachuagiam=$row_sp['GiaChuaGiam_vn'];
-		//PROMOTION
-		if($dongia<$giachuagiam){
-			$tiengiam=$soluong*$dongia;
-			$tongtiengiam+=$tiengiam;
-			$sl_giamgia+=$soluong;
-		}
 	}
-
-	$listQuantity = implode(",",$_SESSION['SoLuong']);
+	$listID = trim($listID,",");
+	$listQuantity = trim($listQuantity,",");
+	echo $listID . '===' . $listQuantity . '<br />';
 	$discount = $i->CalcDiscountFor832016($listID,$listQuantity);
 	echo $discount;
 	$remain_total = $tongtien - $discount;
