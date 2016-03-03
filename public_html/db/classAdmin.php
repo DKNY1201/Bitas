@@ -144,6 +144,46 @@
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
+		function CountOrders(){
+			$sql = "SELECT count(*) as totalOrder FROM donhang";
+			$re = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($re);
+			$totalOrder = $row['totalOrder'];
+			return $totalOrder;
+		}
+		function ListOrder($orderBy, $direction, $start, $limit){
+			$sql="SELECT * FROM donhang ORDER BY $orderBy $direction LIMIT $start,$limit";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
+
+		function SearchOrderCount($keyword){
+			$sql = "SELECT count(*) as SearchCount FROM donhang WHERE idDH LIKE '%$keyword%'";
+			$sql .= " OR MaDH LIKE '%$keyword%'";
+			$sql .= " OR NguoiNhan LIKE '%$keyword%'";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			return $result['SearchCount'];
+		}
+
+		function SearchOrder($keyword, $orderBy, $direction, $start, $limit){
+			$sql = "SELECT * FROM donhang WHERE idDH LIKE '%$keyword%'";
+			$sql .= " OR MaDH LIKE '%$keyword%'";
+			$sql .= " OR NguoiNhan LIKE '%$keyword%'";
+			$sql .= "ORDER BY $orderBy $direction LIMIT $start, $limit";
+			$result = mysql_query($sql) or die(mysql_error());
+			return $result;
+		}
+
+		function OrderQuantity($orderID){
+			$dhct=$this->DonHangChiTiet($orderID);
+			$quantityTotal = 0;
+			while($row_dhct=mysql_fetch_assoc($dhct)){
+				$quantity = $row_dhct['SoLuong'];
+				$quantityTotal += $quantity;
+			}
+			return $quantityTotal;
+		}
 		function ListDonHangDoiTra(){
 			$sql="SELECT * FROM donhang WHERE AnHien=1 AND ((HoanTat_Ngay!='' AND (DATEDIFF(NOW(),HoanTat_Ngay))<=7) OR Doi_Ngay IS NOT NULL) AND BH_Ngay IS NULL ORDER BY idDH DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
