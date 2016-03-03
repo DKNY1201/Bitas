@@ -4421,6 +4421,40 @@
 			}
 			return $hasFemaleInBasket;
 		}
+
+		function IsFemaleProduct($productID){
+			$isFemaleProduct = false;
+			$sql = "SELECT loaispdsg.idlspgt as idGT FROM sanpham, nhomsp, loaispdsg WHERE sanpham.idSP = $productID AND sanpham.idNSP = nhomsp.idNSP AND nhomsp.idlspdsg = loaispdsg.idlspdsg";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			if($row['idGT'] == 1 || $row['idGT'] == 3){
+				$isFemaleProduct = true;
+			}
+			return $isFemaleProduct;
+		}
+
+		function CalcDiscountFor832016($listID,$listQuatity){
+			$arrID = explode(",", $listID);
+			$arrQuantity = explode(",", $listQuatity);
+			$discount = 0;
+			for($i = 0; $i < count($arrID); $i++){
+				$productID = $arrID[$i];
+				if($this->IsSaleProduct($productID)){
+					continue;
+				}
+				$sql = "SELECT Gia_vn, GiaChuaGiam_vn FROM sanpham WHERE idSP = $productID";
+				$result = mysql_query($sql) or die(mysql_error());
+				$row = mysql_fetch_assoc($result);
+				$isFemaleProduct = $this->IsFemaleProduct($productID);
+				$quantity = $arrQuantity[$i];
+				if($isFemaleProduct){
+					$discount += $row['Gia_vn'] * $quantity * 0.2;
+				}else{
+					$discount += $row['Gia_vn'] * $quantity * 0.1;
+				}
+			}
+			return $discount;
+		}
 		/*========== END PROMOTION ==========*/
 	}//END_db
 ?>
