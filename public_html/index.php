@@ -299,7 +299,7 @@
 	?>
     	
         <div class="promotion-banner">
-            <a href="http://bitas.com.vn/news/detail/55/" ><img src="img/banner/khai-truong-ron-rang-banner-2016.jpg" alt="khai truong ron rang 2016" /></a>
+            <a href="http://bitas.com.vn/news/detail/56/" ><img src="img/banner/quoc-te-phu-nu-2016-small.jpg" alt="khai truong ron rang 2016" /></a>
         </div>
         
         <?php }//end check promotion active?>
