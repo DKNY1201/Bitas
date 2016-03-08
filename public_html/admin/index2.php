@@ -40,6 +40,7 @@
 	<link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" media="screen"/>
 	<!-- END PAGE LEVEL STYLES -->
 
+	<link href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
 	<!-- MY JAVASCRIPT -->
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
@@ -52,8 +53,7 @@
 	<!-- END MY JAVASCRIPT -->
 
 	<!-- MY CSS -->
-	<link href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
-	<link rel="stylesheet" type="text/css" href="../css/admin.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="../css/admin.css"/> -->
 	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css"/>
@@ -110,7 +110,7 @@
 		<div class="page-sidebar nav-collapse collapse">
 			<!-- BEGIN SIDEBAR MENU -->        
 			<ul class="page-sidebar-menu">
-				<li>
+				<li class="toggle-menu">
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 					<div class="sidebar-toggler hidden-phone"></div>
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->

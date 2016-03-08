@@ -4,16 +4,31 @@
 <link rel="stylesheet" type="text/css" href="../css/dataTable.css"/>
 <script>
 	$(document).ready(function() {
+        var getUrlParameter = function(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+        var idTT = getUrlParameter('idTT');
+        var url = idTT ? "ajax_orders.php?idTT=" + idTT : "ajax_orders.php";
         var table = $('#table').DataTable( {
             "processing": true,
             "serverSide": true,
             "ajax":{
-                url :"ajax_orders.php", // json datasource
-                type: "post",  // method  , by default get
+                url : url, // json datasource
+                type: "get",  // method  , by default get
                 error: function(){  // error handling
                     $(".table-error").html("");
-                    $("#table").append('<tbody class="table-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+                    $("#table").append('<tbody class="table-error"><tr><th colspan="3">Không tìm thấy đơn hàng</th></tr></tbody>');
                     $("#table").css("display","none");
                     
                 }

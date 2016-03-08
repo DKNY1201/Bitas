@@ -151,30 +151,44 @@
 			$totalOrder = $row['totalOrder'];
 			return $totalOrder;
 		}
+		function CountOrderByStatus($idTT){
+			$sql = "SELECT count(*) as TotalOrder FROM donhang WHERE idTT = $idTT";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			return $row['TotalOrder'];
+		}
 		function ListOrder($orderBy, $direction, $start, $limit){
 			$sql="SELECT * FROM donhang ORDER BY $orderBy $direction LIMIT $start,$limit";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
-
+		function ListOrderByStatus($orderBy, $direction, $start, $limit, $idStt){
+			$sql="SELECT * FROM donhang WHERE idTT = $idStt ORDER BY $orderBy $direction LIMIT $start,$limit";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
 		function SearchOrderCount($keyword){
-			$sql = "SELECT count(*) as SearchCount FROM donhang WHERE idDH LIKE '%$keyword%'";
-			$sql .= " OR MaDH LIKE '%$keyword%'";
-			$sql .= " OR NguoiNhan LIKE '%$keyword%'";
+			$sql = "SELECT count(*) as SearchCount FROM donhang WHERE idDH LIKE '%$keyword%' OR MaDH LIKE '%$keyword%' OR NguoiNhan LIKE '%$keyword%'";
 			$result = mysql_query($sql) or die(mysql_error());
 			$row = mysql_fetch_assoc($result);
 			return $result['SearchCount'];
 		}
-
+		function SearchOrderCountByStatus($keyword, $idStt){
+			$sql = "SELECT count(*) as SearchCount FROM donhang WHERE (idTT = $idStt) AND (idDH LIKE '%$keyword%' OR MaDH LIKE '%$keyword%' OR NguoiNhan LIKE '%$keyword%')";
+			$result = mysql_query($sql) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			return $result['SearchCount'];
+		}
 		function SearchOrder($keyword, $orderBy, $direction, $start, $limit){
-			$sql = "SELECT * FROM donhang WHERE idDH LIKE '%$keyword%'";
-			$sql .= " OR MaDH LIKE '%$keyword%'";
-			$sql .= " OR NguoiNhan LIKE '%$keyword%'";
-			$sql .= "ORDER BY $orderBy $direction LIMIT $start, $limit";
+			$sql = "SELECT * FROM donhang WHERE idDH LIKE '%$keyword%' OR MaDH LIKE '%$keyword%' OR NguoiNhan LIKE '%$keyword%' ORDER BY $orderBy $direction LIMIT $start, $limit";
 			$result = mysql_query($sql) or die(mysql_error());
 			return $result;
 		}
-
+		function SearchOrderByStatus($keyword, $orderBy, $direction, $start, $limit, $idStt){
+			$sql = "SELECT * FROM donhang WHERE (idTT = $idStt) AND (idDH LIKE '%$keyword%' OR MaDH LIKE '%$keyword%' OR NguoiNhan LIKE '%$keyword%') ORDER BY $orderBy $direction LIMIT $start, $limit";
+			$result = mysql_query($sql) or die(mysql_error());
+			return $result;
+		}
 		function OrderQuantity($orderID){
 			$dhct=$this->DonHangChiTiet($orderID);
 			$quantityTotal = 0;

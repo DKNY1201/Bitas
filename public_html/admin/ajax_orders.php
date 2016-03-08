@@ -11,8 +11,9 @@
 		$dh=$i->LayDonHangTheoKhuVucVaCap($idKV);
 	}
 	// storing  request (ie, get/post) global array to a variable  
-	$requestData= $_REQUEST;
+	$requestData = $_REQUEST;
 
+	$idOrderStt = $requestData['idTT'];
 
 $columns = array( 
 // datatable column index  => database column name
@@ -22,33 +23,37 @@ $columns = array(
 	3 => 'isUuTien'
 );
 
-// getting total number records without any search
-$totalData = $i->CountOrders();
-$totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
+if(!empty($idOrderStt)){
+	$totalData = $i->CountOrderByStatus($idOrderStt);
+	$totalFiltered = $totalData;
 
-if( !empty($requestData['search']['value']) ) {
-	// if there is a search parameter
-	$keyword = $requestData['search']['value'];
-	$totalFiltered = $i->SearchOrderCount($keyword);
-	echo $totalFiltered;
-	$query = $i->SearchOrder($keyword, $columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length']);
-	/*
-	
-	$sql = "SELECT idDH, MaDH, NgayDH, isUuTien, isGap, isGhiChu_Sale, isGhiChu_Kho";
-	$sql.=" FROM donhang";
-	$sql.=" WHERE idDH LIKE '%".$requestData['search']['value']."%' ";    // $requestData['search']['value'] contains search parameter
-	$sql.=" OR MaDH LIKE '%".$requestData['search']['value']."%' ";
-	$sql.=" OR NgayDH LIKE '%".$requestData['search']['value']."%' ";
-	
-	$query=mysql_query($sql) or die("employee-grid-data.php: get employees");
-	$totalFiltered = mysql_num_rows($query); // when there is a search parameter then we have to modify total number filtered rows as per search result without limit in the query 
-	
-	$sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."   LIMIT ".$requestData['start']." ,".$requestData['length']."   "; // $requestData['order'][0]['column'] contains colmun index, $requestData['order'][0]['dir'] contains order such as asc/desc , $requestData['start'] contains start row number ,$requestData['length'] contains limit length.
-	$query=mysql_query($sql) or die("employee-grid-data.php: get employees"); // again run query with limit
-	*/
-} else {	
-	$query = $i->ListOrder($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length']);
+	if( !empty($requestData['search']['value']) ) {
+		// if there is a search parameter
+		$keyword = $requestData['search']['value'];
+		$totalFiltered = $i->SearchOrderCountByStatus($keyword,$idOrderStt);
+		echo $totalFiltered;
+		$query = $i->SearchOrderByStatus($keyword, $columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length'],$idOrderStt);
+
+	} else {	
+		$query = $i->ListOrderByStatus($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length'],$idOrderStt);
+	}
+}else{
+	// getting total number records without any search
+	$totalData = $i->CountOrders();
+	$totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
+
+	if( !empty($requestData['search']['value']) ) {
+		// if there is a search parameter
+		$keyword = $requestData['search']['value'];
+		$totalFiltered = $i->SearchOrderCount($keyword);
+		echo $totalFiltered;
+		$query = $i->SearchOrder($keyword, $columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length']);
+
+	} else {	
+		$query = $i->ListOrder($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir'], $requestData['start'], $requestData['length']);
+	}
 }
+
 
 $data = array();
 while( $row=mysql_fetch_array($query) ) { // preparing an array

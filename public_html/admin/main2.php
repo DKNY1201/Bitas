@@ -1,51 +1,7 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="row-fluid">
 	<div class="span12">
-		<!-- BEGIN STYLE CUSTOMIZER -->
-		<div class="color-panel hidden-phone">
-			<div class="color-mode-icons icon-color"></div>
-			<div class="color-mode-icons icon-color-close"></div>
-			<div class="color-mode">
-				<p>THEME COLOR</p>
-				<ul class="inline">
-					<li class="color-black current color-default" data-style="default"></li>
-					<li class="color-blue" data-style="blue"></li>
-					<li class="color-brown" data-style="brown"></li>
-					<li class="color-purple" data-style="purple"></li>
-					<li class="color-grey" data-style="grey"></li>
-					<li class="color-white color-light" data-style="light"></li>
-				</ul>
-				<label>
-					<span>Layout</span>
-					<select class="layout-option m-wrap small">
-						<option value="fluid" selected>Fluid</option>
-						<option value="boxed">Boxed</option>
-					</select>
-				</label>
-				<label>
-					<span>Header</span>
-					<select class="header-option m-wrap small">
-						<option value="fixed" selected>Fixed</option>
-						<option value="default">Default</option>
-					</select>
-				</label>
-				<label>
-					<span>Sidebar</span>
-					<select class="sidebar-option m-wrap small">
-						<option value="fixed">Fixed</option>
-						<option value="default" selected>Default</option>
-					</select>
-				</label>
-				<label>
-					<span>Footer</span>
-					<select class="footer-option m-wrap small">
-						<option value="fixed">Fixed</option>
-						<option value="default" selected>Default</option>
-					</select>
-				</label>
-			</div>
-		</div>
-		<!-- END BEGIN STYLE CUSTOMIZER -->    
+		
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 		<h3 class="page-title">
 			Dashboard <small>statistics and more</small>
@@ -53,16 +9,12 @@
 		<ul class="breadcrumb">
 			<li>
 				<i class="icon-home"></i>
-				<a href="index.html">Home</a> 
+				<a href="index2.php">Home</a> 
 				<i class="icon-angle-right"></i>
 			</li>
 			<li><a href="#">Dashboard</a></li>
 			<li class="pull-right no-text-shadow">
-				<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
-					<i class="icon-calendar"></i>
-					<span></span>
-					<i class="icon-angle-down"></i>
-				</div>
+				
 			</li>
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
@@ -70,6 +22,53 @@
 </div>
 <!-- END PAGE HEADER-->
 <div id="dashboard">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="portlet box blue">
+				<div class="portlet-title">
+					<div class="caption"><i class="icon-bell"></i>Đơn hàng (<?php echo $i->CountOrders(); ?>)</div>
+				</div>
+				<div class="portlet-body">
+					<div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible="0">
+						<ul class="feeds">
+							<?php 
+								$status = $i->ListTinhTrang();
+								while($row_stt = mysql_fetch_assoc($status)){
+									$count = $i->CountOrderByStatus($row_stt['idTT']);
+							?>
+								<li>
+									<a href="index2.php?p=donhang_list&idTT=<?php echo $row_stt['idTT']; ?>">
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-success">                        
+														<i class="icon-bar-chart"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														<?php echo $row_stt['Ten']; ?>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<span class="label label-inverse label-mini"><?php echo number_format($count,0,".",","); ?> đơn hàng</span>
+										</div>
+									</a>
+								</li>
+							<?php } ?>
+						</ul>
+					</div>
+					<div class="scroller-footer">
+						<div class="pull-right">
+							<a href="#">See All Records <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- BEGIN DASHBOARD STATS -->
 	<div class="row-fluid">
 		<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
@@ -208,351 +207,6 @@
 	</div>
 	<div class="clearfix"></div>
 	<div class="row-fluid">
-		<div class="span6">
-			<div class="portlet box blue">
-				<div class="portlet-title">
-					<div class="caption"><i class="icon-bell"></i>Recent Activities</div>
-					<div class="actions">
-						<div class="btn-group">
-							<a class="btn" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-							Filter By
-							<i class="icon-angle-down"></i>
-							</a>
-							<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-								<label><input type="checkbox"> Finance</label>
-								<label><input type="checkbox" checked=""> Membership</label>
-								<label><input type="checkbox"> Customer Support</label>
-								<label><input type="checkbox" checked=""> HR</label>
-								<label><input type="checkbox"> System</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portlet-body">
-					<div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible="0">
-						<ul class="feeds">
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">                        
-												<i class="icon-check"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 4 pending tasks.
-												<span class="label label-warning label-mini">
-												Take action 
-												<i class="icon-share-alt"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										Just now
-									</div>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">                        
-													<i class="icon-bar-chart"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">
-													Finance Report for year 2013 has been released.   
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">
-											20 mins
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-important">                      
-												<i class="icon-user"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 5 pending membership that requires a quick review.                       
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										24 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">                        
-												<i class="icon-shopping-cart"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												New order received with <span class="label label-success">Reference Number: DR23923</span>             
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										30 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-success">                      
-												<i class="icon-user"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 5 pending membership that requires a quick review.                       
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										24 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">                        
-												<i class="icon-bell-alt"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												Web server hardware needs to be upgraded. 
-												<span class="label label-inverse label-mini">Overdue</span>             
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										2 hours
-									</div>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-inverse">                        
-													<i class="icon-briefcase"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">
-													IPO Report for year 2013 has been released.   
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">
-											20 mins
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">                        
-												<i class="icon-check"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 4 pending tasks.
-												<span class="label label-warning label-mini">
-												Take action 
-												<i class="icon-share-alt"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										Just now
-									</div>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-important">                        
-													<i class="icon-bar-chart"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">
-													Finance Report for year 2013 has been released.   
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">
-											20 mins
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-inverse">                      
-												<i class="icon-user"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 5 pending membership that requires a quick review.                       
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										24 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">                        
-												<i class="icon-shopping-cart"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												New order received with <span class="label label-success">Reference Number: DR23923</span>             
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										30 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-success">                      
-												<i class="icon-user"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 5 pending membership that requires a quick review.                       
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										24 mins
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-warning">                        
-												<i class="icon-bell-alt"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												Web server hardware needs to be upgraded. 
-												<span class="label label-inverse label-mini">Overdue</span>             
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">
-										2 hours
-									</div>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-info">                        
-													<i class="icon-briefcase"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">
-													IPO Report for year 2013 has been released.   
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">
-											20 mins
-										</div>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="scroller-footer">
-						<div class="pull-right">
-							<a href="#">See All Records <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="span6">
 			<div class="portlet box green tasks-widget">
 				<div class="portlet-title">

@@ -5475,3 +5475,7 @@ div.checker.disabled:hover,
 div.radio.disabled:hover {
     cursor: not-allowed;  
 }
+
+ul.page-sidebar-menu > li.toggle-menu{
+    margin: 0 0 10px;
+}
