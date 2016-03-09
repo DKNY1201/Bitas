@@ -418,7 +418,7 @@ var Index = function () {
                 $('#site_activities_content').show();
 
                 var activities = [
-                    [1, 10],
+                    [1, 15],
                     [2, 9],
                     [3, 8],
                     [4, 6],

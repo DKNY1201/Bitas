@@ -870,6 +870,11 @@
 		
 		
 //====== USER =====//
+		function UserCount(){
+			$sql = "SELECT idUser FROM user WHERE idGroup = 3";
+			$result = mysql_query($sql) or die(mysql_error());
+			return mysql_num_rows($result);
+		}
 		function ListUser(){
 			$sql="SELECT idUser,Email,HoTen,DiaChi,idTinh,idQuanHuyen,DienThoai,Email,NgaySinh,GioiTinh,Ten,TaiKhoanTichLuy FROM user,group_user WHERE user.idGroup=group_user.idGroup ORDER BY idUser DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
@@ -1015,6 +1020,11 @@
 				mysql_query($sql) or die(mysql_error());
 			}	
 //====== NHOM SAN PHAM =====//
+		function ProductGroupCount(){
+			$sql = "SELECT idNSP FROM nhomsp";
+			$result=mysql_query($sql) or die(mysql_error());
+			return mysql_num_rows($result);
+		}
 		function ListNhomSP(){
 			$sql="SELECT idNSP,nhomsp.Ten as Ten,SKU,loaispdsg.Ten_vn as TenTL,NgayTao,NgayCapNhat,follow,represent,New,Discount,Size1,Size2,Size3,Gia1_vn,Gia2_vn,Gia3_vn,GiaChuaGiam1_vn,GiaChuaGiam2_vn,GiaChuaGiam3_vn,nhomsp.Hinh as Hinh,SoLanXem,nhomsp.ThuTu as ThuTu,nhomsp.AnHien as AnHien,LyDoAn FROM nhomsp,loaispdsg WHERE loaispdsg.idlspdsg=nhomsp.idlspdsg ORDER BY idNSP DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
@@ -1429,7 +1439,12 @@
 			settype($idsp,"int");
 			$sql="DELETE FROM sanpham WHERE idSP=$idsp";
 			mysql_query($sql) or die(mysql_error());
-		}	
+		}
+		function ProductCount(){
+			$sql="SELECT idSP FROM sanpham";
+			$result=mysql_query($sql) or die(mysql_error());
+			return mysql_num_rows($result);
+		}
 //====== LOAI SAN PHAM DSG =====//
 		function ListLSPDSG(){
 			$sql="SELECT idlspdsg,Ten_vn,Ten_en FROM loaispdsg WHERE AnHien=1 ORDER BY idlspdsg ASC";
@@ -1674,6 +1689,11 @@
 			mysql_query($sql) or die(mysql_error());
 		}
 //====== Y KIEN =====//
+		function CommentPendingCount(){
+			$sql = "SELECT idYK FROM ykienkhachhang WHERE Duyet = 0";
+			$result = mysql_query($sql) or die(mysql_error());
+			return mysql_num_rows($result);
+		}
 		function ListYKienAll(){
 			$sql="SELECT * FROM ykienkhachhang ORDER BY idYK DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
@@ -1791,5 +1811,13 @@
 			return $kq;
 		}
 		//====== END BO SUU TAP =====//
+
+		//====== EMAIL MARKETING =====//
+		function EmailMarketingCount(){
+			$sql = "SELECT idEM FROM emailmarketing";
+			$result=mysql_query($sql) or die(mysql_error());
+			return mysql_num_rows($result);
+		}
+		//====== END EMAIL MARKETING =====//		
 	}
 ?>

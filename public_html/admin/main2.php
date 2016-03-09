@@ -62,7 +62,7 @@
 					</div>
 					<div class="scroller-footer">
 						<div class="pull-right">
-							<a href="#">See All Records <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
+							<a href="index2.php?p=donhang_list">Xem tất cả đơn hàng <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
 						</div>
 					</div>
 				</div>
@@ -78,14 +78,14 @@
 				</div>
 				<div class="details">
 					<div class="number">
-						1349
+						<?php echo  number_format($i->CommentPendingCount(),0,".",","); ?>
 					</div>
 					<div class="desc">                           
-						New Feedbacks
+						Ý kiến chưa duyệt
 					</div>
 				</div>
-				<a class="more" href="#">
-				View more <i class="m-icon-swapright m-icon-white"></i>
+				<a class="more" href="index2.php?p=ykien_list_chuaduyet">
+				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
 				</a>                 
 			</div>
 		</div>
@@ -95,25 +95,25 @@
 					<i class="icon-shopping-cart"></i>
 				</div>
 				<div class="details">
-					<div class="number">549</div>
-					<div class="desc">New Orders</div>
+					<div class="number"><?php echo number_format($i->UserCount(),0,".",","); ?></div>
+					<div class="desc">Khách hàng</div>
 				</div>
-				<a class="more" href="#">
-				View more <i class="m-icon-swapright m-icon-white"></i>
+				<a class="more" href="index2.php?p=user_list">
+				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
 				</a>                 
 			</div>
 		</div>
 		<div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
 			<div class="dashboard-stat purple">
 				<div class="visual">
-					<i class="icon-globe"></i>
+					<i class="icon-envelope-o"></i>
 				</div>
 				<div class="details">
-					<div class="number">+89%</div>
-					<div class="desc">Brand Popularity</div>
+					<div class="number"><?php echo number_format($i->EmailMarketingCount(),0,".",","); ?></div>
+					<div class="desc">Email nhận tin</div>
 				</div>
 				<a class="more" href="#">
-				View more <i class="m-icon-swapright m-icon-white"></i>
+				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
 				</a>                 
 			</div>
 		</div>
@@ -123,11 +123,31 @@
 					<i class="icon-bar-chart"></i>
 				</div>
 				<div class="details">
-					<div class="number">12,5M$</div>
-					<div class="desc">Total Profit</div>
+					<div class="number"><?php echo number_format($i->ProductCount(),0,".",","); ?></div>
+					<div class="desc">Sản phẩm</div>
 				</div>
-				<a class="more" href="#">
-				View more <i class="m-icon-swapright m-icon-white"></i>
+				<a class="more" href="index2.php?p=sanpham_list">
+				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
+				</a>                 
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+			<div class="dashboard-stat blue">
+				<div class="visual">
+					<i class="icon-comments"></i>
+				</div>
+				<div class="details">
+					<div class="number">
+						<?php echo  number_format($i->ProductGroupCount(),0,".",","); ?>
+					</div>
+					<div class="desc">                           
+						Nhóm sản phẩm
+					</div>
+				</div>
+				<a class="more" href="index2.php?p=nhomsp_list">
+				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
 				</a>                 
 			</div>
 		</div>

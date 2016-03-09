@@ -160,8 +160,8 @@
 						<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){?><span class="selected"></span><?php } ?>
 					</a>
 					<ul class="sub-menu">
-						<li class="<?php if($p=='nhomsp_list'){ echo 'active';}?>"><a href="index2.php?p=nhomsp_list">Danh sách sản phẩm</a></li>
-						<li class="<?php if($p=='sanpham_list'){ echo 'active';}?>"><a href="index2.php?p=sanpham_list">Nhóm sản phẩm</a></li>
+						<li class="<?php if($p=='nhomsp_list'){ echo 'active';}?>"><a href="index2.php?p=sanpham_list">Danh sách sản phẩm</a></li>
+						<li class="<?php if($p=='sanpham_list'){ echo 'active';}?>"><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a></li>
 						<li class="<?php if($p=='color_list'){ echo 'active';}?>"><a href="index2.php?p=color_list">Màu sản phẩm</a></li>
 					</ul>
 				</li>
