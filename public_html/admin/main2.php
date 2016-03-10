@@ -182,20 +182,14 @@
 			<!-- BEGIN PORTLET-->
 			<div class="portlet solid light-grey bordered">
 				<div class="portlet-title">
-					<div class="caption"><i class="icon-bullhorn"></i>Activities</div>
-					<div class="tools">
-						<div class="btn-group pull-right" data-toggle="buttons-radio">
-							<a href="" class="btn blue mini active">Users</a>
-							<a href="" class="btn blue mini">Orders</a>
-						</div>
-					</div>
+					<div class="caption"><i class="icon-bullhorn"></i>Đơn hàng 20 ngày gần nhất</div>
 				</div>
 				<div class="portlet-body">
 					<div id="site_activities_loading">
 						<img src="assets/img/loading.gif" alt="loading" />
 					</div>
 					<div id="site_activities_content" class="hide">
-						<div id="site_activities" style="height:100px;"></div>
+						<div id="site_activities" style="height:250px;"></div>
 					</div>
 				</div>
 			</div>
