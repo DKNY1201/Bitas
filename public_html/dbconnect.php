@@ -1,8 +1,8 @@
 <?php
 
-	mysql_connect("210.211.108.165","webbitas","bitas2015");
+	mysql_connect("localhost","webbitas","6sG5788fJ6Be");
 
-	mysql_select_db("maindb");
+	mysql_select_db("webbitas_maindb");
 
 	mysql_query("set names 'utf8'");
 

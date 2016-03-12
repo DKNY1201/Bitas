@@ -4,10 +4,10 @@
 	class db
 	{
 		PUBLIC $con=NULL;
-		PUBLIC $host="210.211.108.165";
+		PUBLIC $host="localhost";
 		PUBLIC $username="webbitas";
-		PUBLIC $pass="bitas2015";
-		PUBLIC $database="maindb";
+		PUBLIC $pass="6sG5788fJ6Be";
+		PUBLIC $database="webbitas_maindb";
 		function __construct()
 		{
 			$this->con=mysql_connect($this->host,$this->username,$this->pass);
