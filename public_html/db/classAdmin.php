@@ -198,6 +198,12 @@
 			}
 			return $quantityTotal;
 		}
+		function ListOrderRecentByDay($number){
+			settype($number, "int");
+			$sql = "SELECT NgayDH,count(idDH) as orderQuantity FROM donhang WHERE DATEDIFF(NOW(),NgayDH)<=$number GROUP BY DATE(NgayDH) ORDER BY DATE(NgayDH) DESC";
+			$result = mysql_query($sql) or die(mysql_error());
+			return $result;
+		}
 		function ListDonHangDoiTra(){
 			$sql="SELECT * FROM donhang WHERE AnHien=1 AND ((HoanTat_Ngay!='' AND (DATEDIFF(NOW(),HoanTat_Ngay))<=7) OR Doi_Ngay IS NOT NULL) AND BH_Ngay IS NULL ORDER BY idDH DESC";
 			$kq=mysql_query($sql) or die(mysql_error());

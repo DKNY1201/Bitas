@@ -2824,7 +2824,8 @@ Licensed under the MIT license.
                 return { datapoint: series[i].datapoints.points.slice(j * ps, (j + 1) * ps),
                          dataIndex: j,
                          series: series[i],
-                         seriesIndex: i };
+                         seriesIndex: i,
+                         abc: "1000 DH" };
             }
 
             return null;

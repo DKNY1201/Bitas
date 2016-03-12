@@ -205,7 +205,7 @@ var Index = function () {
             }
 
             function showTooltip(title, x, y, contents) {
-                $('<div id="tooltip" class="chart-tooltip"><div class="date">' + title + '<\/div><div class="label label-success">CTR: ' + x / 10 + '%<\/div><div class="label label-important">Imp: ' + x * 12 + '<\/div><\/div>').css({
+                $('<div id="tooltip" class="chart-tooltip"><div class="date">' + title + '<\/div><div class="label label-success">' + contents + '<\/div><\/div>').css({
                     position: 'absolute',
                     display: 'none',
                     top: y - 100,
@@ -459,7 +459,7 @@ var Index = function () {
                         },
                         yaxis: {
                             min: 0,
-                            max: 100
+                            max: 50
                         }
                     });
 
@@ -485,8 +485,8 @@ var Index = function () {
                                 var index = item.dataIndex;
                                 var date = new Date();
                                 date.setDate(date.getDate() - index);
-                                date = AddZeroLeading(date.getDate()) + "-" + AddZeroLeading(date.getMonth()) + "-" + date.getFullYear();
-                                showTooltip(date, item.pageX, item.pageY, x);
+                                date = AddZeroLeading(date.getDate()) + "-" + AddZeroLeading(date.getMonth() + 1) + "-" + date.getFullYear();
+                                showTooltip(date, item.pageX, item.pageY, item.abc);
                             }
                         }
                     });
