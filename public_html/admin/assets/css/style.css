@@ -2692,7 +2692,7 @@ System feeds
   overflow:hidden;
 }
 
-.feeds .col2 .date {
+.feeds .col2 .date, .feeds .col1 .date {
   padding: 4px 9px 4px 4px;
   text-align: right;
   font-style: italic;
@@ -5478,4 +5478,43 @@ div.radio.disabled:hover {
 
 ul.page-sidebar-menu > li.toggle-menu{
     margin: 0 0 10px;
+}
+
+img.icon{
+  width: 20px;
+  height: 20px;
+}
+
+.dataTables_length select{
+  width: 100px;
+}
+
+.dataTables_filter input[type=text]{
+  height: 20px;
+}
+
+table.dataTable th, table.dataTable td{
+  border: 1px solid #ccc;
+}
+
+table.dataTable th{
+  text-align: left;
+}
+
+table.dataTable td.action a{
+  text-decoration: none;
+}
+
+table.dataTable td.action a:before{
+  cursor: pointer;
+}
+
+.btn-action{
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.btn-action:hover{
+  text-decoration: none;
 }

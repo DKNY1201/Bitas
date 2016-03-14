@@ -1468,6 +1468,11 @@
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
+		function ListnNews($limit){
+			$sql="SELECT idTin,TieuDe,tintuc.Hinh as Hinh,NgayDang,NgayCapNhat,Ten,HoTen,SoLanXem,tintuc.ThuTu as ThuTu, tintuc.AnHien as AnHien,tintuc.idLT as idLT FROM tintuc,loaitin,user WHERE tintuc.AnHien = 1 AND tintuc.idLT=loaitin.idLT AND tintuc.idUser=user.idUser ORDER BY idTin DESC LIMIT 0,$limit";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
 		function ListTinTucTheoLT($idLT){
 			$sql="SELECT idTin,TieuDe,tintuc.Hinh as Hinh,NgayDang,NgayCapNhat,Ten,HoTen,SoLanXem,tintuc.ThuTu as ThuTu, tintuc.AnHien as AnHien,tintuc.idLT as idLT FROM tintuc,loaitin,user WHERE tintuc.idLT=$idLT AND tintuc.idLT=loaitin.idLT AND tintuc.idUser=user.idUser ORDER BY idTin DESC";
 			$kq=mysql_query($sql) or die(mysql_error());

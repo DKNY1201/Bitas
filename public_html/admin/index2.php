@@ -19,7 +19,8 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->        
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css"/>
 	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -50,6 +51,7 @@
 	<script type="text/javascript" src="../js/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="../js/sweet-alert.js"></script>
 	<script type="text/javascript" src="../js/zelect.js"></script>
+	<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
 	<!-- END MY JAVASCRIPT -->
 
 	<!-- MY CSS -->
@@ -122,15 +124,15 @@
 						<?php if($p==''){?><span class="selected"></span><?php } ?>
 					</a>
 				</li>
-				<li class="<?php if($p=='tintuc_list'){ echo 'active';}?>">
+				<li class="<?php if($p=='tintuc_list' || $p=='tintuc_them' || $p=='tintuc_edit'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-book"></i> 
 						<span class="title">Tin tức</span>
 						<span class="arrow "></span>
 						<?php if($p=='tintuc_list'){?><span class="selected"></span><?php } ?>
 					</a>
 					<ul class="sub-menu">
-						<li class="<?php if($p=='tintuc_list'){ echo 'active';}?>"><a href="index2.php?p=tintuc_list">Danh sách tin tức</a></li>
+						<li class="<?php if($p=='tintuc_list' || $p=='tintuc_them' || $p=='tintuc_edit'){ echo 'active';}?>"><a href="index2.php?p=tintuc_list">Danh sách tin tức</a></li>
 					</ul>
 				</li>
 				<?php
@@ -138,7 +140,7 @@
 				?>  
 				<li class="<?php if($p=='donhang_list'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-shopping-cart"></i> 
 						<span class="title">Đơn hàng</span>
 						<span class="arrow "></span>
 						<?php if($p=='donhang_list'){?><span class="selected"></span><?php } ?>
@@ -154,7 +156,7 @@
 				?>  
 				<li class="<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-coffee"></i> 
 						<span class="title">Sản phẩm</span>
 						<span class="arrow "></span>
 						<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){?><span class="selected"></span><?php } ?>
@@ -168,7 +170,7 @@
 				<?php } ?>
 				<li class="<?php if($p=='user_list' || $p=='ykien_list_daduyet'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-user"></i> 
 						<span class="title">Khách hàng</span>
 						<span class="arrow "></span>
 						<?php if($p=='user_list' || $p=='ykien_list_daduyet'){?><span class="selected"></span><?php } ?>
@@ -182,7 +184,7 @@
 				</li>
 				<li class="<?php if($p=='user_list'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-dashboard"></i> 
 						<span class="title">Tài khoản Admin</span>
 						<span class="arrow "></span>
 						<?php if($p=='user_list'){?><span class="selected"></span><?php } ?>
@@ -205,7 +207,7 @@
 				</li>
 				<li class="last <?php if($p=='logs'){ echo 'active';}?>">
 					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
+						<i class="icon-medkit"></i> 
 						<span class="title">Logs</span>
 						<span class="arrow "></span>
 						<?php if($p=='logs'){?><span class="selected"></span><?php } ?>
@@ -233,6 +235,122 @@
 			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<!-- BEGIN PAGE CONTAINER-->
 			<div class="container-fluid">
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row-fluid">
+					<div class="span12">
+						
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							Dashboard <small>statistics and more</small>
+						</h3>
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home"></i>
+								<a href="index2.php">Home</a> 
+								<i class="icon-angle-right"></i>
+							</li>
+							<?php
+								if($p=='nhomsp_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_themhinhzoom')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu_sosp')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='tintuc_list')
+									echo '<li><a href="index2.php?p=tintuc_list">Tin tức</a></li>';
+								elseif($p=='tintuc_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='tintuc_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='khuyenmai_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='khuyenmai_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='khuyenmai_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_list_chuaduyet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_list_daduyet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_traloi')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_lichsu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_list_daduyet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_list_dahuy')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_uutien')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_gap')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_ghichu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_doitra_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_doitra_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_baohanh_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_baohanh_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_huy')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='info')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='cskh_main')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='tienthuong_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua_edit')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua_add')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='temp_updatemasp')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='temp_updateskusp')
+									echo '<li><a href=""></a></li>';
+								else{
+									echo '<li><a href="index2.php">Dashboard</a></li>';
+								}
+							?>
+						</ul>
+						<!-- END PAGE TITLE & BREADCRUMB-->
+					</div>
+				</div>
+				<!-- END PAGE HEADER-->
 				<?php 
 					if($p=='nhomsp_them')
 						require_once "nhomsp_them.php";
