@@ -27,6 +27,8 @@
 <script type="text/javascript" src="../js/sweet-alert.js"></script>
 <script type="text/javascript" src="../js/zelect.js"></script>
 <link rel="stylesheet" href="../css/sweet-alert.css">
+<script type="text/javascript" src="../js/dataTable.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css"/>
 <script>
 	$(document).ready(function(e) {
 		//show profile when click user's name

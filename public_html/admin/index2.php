@@ -34,7 +34,6 @@
 	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
 	<link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
 	<!-- END PAGE LEVEL PLUGIN STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES --> 
@@ -51,7 +50,7 @@
 	<script type="text/javascript" src="../js/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="../js/sweet-alert.js"></script>
 	<script type="text/javascript" src="../js/zelect.js"></script>
-	<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="../js/dataTable.js"></script>
 	<!-- END MY JAVASCRIPT -->
 
 	<!-- MY CSS -->
@@ -87,7 +86,6 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<img alt="" src="assets/img/avatar1_small.jpg" />
 						<span class="username"><?php echo $_SESSION['hoten']?></span>
 						<i class="icon-angle-down"></i>
 						</a>
@@ -108,118 +106,7 @@
 	<!-- END HEADER -->
 	<!-- BEGIN CONTAINER -->
 	<div class="page-container">
-		<!-- BEGIN SIDEBAR -->
-		<div class="page-sidebar nav-collapse collapse">
-			<!-- BEGIN SIDEBAR MENU -->        
-			<ul class="page-sidebar-menu">
-				<li class="toggle-menu">
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-					<div class="sidebar-toggler hidden-phone"></div>
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-				</li>
-				<li class="start <?php if($p==''){ echo 'active';}?>">
-					<a href="index2.php">
-						<i class="icon-home"></i> 
-						<span class="title">Dashboard</span>
-						<?php if($p==''){?><span class="selected"></span><?php } ?>
-					</a>
-				</li>
-				<li class="<?php if($p=='tintuc_list' || $p=='tintuc_them' || $p=='tintuc_edit'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-book"></i> 
-						<span class="title">Tin tức</span>
-						<span class="arrow "></span>
-						<?php if($p=='tintuc_list'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='tintuc_list' || $p=='tintuc_them' || $p=='tintuc_edit'){ echo 'active';}?>"><a href="index2.php?p=tintuc_list">Danh sách tin tức</a></li>
-					</ul>
-				</li>
-				<?php
-					if($_SESSION['group']==1 || $_SESSION['group']==8 || $_SESSION['group']==9 || $_SESSION['group']==10) {
-				?>  
-				<li class="<?php if($p=='donhang_list'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-shopping-cart"></i> 
-						<span class="title">Đơn hàng</span>
-						<span class="arrow "></span>
-						<?php if($p=='donhang_list'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='donhang_list'){ echo 'active';}?>"><a href="index2.php?p=donhang_list">Danh sách đơn hàng</a></li>
-						<li><a href="index2.php?p=donhang_list">Đơn hàng chờ hủy</a></li>
-					</ul>
-				</li>
-				<?php } ?>
-				<?php
-					if($_SESSION['group']==1 || $_SESSION['group']==8 || $_SESSION['group']==9) {
-				?>  
-				<li class="<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-coffee"></i> 
-						<span class="title">Sản phẩm</span>
-						<span class="arrow "></span>
-						<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='nhomsp_list'){ echo 'active';}?>"><a href="index2.php?p=sanpham_list">Danh sách sản phẩm</a></li>
-						<li class="<?php if($p=='sanpham_list'){ echo 'active';}?>"><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a></li>
-						<li class="<?php if($p=='color_list'){ echo 'active';}?>"><a href="index2.php?p=color_list">Màu sản phẩm</a></li>
-					</ul>
-				</li>
-				<?php } ?>
-				<li class="<?php if($p=='user_list' || $p=='ykien_list_daduyet'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-user"></i> 
-						<span class="title">Khách hàng</span>
-						<span class="arrow "></span>
-						<?php if($p=='user_list' || $p=='ykien_list_daduyet'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='user_list'){ echo 'active';}?>"><a href="index2.php?p=user_list">Danh sách khách hàng</a></li>
-						<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Ý kiến phản hồi</a></li>
-						<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Tìm kiếm</a></li>
-						<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Email nhận tin</a></li>
-					</ul>
-				</li>
-				<li class="<?php if($p=='user_list'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-dashboard"></i> 
-						<span class="title">Tài khoản Admin</span>
-						<span class="arrow "></span>
-						<?php if($p=='user_list'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='user_list'){ echo 'active';}?>"><a href="index2.php?p=user_list">Danh sách tài khoản</a></li>
-					</ul>
-				</li>
-				<li class="<?php if($p=='info'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-cogs"></i> 
-						<span class="title">Cấu hình chung</span>
-						<span class="arrow "></span>
-						<?php if($p=='info'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index2.php?p=info">Thông tin chung</a></li>
-						<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index2.php?p=info">Banner quảng cáo</a></li>
-					</ul>
-				</li>
-				<li class="last <?php if($p=='logs'){ echo 'active';}?>">
-					<a href="javascript:;">
-						<i class="icon-medkit"></i> 
-						<span class="title">Logs</span>
-						<span class="arrow "></span>
-						<?php if($p=='logs'){?><span class="selected"></span><?php } ?>
-					</a>
-					<ul class="sub-menu">
-						<li class="<?php if($p=='logs'){ echo 'active';}?>"><a href="index2.php?p=logs">Danh sách Logs</a></li>
-					</ul>
-				</li>
-			</ul>
-			<!-- END SIDEBAR MENU -->
-		</div>
-		<!-- END SIDEBAR -->
+		<?php require_once "sidebar.php";?>
 		<!-- BEGIN PAGE -->
 		<div class="page-content">
 			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -241,14 +128,6 @@
 						
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<h3 class="page-title">
-							Dashboard <small>statistics and more</small>
-						</h3>
-						<ul class="breadcrumb">
-							<li>
-								<i class="icon-home"></i>
-								<a href="index2.php">Home</a> 
-								<i class="icon-angle-right"></i>
-							</li>
 							<?php
 								if($p=='nhomsp_them')
 									echo '<li><a href=""></a></li>';
@@ -268,12 +147,15 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='sanpham_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='tintuc_list')
-									echo '<li><a href="index2.php?p=tintuc_list">Tin tức</a></li>';
-								elseif($p=='tintuc_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='tintuc_sua')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='tintuc_list'){
+									echo 'Tin tức';
+								}
+								elseif($p=='tintuc_them'){
+									echo 'Thêm tin tức';
+								}
+								elseif($p=='tintuc_sua'){
+									echo 'Sửa tin tức';
+								}
 								elseif($p=='khuyenmai_list')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='khuyenmai_them')
@@ -300,8 +182,124 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='color_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_list')
+								elseif($p=='donhang_list' && $_GET['idTT'] != 19){
+									echo 'Đơn hàng';
+								}elseif($p=='donhang_list' && $_GET['idTT'] == 19){
+									echo 'Đơn hàng chờ hủy';
+								}
+								elseif($p=='donhang_list_daduyet')
 									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_list_dahuy')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_uutien')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_gap')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_ghichu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_doitra_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_doitra_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_baohanh_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_baohanh_chitiet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_huy')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='info')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='cskh_main')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='tienthuong_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua_edit')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua_add')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='temp_updatemasp')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='temp_updateskusp')
+									echo '<li><a href=""></a></li>';
+								else{
+									echo 'Dashboard <small>statistics and more</small>';
+								}
+							?>
+							
+						</h3>
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home"></i>
+								<a href="index2.php">Home</a> 
+								<i class="icon-angle-right"></i>
+							</li>
+							<?php
+								if($p=='nhomsp_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='nhomsp_themhinhzoom')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu_sosp')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='tintuc_list'){
+									echo '<li>Tin tức</li>';
+								}
+								elseif($p=='tintuc_them'){
+									echo '<li><a href="index2.php?p=tintuc_list">Tin tức</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm tin tức</li>';
+								}
+								elseif($p=='tintuc_sua'){
+									echo '<li><a href="index2.php?p=tintuc_list">Tin tức</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Sửa tin tức</li>';
+								}
+								elseif($p=='khuyenmai_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='khuyenmai_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='khuyenmai_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_list_chuaduyet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_list_daduyet')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_traloi')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='user_lichsu')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_list')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_them')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='color_sua')
+									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_list' && $_GET['idTT'] != 19){
+									echo '<li>Đơn hàng</li>';
+								}elseif($p=='donhang_list' && $_GET['idTT'] == 19){
+									echo '<li>Đơn hàng chờ hủy</li>';
+								}
 								elseif($p=='donhang_list_daduyet')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_list_dahuy')
@@ -481,14 +479,7 @@
 	<script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
 	<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+	<!-- BEGIN PAGE LEVEL PLUGINS -->  
 	<script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
 	<script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
 	<script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
@@ -508,7 +499,6 @@
 		jQuery(document).ready(function() {    
 		   App.init(); // initlayout and core plugins
 		   Index.init();
-		   Index.initJQVMAP(); // init index page's custom scripts
 		   Index.initCalendar(); // init index page's custom scripts
 		   Index.initCharts(); // init index page's custom scripts
 		   Index.initChat();

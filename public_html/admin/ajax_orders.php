@@ -90,23 +90,27 @@ while( $row=mysql_fetch_array($query) ) { // preparing an array
 	$isGap = $row['isGap'];
 	$isGC_Sale = $row['isGhiChu_Sale'];
 	$isGC_Kho = $row['isGhiChu_Kho'];
-	$classUT = ($isUT==1) ? 'icon-star-h' : 'icon-star';
-	$classGap = ($isGap==1) ? 'icon-warning-h' : 'icon-warning';
-	$classGC = ($isGC_Sale==1||$isGC_Kho==1) ? 'icon-note-h' : 'icon-note';
+	$classUT = ($isUT==1) ? 'fa-star highlight-star' : 'fa-star';
+	$classGap = ($isGap==1) ? 'fa-exclamation-triangle highlight-warning' : 'fa-exclamation-triangle';
+	$classGC = ($isGC_Sale==1||$isGC_Kho==1) ? 'fa-comments highlight-warehouse' : 'fa-comments';
 	$control = '';
 	if($_SESSION['group']==1||$_SESSION['group']==10||$_SESSION['group']==11||$_SESSION['group']==12){
-		$control .= ' <a class="icon ' . $classUT . '" title="Æ¯u tiÃªn"></a>';
-		$control .= ' <a class="icon ' . $classGap . '" title="Gáº¥p"></a>';
-		$control .= ' <a class="icon ' . $classGC . '" title="Ghi chÃº"></a>';
+		$control .= ' <i class="fa ' . $classUT . '" title="Ưu tiên"></i>';
+		$control .= ' <i class="fa ' . $classGap . '" title="Gấp"></i>';
+		$control .= ' <i class="fa ' . $classGC . '" title="Ghi chú"></i>';
 		if($row["DuocNhanQua"]==1){ 
-			$control .= '<i class="fa fa-gift highlight"></i>';
+			$control .= '<i class="fa fa-gift"></i>';
 		}
+	}
+
+	if($_SESSION['group']==1 && $idOrderStt == 19){
+		$control = '<a title="Hủy đơn hàng ' . $row['MaDH'] . '" href="index2.php?p=donhang_huy&idDH=' . $row['idDH'] . '"><i class="fa fa-check-square"></i></a>';
 	}
 
 	$nestedData[] = $idDH;
 	$nestedData[] = date("d-m-Y H:i:s",strtotime($row['NgayDH']));
-	$nestedData[] = '<a href="index.php?p=donhang_chitiet&idDH=' . $idDH .'" title="Chi tiáº¿t">' . $row["MaDH"] . '</a>';
-	$nestedData[] = $row_tt['Ten'];
+	$nestedData[] = '<a href="index.php?p=donhang_chitiet&idDH=' . $idDH .'" title="Chi tiết">' . $row["MaDH"] . '</a>';
+	$nestedData[] = $idOrderStt == 19 ? $row['Huy_LyDo'] : $row_tt['Ten'];
 	$nestedData[] = $quantity;
 	$nestedData[] = $orderTotal;
 	$nestedData[] = $row_pttt['Ten'];

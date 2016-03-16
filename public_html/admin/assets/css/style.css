@@ -5487,14 +5487,16 @@ img.icon{
 
 .dataTables_length select{
   width: 100px;
+  height: auto;
 }
 
 .dataTables_filter input[type=text]{
   height: 20px;
 }
 
-table.dataTable th, table.dataTable td{
+table th, table td{
   border: 1px solid #ccc;
+  padding: 2px 3px;
 }
 
 table.dataTable th{
@@ -5517,4 +5519,21 @@ table.dataTable td.action a:before{
 
 .btn-action:hover{
   text-decoration: none;
+}
+
+.highlight-star{
+  color: #FFFF33;
+}
+
+.highlight-warning{
+  color: #FF9500;
+}
+
+.highlight-warehouse{
+  color: #26ADE4;
+}
+
+.paging_full_numbers a.paginate_button.current{
+  background: #000;
+  color: #fff;
 }

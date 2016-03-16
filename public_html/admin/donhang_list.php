@@ -1,7 +1,9 @@
-<script type="text/javascript" src="../js/dataTable.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.11/api/fnSetFilteringDelay.js"></script>
-
-<link rel="stylesheet" type="text/css" href="../css/dataTable.css"/>
+<?php
+    $idTT = $_GET['idTT'];
+    if(!empty($idTT) && $idTT = 19){
+        $isRefund = true;
+    }
+?>
 <script>
 	$(document).ready(function() {
         var getUrlParameter = function(sParam) {
@@ -52,7 +54,7 @@
         <th>Thứ tự</th>
         <th>Ngày</th>
         <th>Mã ĐH</th>
-        <th>Tình trạng</th>
+        <th><?php echo $isRefund ? "Lý do hủy" : "Tình trạng";?></th>
         <th>Số lượng</th>
         <th>Tổng giá trị</th>
         <th>PTTT</th>
@@ -67,7 +69,7 @@
         <th>Thứ tự</th>
         <th>Ngày</th>
         <th>Mã ĐH</th>
-        <th>Tình trạng</th>
+        <th><?php echo $isRefund ? "Lý do hủy" : "Tình trạng";?></th>
         <th>Số lượng</th>
         <th>Tổng giá trị</th>
         <th>PTTT</th>
