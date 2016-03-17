@@ -137,16 +137,19 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='nhomsp_themhinhzoom')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_them')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_list'){
+									echo 'Sản phẩm';
+								}
+								elseif($p=='sanpham_them'){
+									echo 'Thêm sản phẩm';
+								}
 								elseif($p=='sanpham_themnhieu')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='sanpham_themnhieu_sosp')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_sua')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_sua'){
+									echo 'Sửa sản phẩm';
+								}
 								elseif($p=='tintuc_list'){
 									echo 'Tin tức';
 								}
@@ -210,7 +213,7 @@
 								elseif($p=='donhang_baohanh_chitiet')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_huy')
-									echo '<li><a href=""></a></li>';
+									echo 'Hủy đơn hàng';
 								elseif($p=='info')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='cskh_main')
@@ -249,15 +252,19 @@
 								elseif($p=='nhomsp_themhinhzoom')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='sanpham_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_them')
-									echo '<li><a href=""></a></li>';
+									echo '<li>Sản phẩm</li>';
+								elseif($p=='sanpham_them'){
+									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm sản phẩm</li>';
+								}
 								elseif($p=='sanpham_themnhieu')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='sanpham_themnhieu_sosp')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_sua')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_sua'){
+									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Sửa sản phẩm</li>';
+								}
 								elseif($p=='tintuc_list'){
 									echo '<li>Tin tức</li>';
 								}
@@ -322,8 +329,10 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_baohanh_chitiet')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_huy')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_huy'){
+									echo '<li><a href="index2.php?p=donhang_list&idTT=19">Đơn hàng chờ hủy</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Hủy đơn hàng</li>';
+								}
 								elseif($p=='info')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='cskh_main')

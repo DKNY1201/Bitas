@@ -1337,7 +1337,7 @@
 		}
 //====== SAN PHAM =====//
 		function ListSanPham(){
-			$sql="SELECT idSP, sanpham.Ten as Ten, sanpham.NgayTao as NgayTao, sanpham.NgayCapNhat as NgayCapNhat, Gia_vn,GiaChuaGiam_vn, Size, SoLanMua, sanpham.idNSP as idNSP, nhomsp.Ten as TenNhomSP, sanpham.ThuTu as ThuTu, sanpham.AnHien as AnHien, SKU FROM sanpham, nhomsp WHERE sanpham.idNSP=nhomsp.idNSP ORDER BY idSP DESC";
+			$sql="SELECT idSP, sanpham.Ten as Ten, Gia_vn,GiaChuaGiam_vn, Size, sanpham.AnHien as AnHien, SKU, mau.Ten_vn as Mau FROM sanpham, nhomsp, mau WHERE sanpham.idNSP=nhomsp.idNSP AND nhomsp.idMau = mau.idMau ORDER BY idSP DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}

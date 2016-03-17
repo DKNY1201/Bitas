@@ -61,7 +61,7 @@
         <th>Tên người nhận</th>
         <th>Tỉnh thành</th>
         <th>Quận huyện</th>
-        <th>Status</th>
+        <th>Hành động</th>
       </tr>
     </thead>
 <tfoot>
@@ -76,7 +76,7 @@
         <th>Tên người nhận</th>
         <th>Tỉnh thành</th>
         <th>Quận huyện</th>
-        <th>Status</th>
+        <th>Hành động</th>
     </tr>
 </tfoot>
 </table>

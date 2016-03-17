@@ -19,7 +19,7 @@ $(document).ready(function(e) {
 });
 </script>
 <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=tintuc_them"><span class="icon-plus"></span> Thêm tin tức</a>
+	<a class="btn-action btn-info" href="index2.php?p=tintuc_them"><i class="fa fa-plus"></i> Thêm tin tức</a>
 <?php } ?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -44,10 +44,10 @@ $(document).ready(function(e) {
     <td>{NguoiTao}</td>
     <td class="action">
     	<?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-    		<a class="icon-edit" title="Chỉnh sửa" href="index2.php?p=tintuc_sua&idtin={idTin}"></a>
+    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=tintuc_sua&idtin={idTin}"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){?>
-        <a onclick="return confirm('Bạn muốn xóa tin tức {TieuDe}?')" class="icon-remove" title="Xóa" href="tintuc_xoa.php?idtin={idTin}"></a>
+        <a onclick="return confirm('Bạn muốn xóa tin tức {TieuDe}?')" class="fa fa-trash" title="Xóa" href="tintuc_xoa.php?idtin={idTin}"></a>
      	<?php } ?>   
      </td>
   </tr>
