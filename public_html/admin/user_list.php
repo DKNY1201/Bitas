@@ -1,8 +1,7 @@
-<?php require_once "checklogin.php";
+<?php 
+  require_once "checklogin.php";
 	$us=$i->ListKhachHang();
 ?>
-<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css"/>
 <script>
 	$(document).ready(function(e) {		
 		//data table
@@ -14,7 +13,7 @@
     });
 </script>
 <?php if($_SESSION['group']==1){ ?>
-	<a class="addBtn" href="index.php?p=user_them">Thêm người dùng</a>
+	<a class="btn-action btn-info" href="index.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
 <?php }?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>

@@ -44,17 +44,17 @@
 		<?php
 			if($_SESSION['group']==1 || $_SESSION['group']==8 || $_SESSION['group']==9) {
 		?>  
-		<li class="<?php if($p=='sanpham_list' || $p=='sanpham_them' || $p=='sanpham_sua' || $p=='nhomsp_list' || $p=='color_list'){ echo 'active';}?>">
+		<li class="<?php if($p=='sanpham_list' || $p=='sanpham_them' || $p=='sanpham_sua' || $p=='sanpham_themnhieu_sosp' || $p=='sanpham_themnhieu' || $p=='nhomsp_list' || $p=='nhomsp_them' || $p=='nhomsp_sua' || $p=='nhomsp_themhinhzoom' || $p=='color_list' || $p=='color_them' || $p=='color_sua'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-coffee"></i> 
 				<span class="title">Sản phẩm</span>
 				<span class="arrow "></span>
-				<?php if($p=='nhomsp_list' || $p=='sanpham_list' || $p=='color_list'){?><span class="selected"></span><?php } ?>
+				<?php  if($p=='sanpham_list' || $p=='sanpham_them' || $p=='sanpham_sua' || $p=='sanpham_themnhieu_sosp' || $p=='sanpham_themnhieu' || $p=='nhomsp_list' || $p=='nhomsp_them' || $p=='nhomsp_sua' || $p=='nhomsp_themhinhzoom' || $p=='color_list' || $p=='color_them' || $p=='color_sua'){?><span class="selected"></span><?php } ?>
 			</a>
 			<ul class="sub-menu">
-				<li class="<?php if($p=='sanpham_list' || $p=='sanpham_them' || $p=='sanpham_sua'){ echo 'active';}?>"><a href="index2.php?p=sanpham_list">Danh sách sản phẩm</a></li>
-				<li class="<?php if($p=='nhomsp_list'){ echo 'active';}?>"><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a></li>
-				<li class="<?php if($p=='color_list'){ echo 'active';}?>"><a href="index2.php?p=color_list">Màu sản phẩm</a></li>
+				<li class="<?php if($p=='sanpham_list' || $p=='sanpham_them' || $p=='sanpham_sua' || $p=='sanpham_themnhieu_sosp' || $p=='sanpham_themnhieu'){ echo 'active';}?>"><a href="index2.php?p=sanpham_list">Danh sách sản phẩm</a></li>
+				<li class="<?php if($p=='nhomsp_list' || $p=='nhomsp_them' || $p=='nhomsp_sua' || $p=='nhomsp_themhinhzoom'){ echo 'active';}?>"><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a></li>
+				<li class="<?php if($p=='color_list' || $p=='color_them' || $p=='color_sua'){ echo 'active';}?>"><a href="index2.php?p=color_list">Màu sản phẩm</a></li>
 			</ul>
 		</li>
 		<?php } ?>
@@ -72,7 +72,7 @@
 				<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Email nhận tin</a></li>
 			</ul>
 		</li>
-		<li class="<?php if($p=='user_list'){ echo 'active';}?>">
+		<li class="<?php if($p=='admin_list'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-dashboard"></i> 
 				<span class="title">Tài khoản Admin</span>
@@ -95,7 +95,7 @@
 				<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index2.php?p=info">Banner quảng cáo</a></li>
 			</ul>
 		</li>
-		<li class="last <?php if($p=='logs'){ echo 'active';}?>">
+		<li class="<?php if($p=='logs'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-medkit"></i> 
 				<span class="title">Logs</span>
@@ -105,6 +105,12 @@
 			<ul class="sub-menu">
 				<li class="<?php if($p=='logs'){ echo 'active';}?>"><a href="index2.php?p=logs">Danh sách Logs</a></li>
 			</ul>
+		</li>
+		<li class="last">
+			<a href="http://bitas.com.vn/" target="_blank">
+				<i class="fa fa-play"></i> 
+				<span class="title">Xem trang chủ</span>
+			</a>
 		</li>
 	</ul>
 	<!-- END SIDEBAR MENU -->

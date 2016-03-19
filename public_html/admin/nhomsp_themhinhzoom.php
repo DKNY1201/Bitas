@@ -4,7 +4,7 @@
 	if(isset($_POST['submit']))
 	{
 		$i->ThemHinhZoom($idNSP);
-		header("location:index.php?p=nhomsp_list");
+		header("location:index2.php?p=nhomsp_list");
 	}
 ?>
 <script type="text/javascript">

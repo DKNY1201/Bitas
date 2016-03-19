@@ -129,24 +129,30 @@
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<h3 class="page-title">
 							<?php
-								if($p=='nhomsp_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_sua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_themhinhzoom')
-									echo '<li><a href=""></a></li>';
+								if($p=='nhomsp_them'){
+									echo 'Thêm nhóm sản phẩm';
+								}
+								elseif($p=='nhomsp_list'){
+									echo 'Nhóm sản phẩm';
+								}
+								elseif($p=='nhomsp_sua'){
+									echo 'Sửa nhóm sản phẩm';
+								}
+								elseif($p=='nhomsp_themhinhzoom'){
+									echo 'Thêm hình zoom';
+								}
 								elseif($p=='sanpham_list'){
 									echo 'Sản phẩm';
 								}
 								elseif($p=='sanpham_them'){
 									echo 'Thêm sản phẩm';
 								}
-								elseif($p=='sanpham_themnhieu')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_themnhieu_sosp')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu'){
+									echo 'Thêm sản phẩm';
+								}
+								elseif($p=='sanpham_themnhieu_sosp'){
+									echo 'Thêm sản phẩm';
+								}
 								elseif($p=='sanpham_sua'){
 									echo 'Sửa sản phẩm';
 								}
@@ -179,12 +185,15 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='user_lichsu')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='color_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='color_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='color_sua')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='color_list'){
+									echo 'Màu';
+								}
+								elseif($p=='color_them'){
+									echo 'Thêm màu';
+								}
+								elseif($p=='color_sua'){
+									echo 'Sửa màu';
+								}
 								elseif($p=='donhang_list' && $_GET['idTT'] != 19){
 									echo 'Đơn hàng';
 								}elseif($p=='donhang_list' && $_GET['idTT'] == 19){
@@ -243,24 +252,35 @@
 								<i class="icon-angle-right"></i>
 							</li>
 							<?php
-								if($p=='nhomsp_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_sua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='nhomsp_themhinhzoom')
-									echo '<li><a href=""></a></li>';
+								if($p=='nhomsp_them'){
+									echo '<li><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm nhóm sản phẩm</li>';
+								}
+								elseif($p=='nhomsp_list'){
+									echo '<li>Nhóm sản phẩm</li>';
+								}
+								elseif($p=='nhomsp_sua'){
+									echo '<li><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Sửa nhóm sản phẩm</li>';
+								}
+								elseif($p=='nhomsp_themhinhzoom'){
+									echo '<li><a href="index2.php?p=nhomsp_list">Nhóm sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm hình zoom</li>';
+								}
 								elseif($p=='sanpham_list')
 									echo '<li>Sản phẩm</li>';
 								elseif($p=='sanpham_them'){
 									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
 									echo '<li>Thêm sản phẩm</li>';
 								}
-								elseif($p=='sanpham_themnhieu')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='sanpham_themnhieu_sosp')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='sanpham_themnhieu'){
+									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm sản phẩm</li>';
+								}
+								elseif($p=='sanpham_themnhieu_sosp'){
+									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm sản phẩm</li>';
+								}
 								elseif($p=='sanpham_sua'){
 									echo '<li><a href="index2.php?p=sanpham_list">Sản phẩm</a><i class="icon-angle-right"></i></li>';
 									echo '<li>Sửa sản phẩm</li>';
@@ -296,12 +316,17 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='user_lichsu')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='color_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='color_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='color_sua')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='color_list'){
+									echo '<li>Màu</li>';
+								}
+								elseif($p=='color_them'){
+									echo '<li><a href="index2.php?p=color_list">Màu</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm màu</li>';
+								}
+								elseif($p=='color_sua'){
+									echo '<li><a href="index2.php?p=color_list">Màu</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Sửa màu</li>';
+								}
 								elseif($p=='donhang_list' && $_GET['idTT'] != 19){
 									echo '<li>Đơn hàng</li>';
 								}elseif($p=='donhang_list' && $_GET['idTT'] == 19){

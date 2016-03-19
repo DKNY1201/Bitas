@@ -1032,7 +1032,7 @@
 			return mysql_num_rows($result);
 		}
 		function ListNhomSP(){
-			$sql="SELECT idNSP,nhomsp.Ten as Ten,SKU,loaispdsg.Ten_vn as TenTL,NgayTao,NgayCapNhat,follow,represent,New,Discount,Size1,Size2,Size3,Gia1_vn,Gia2_vn,Gia3_vn,GiaChuaGiam1_vn,GiaChuaGiam2_vn,GiaChuaGiam3_vn,nhomsp.Hinh as Hinh,SoLanXem,nhomsp.ThuTu as ThuTu,nhomsp.AnHien as AnHien,LyDoAn FROM nhomsp,loaispdsg WHERE loaispdsg.idlspdsg=nhomsp.idlspdsg ORDER BY idNSP DESC";
+			$sql="SELECT idNSP,nhomsp.Ten as Ten,SKU,loaispdsg.Ten_vn as TenTL,NgayTao,NgayCapNhat,follow,represent,New,Discount,Size1,Size2,Size3,Gia1_vn,Gia2_vn,Gia3_vn,GiaChuaGiam1_vn,GiaChuaGiam2_vn,GiaChuaGiam3_vn,nhomsp.Hinh as Hinh,SoLanXem,nhomsp.ThuTu as ThuTu,nhomsp.AnHien as AnHien,LyDoAn, mau.Ten_vn as Mau FROM nhomsp,loaispdsg,mau WHERE loaispdsg.idlspdsg=nhomsp.idlspdsg AND nhomsp.idMau = mau.idMau ORDER BY idNSP DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}

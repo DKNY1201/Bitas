@@ -5,7 +5,7 @@
 			var n=$("#sosp_s").val();
 			//alert(n);
             //document.location("index.php?p=sanpham_themnhieu&sosp="+n);
-			location.replace("index.php?p=sanpham_themnhieu&sosp="+n);
+			location.replace("index2.php?p=sanpham_themnhieu&sosp="+n);
         });
     });
 </script>
