@@ -109,7 +109,7 @@ while( $row=mysql_fetch_array($query) ) { // preparing an array
 
 	$nestedData[] = $idDH;
 	$nestedData[] = date("d-m-Y H:i:s",strtotime($row['NgayDH']));
-	$nestedData[] = '<a href="index.php?p=donhang_chitiet&idDH=' . $idDH .'" title="Chi tiết">' . $row["MaDH"] . '</a>';
+	$nestedData[] = '<a href="index2.php?p=donhang_chitiet&idDH=' . $idDH .'" title="Chi tiết">' . $row["MaDH"] . '</a>';
 	$nestedData[] = $idOrderStt == 19 ? $row['Huy_LyDo'] : $row_tt['Ten'];
 	$nestedData[] = $quantity;
 	$nestedData[] = $orderTotal;

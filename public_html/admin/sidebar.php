@@ -28,16 +28,16 @@
 		<?php
 			if($_SESSION['group']==1 || $_SESSION['group']==8 || $_SESSION['group']==9 || $_SESSION['group']==10) {
 		?>  
-		<li class="<?php if($p=='donhang_list'){ echo 'active';}?>">
+		<li class="<?php if($p=='donhang_list' || $p =='donhang_huy'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-shopping-cart"></i> 
 				<span class="title">Đơn hàng</span>
 				<span class="arrow "></span>
-				<?php if($p=='donhang_list'){?><span class="selected"></span><?php } ?>
+				<?php if($p=='donhang_list' || $p =='donhang_huy'){?><span class="selected"></span><?php } ?>
 			</a>
 			<ul class="sub-menu">
 				<li class="<?php if($p=='donhang_list' && $_GET['idTT'] != 19){ echo 'active';}?>"><a href="index2.php?p=donhang_list">Danh sách đơn hàng</a></li>
-				<li class="<?php if($p=='donhang_list' && $_GET['idTT'] == 19){ echo 'active';}?>"><a href="index2.php?p=donhang_list&idTT=19">Đơn hàng chờ hủy</a></li>
+				<li class="<?php if(($p=='donhang_list' && $_GET['idTT'] == 19) || $p =='donhang_huy'){ echo 'active';}?>"><a href="index2.php?p=donhang_list&idTT=19">Đơn hàng chờ hủy</a></li>
 			</ul>
 		</li>
 		<?php } ?>

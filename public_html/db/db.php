@@ -308,12 +308,12 @@
 				$tukhoa=mysql_real_escape_string($tukhoa);
 			}
 			$totalRows=0;
-			$sql="SELECT count(*) FROM nhomsp WHERE (SKU LIKE '%$tukhoa%' OR Ten LIKE '%$tukhoa%' OR MoTa_$lang LIKE '%$tukhoa%' OR ogTitle LIKE '%$tukhoa%' OR ogDesc LIKE '%$tukhoa%') AND AnHien=1 ORDER BY idNSP DESC";
+			$sql="SELECT count(*) FROM nhomsp WHERE (SKU LIKE '%$tukhoa%' OR REPLACE(SKU,'.','') LIKE '%$tukhoa%' OR Ten LIKE '%$tukhoa%' OR MoTa_$lang LIKE '%$tukhoa%' OR ogTitle LIKE '%$tukhoa%' OR ogDesc LIKE '%$tukhoa%') AND AnHien=1 ORDER BY idNSP DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
 			$row_kq=mysql_fetch_row($kq);
 			$totalRows=$row_kq[0];
 			$startRow=($pageNum-1)*$pageSize;
-			$sql="SELECT * FROM nhomsp WHERE (SKU LIKE '%$tukhoa%' OR Ten LIKE '%$tukhoa%' OR MoTa_$lang LIKE '%$tukhoa%' OR ogTitle LIKE '%$tukhoa%' OR ogDesc LIKE '%$tukhoa%') AND AnHien=1 ORDER BY idNSP DESC LIMIT $startRow,$pageSize";
+			$sql="SELECT * FROM nhomsp WHERE (SKU LIKE '%$tukhoa%' OR REPLACE(SKU,'.','') LIKE '%$tukhoa%' OR Ten LIKE '%$tukhoa%' OR MoTa_$lang LIKE '%$tukhoa%' OR ogTitle LIKE '%$tukhoa%' OR ogDesc LIKE '%$tukhoa%') AND AnHien=1 ORDER BY idNSP DESC LIMIT $startRow,$pageSize";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
@@ -1572,18 +1572,19 @@
 				$pdv=$this->PhiDichVu($tongtien,$idPTTT);
 
 				/*===== PROMOTION =====*/
-				$tongtien = $this->TongGiaTriDonHang($idDH,$idTinh,$idQH,$idPTTT);
-				$tongtien = str_replace(",","",$tongtien);
-				$tongtien = (int)$tongtien;
+				$tongtien += $pdv;
+				//$tongtien = $this->TongGiaTriDonHang($idDH,$idTinh,$idQH,$idPTTT);
+				//$tongtien = str_replace(",","",$tongtien);
+				//$tongtien = (int)$tongtien;
 				$saleoff = $this->PromotionSaleoffCalc($idDH);
+				$tongtien -= $saleoff;
 
 				$sql = "UPDATE donhang SET TongGTDH = $tongtien, TongGTKM = $saleoff, TongCPVC = $cpvc, TongPDV = $pdv WHERE idDH=$idDH";
-				echo $sql ."<br />";
 				mysql_query($sql) or die(mysql_error());
 			}
 			
 			function UpdateTongAll(){
-				$sql = "SELECT idDH FROM donhang";
+				$sql = "SELECT idDH FROM donhang WHERE idDH >= 7011";
 				$dh = mysql_query($sql) or die(mysql_error());
 				while($row_dh = mysql_fetch_assoc($dh)){
 					$this->UpdateTong($row_dh['idDH']);
