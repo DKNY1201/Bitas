@@ -5621,3 +5621,7 @@ table.dataTable td.action a:before{
     color: #fff;
 }
 /*=========== END SHOW/HIDE PRODUCT GROUP ===========*/
+
+table#table.edit-order{
+  margin-bottom: 20px;
+}

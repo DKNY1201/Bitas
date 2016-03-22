@@ -5,7 +5,7 @@
 	$row_dh=mysql_fetch_assoc($dh);
 	$dhct=$i->DonHangChiTiet($idDH);
 ?>
-<table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
+<table id="table" class="display edit-order" width="100%" cellspacing="0" cellpadding="4">
 <thead>
   <tr>
     <th>STT</th>
@@ -50,8 +50,8 @@
     <td>{KhuyenMai}%</td>
     <td>{ThanhTien} VNĐ</td>
     <td>
-    	<a class="icon icon-edit" title="Chỉnh sửa" href="index.php?p=donhang_chinhsua_edit&idDHCT={idDHCT}"></a>
-        <a onclick="return confirm('Bạn muốn xóa màu {SP}?')" class="icon icon-del" title="Xóa" href="donhang_chinhsua_del.php?idDHCT={idDHCT}"></a>
+    	<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=donhang_chinhsua_edit&idDHCT={idDHCT}"></a>
+        <a onclick="return confirm('Bạn muốn xóa màu {SP}?')" class="fa fa-trash" title="Xóa" href="donhang_chinhsua_del.php?idDHCT={idDHCT}"></a>
     </td>
   </tr>
   <?php $str=ob_get_clean();
@@ -81,4 +81,4 @@
   ?>
 </tbody>
 </table>
-<a href="index.php?p=donhang_chinhsua_add&idDH=<?php echo $idDH; ?>" class="addBtn">Thêm sản phẩm</a>
+<a href="index2.php?p=donhang_chinhsua_add&idDH=<?php echo $idDH; ?>" class="btn-action btn-info"><i class="fa fa-plus"></i> Thêm sản phẩm</a>

@@ -205,8 +205,9 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chitiet')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chitiet'){
+									echo 'Chi tiết đơn hàng';
+								}
 								elseif($p=='donhang_uutien')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_gap')
@@ -229,12 +230,15 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='tienthuong_list')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua_edit')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua_add')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua'){
+									echo 'Chỉnh sửa đơn hàng';
+								}
+								elseif($p=='donhang_chinhsua_edit'){
+									echo 'Chỉnh sửa đơn hàng - Sửa sản phẩm';
+								}
+								elseif($p=='donhang_chinhsua_add'){
+									echo 'Chỉnh sửa đơn hàng - Thêm sản phẩm';
+								}
 								elseif($p=='temp_updatemasp')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='temp_updateskusp')
@@ -338,8 +342,10 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chitiet')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chitiet'){
+									echo '<li><a href="index2.php?p=donhang_list">Đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Chi tiết đơn hàng</li>';
+								}
 								elseif($p=='donhang_uutien')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_gap')
@@ -364,12 +370,27 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='tienthuong_list')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua_edit')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_chinhsua_add')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='donhang_chinhsua'){
+									echo '<li><a href="index2.php?p=donhang_list">Đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li><a href="index2.php?p=donhang_chitiet&idDH=' . $_GET['idDH'] . '">Chi tiết đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Chỉnh sửa đơn hàng</li>';
+								}
+								elseif($p=='donhang_chinhsua_edit'){
+									$idDHCT = $_GET['idDHCT'] ? $_GET['idDHCT'] : '';
+									$dh = $i->ChiTietDonHangChiTiet($idDHCT);
+									$row_dh = mysql_fetch_assoc($dh);
+									$idDH = $row_dh['idDH'];
+									echo '<li><a href="index2.php?p=donhang_list">Đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li><a href="index2.php?p=donhang_chitiet&idDH=' . $idDH . '">Chi tiết đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li><a href="index2.php?p=donhang_chinhsua&idDH=' . $idDH . '">Chỉnh sửa đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Chỉnh sửa đơn hàng - Sửa sản phẩm</li>';
+								}
+								elseif($p=='donhang_chinhsua_add'){
+									echo '<li><a href="index2.php?p=donhang_list">Đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li><a href="index2.php?p=donhang_chitiet&idDH=' . $_GET['idDH'] . '">Chi tiết đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li><a href="index2.php?p=donhang_chinhsua&idDH=' . $_GET['idDH'] . '">Chỉnh sửa đơn hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Chỉnh sửa đơn hàng - Thêm sản phẩm</li>';
+								}
 								elseif($p=='temp_updatemasp')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='temp_updateskusp')
