@@ -1751,6 +1751,15 @@
 			$sql = "UPDATE ykienkhachhang SET TraLoi = '$traloi' WHERE idYK = $idyk";
 			mysql_query($sql) or die(mysql_error());
 		}
+		function ApproveComment($idYK){
+			settype($idYK, "int");
+			$sql = "UPDATE ykienkhachhang SET Duyet = !Duyet WHERE idYK = $idYK";
+			if(mysql_query($sql)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 		function CSKH_TimKiemDonHang($info,$by){
 			$info=trim(strip_tags($info));
 			if(get_magic_quotes_gpc()==false)
@@ -1829,6 +1838,12 @@
 			$result=mysql_query($sql) or die(mysql_error());
 			return mysql_num_rows($result);
 		}
-		//====== END EMAIL MARKETING =====//		
+		//====== END EMAIL MARKETING =====//
+
+		function ListSearch(){
+			$sql = "SELECT * FROM search_result ORDER BY idSR DESC";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}	
 	}
 ?>

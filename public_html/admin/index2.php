@@ -174,11 +174,8 @@
 								elseif($p=='ykien_list'){
 									echo 'Ý kiến phản hồi';
 								}
-								elseif($p=='ykien_list_daduyet'){
-									echo '<li><a href=""></a></li>';
-								}
 								elseif($p=='ykien_traloi'){
-									echo '<li><a href=""></a></li>';
+									echo 'Trả lời phản hồi của khách hàng';
 								}
 								elseif($p=='user_list'){
 									echo 'Danh sách khách hàng';
@@ -250,6 +247,9 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='temp_updateskusp')
 									echo '<li><a href=""></a></li>';
+								elseif($p=='search_list'){
+									echo 'Từ khóa khách hàng tìm kiếm';
+								}
 								else{
 									echo 'Dashboard <small>statistics and more</small>';
 								}
@@ -316,10 +316,10 @@
 								elseif($p=='ykien_list'){
 									echo '<li>Ý kiến phản hồi</li>';
 								}
-								elseif($p=='ykien_list_daduyet')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='ykien_traloi')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_traloi'){
+									echo '<li><a href="index2.php?p=ykien_list">Ý kiến phản hồi</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Trả lời phản hồi</li>';
+								}
 								elseif($p=='user_list'){
 									echo '<li>Khách hàng</li>';
 								}
@@ -410,6 +410,9 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='temp_updateskusp')
 									echo '<li><a href=""></a></li>';
+								elseif($p=='search_list'){
+									echo '<li>Tìm kiếm</li>';
+								}
 								else{
 									echo '<li><a href="index2.php">Dashboard</a></li>';
 								}
@@ -510,6 +513,8 @@
 						require_once "Temp_UpdateMaSP.php";
 					elseif($p=='temp_updateskusp')
 						require_once "Temp_UpdateSKUSP.php";
+					elseif($p=='search_list')
+						require_once "search_list.php";
 					else require_once "main2.php";
 				?>
 			</div>

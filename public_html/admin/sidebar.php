@@ -58,18 +58,18 @@
 			</ul>
 		</li>
 		<?php } ?>
-		<li class="<?php if($p=='user_list' || $p=='user_them' || $p=='user_sua' || $p=='user_lichsu' || $p=='ykien_list'){ echo 'active';}?>">
+		<li class="<?php if($p=='user_list' || $p=='user_them' || $p=='user_sua' || $p=='user_lichsu' || $p=='ykien_list' || $p=='ykien_traloi' || $p=='search_list' || $p=='email_marketing_list'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-user"></i> 
 				<span class="title">Khách hàng</span>
 				<span class="arrow "></span>
-				<?php if($p=='user_list' || $p=='user_them' || $p=='user_sua' || $p=='user_lichsu' || $p=='ykien_list'){?><span class="selected"></span><?php } ?>
+				<?php if($p=='user_list' || $p=='user_them' || $p=='user_sua' || $p=='user_lichsu' || $p=='ykien_list' || $p=='ykien_traloi' || $p=='search_list' || $p=='email_marketing_list'){?><span class="selected"></span><?php } ?>
 			</a>
 			<ul class="sub-menu">
 				<li class="<?php if($p=='user_list' || $p=='user_them' || $p=='user_sua' || $p=='user_lichsu'){ echo 'active';}?>"><a href="index2.php?p=user_list">Danh sách khách hàng</a></li>
-				<li class="<?php if($p=='ykien_list'){ echo 'active';}?>"><a href="index2.php?p=ykien_list">Ý kiến phản hồi</a></li>
-				<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Tìm kiếm</a></li>
-				<li class="<?php if($p=='ykien_list_daduyet'){ echo 'active';}?>"><a href="index2.php?p=ykien_list_daduyet">Email nhận tin</a></li>
+				<li class="<?php if($p=='ykien_list' || $p=='ykien_traloi'){ echo 'active';}?>"><a href="index2.php?p=ykien_list">Ý kiến phản hồi</a></li>
+				<li class="<?php if($p=='search_list'){ echo 'active';}?>"><a href="index2.php?p=search_list">Tìm kiếm</a></li>
+				<li class="<?php if($p=='email_marketing_list'){ echo 'active';}?>"><a href="index2.php?p=email_marketing_list">Email nhận tin</a></li>
 			</ul>
 		</li>
 		<li class="<?php if($p=='admin_list'){ echo 'active';}?>">

@@ -302,11 +302,18 @@
 			}
 			return $giatri;
 		}
+		function SaveSearchKeywork($keywork){
+			$ip = $_SERVER['REMOTE_ADDR'];
+			$submitDate = date("Y-m-d H:i:s");
+			$sql = "INSERT INTO search_result (SubmitDate,Keywork,IP) VALUES ('$submitDate','$keywork','$ip')";
+			mysql_query($sql) or die(mysql_error());
+		}
 		function TimKiem($tukhoa,$pageNum=1,$pageSize=10,&$totalRows,$lang){
 			$tukhoa=trim(strip_tags($tukhoa));
 			if(get_magic_quotes_gpc()==false){
 				$tukhoa=mysql_real_escape_string($tukhoa);
 			}
+			$this->SaveSearchKeywork($tukhoa);
 			$totalRows=0;
 			$sql="SELECT count(*) FROM nhomsp WHERE (SKU LIKE '%$tukhoa%' OR REPLACE(SKU,'.','') LIKE '%$tukhoa%' OR Ten LIKE '%$tukhoa%' OR MoTa_$lang LIKE '%$tukhoa%' OR ogTitle LIKE '%$tukhoa%' OR ogDesc LIKE '%$tukhoa%') AND AnHien=1 ORDER BY idNSP DESC";
 			$kq=mysql_query($sql) or die(mysql_error());

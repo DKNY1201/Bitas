@@ -5754,3 +5754,7 @@ table#table.edit-order{
     width: 100px;
     font-weight: bold;
 }
+
+#table.customer-comment td.action{
+  min-width: 100px;
+}

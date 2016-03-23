@@ -8,9 +8,10 @@
 		$('#table').dataTable({
 			"sPaginationType": "full_numbers",
 			"iDisplayLength": 25,
-			"aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]]
+			"aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+      "aaSorting" : [[0, 'desc']],
 		});
-    });
+  });
 </script>
 <?php if($_SESSION['group']==1){ ?>
 	<a class="btn-action btn-info" href="index2.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
@@ -65,9 +66,7 @@
   $today = strtotime('Now');
   $diffInSec = abs($today - $birthdate);
   $age = floor($diffInSec / (365*60*60*24));
-  //$birthdate = new DateTime($row_us['NgaySinh']);
-  //$today = new DateTime();
-  //$age = $today->diff($birthdate);
+
 	$str=str_replace("{idUser}",$row_us['idUser'],$str);
 	$str=str_replace("{Email}",$row_us['Email'],$str);
 	$str=str_replace("{HoTen}",$row_us['HoTen'],$str);

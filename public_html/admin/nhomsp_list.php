@@ -8,7 +8,7 @@
 			{
 				"sPaginationType": "full_numbers",
 				"iDisplayLength": 25,
-			  "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+			  	"aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
 				"aaSorting" : [[0, 'desc']],
 			}
 		);
