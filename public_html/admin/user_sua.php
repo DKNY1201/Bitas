@@ -94,7 +94,7 @@ $(document).ready(function(e) {
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="3"><input type="submit" name="submit" value="Sửa" class="btn" /></td>
+        <td colspan="3"><input type="submit" name="submit" value="Sửa" class="btn blue" /></td>
       </tr>
     </table>
 </form>

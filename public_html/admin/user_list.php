@@ -13,20 +13,21 @@
     });
 </script>
 <?php if($_SESSION['group']==1){ ?>
-	<a class="btn-action btn-info" href="index.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
+	<a class="btn-action btn-info" href="index2.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
 <?php }?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
   <tr>
-    <th>idUser</th>
-    <th>Email</th>
+    <th>Thứ tự</th>
     <th>Họ tên</th>
-    <th>Địa chỉ</th>
-    <th>Điện thoại</th>
-    <th>Ngày sinh</th>
     <th>Giới tính</th>
-    <th>Phân quyền</th>
-    <th>Quản lý</th>
+    <th>Tuổi</th>
+    <th>Email</th>    
+    <th>Điện thoại</th>
+    <th>Địa chỉ</th>
+    <th>Tỉnh thành</th>
+    <th>Quận huyện</th>
+    <th>Hành động</th>
   </tr>
 </thead>
 <tbody>
@@ -35,20 +36,21 @@
   ?>
   <tr>
     <td>{idUser}</td>
-    <td>{Email}</td>
     <td>{HoTen}</td>
-    <td>{DiaChi}, {QuanHuyen}, {TinhThanh}</td>
-    <td>{DienThoai}</td>
-    <td>{NgaySinh}</td>
     <td>{GioiTinh}</td>
-    <td>{Group}</td>
+    <td>{Tuoi}</td>
+    <td>{Email}</td>
+    <td>{DienThoai}</td>
+    <td>{DiaChi}</td>
+    <td>{TinhThanh}</td>
+    <td>{QuanHuyen}</td>
     <td width="80px">
-    	<a class="icon icon-note" title="Lịch sử mua hàng" href="index.php?p=user_lichsu&idUser={idUser}"></a>
+    	<a class="fa fa-history" title="Lịch sử mua hàng" href="index2.php?p=user_lichsu&idUser={idUser}"></a>
         <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	        <a class="icon icon-edit" title="Chỉnh sửa" href="index.php?p=user_sua&iduser={idUser}"></a>
+	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=user_sua&iduser={idUser}"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){ ?>
-        <a onclick="return confirm('Bạn muốn xóa người dùng {HoTen}?')" class="icon icon-del" title="Xóa" href="user_xoa.php?iduser={idUser}"></a>
+        <a onclick="return confirm('Bạn muốn xóa người dùng {HoTen}?')" class="fa fa-trash" title="Xóa" href="user_xoa.php?iduser={idUser}"></a>
         <?php } ?>
     </td>
   </tr>
@@ -59,6 +61,13 @@
 	$qh=$i->ChiTietQuanHuyen($row_us['idQuanHuyen']);
 	$row_qh=mysql_fetch_assoc($qh);
 	
+  $birthdate = strtotime($row_us['NgaySinh']);
+  $today = strtotime('Now');
+  $diffInSec = abs($today - $birthdate);
+  $age = floor($diffInSec / (365*60*60*24));
+  //$birthdate = new DateTime($row_us['NgaySinh']);
+  //$today = new DateTime();
+  //$age = $today->diff($birthdate);
 	$str=str_replace("{idUser}",$row_us['idUser'],$str);
 	$str=str_replace("{Email}",$row_us['Email'],$str);
 	$str=str_replace("{HoTen}",$row_us['HoTen'],$str);
@@ -66,7 +75,7 @@
 	$str=str_replace("{TinhThanh}",$row_tt['Ten'],$str);
 	$str=str_replace("{QuanHuyen}",$row_qh['type']." ".$row_qh['Ten'],$str);
 	$str=str_replace("{DienThoai}",$row_us['DienThoai'],$str);
-	$str=str_replace("{NgaySinh}",date("d/m/Y",strtotime($row_us['NgaySinh'])),$str);
+	$str=str_replace("{Tuoi}",$age,$str);
 	$str=str_replace("{GioiTinh}",($row_us['GioiTinh']==1)?"Nam":"Nữ",$str);
 	$str=str_replace("{Group}",$row_us['Ten'],$str);	
 	echo $str;

@@ -70,8 +70,8 @@
     <td>{TraLoi}</td>
     <td>
     <?php if($_SESSION['group']==1){ ?>
-    	<a class="icon icon-edit" title="Trả lời ý kiến" href="index.php?p=ykien_traloi&idyk={idYK}"></a>
-    	<a onclick="return confirm('Bạn muốn xóa ý kiến của khách hàng {TenKH}?')" class="icon icon-del" title="Xóa ý kiến" href="ykien_xoa.php?idyk={idYK}"></a>
+    	<a class="fa fa-comment" title="Trả lời ý kiến" href="index.php?p=ykien_traloi&idyk={idYK}"></a>
+    	<a onclick="return confirm('Bạn muốn xóa ý kiến của khách hàng {TenKH}?')" class="fa fa-trash" title="Xóa ý kiến" href="ykien_xoa.php?idyk={idYK}"></a>
     <?php } ?>
     </td>
   </tr>

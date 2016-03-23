@@ -1,3 +1,4 @@
+<div class="order-cancel">
 <?php session_start();
 	if (isset($_SESSION['id'])== false){
 		$_SESSION['error_admin']='Bạn chưa đăng nhập';
@@ -30,11 +31,15 @@
 			header("location:index.php");
 		}
 ?>
+
 <form action="" method="post" id="adminForm" class="huy-form">
-	<textarea name="lydo_huy" class="validate[required]" rows="5" cols="50"></textarea>
-    <input type="submit" name="huy" value="Hủy" class="huy btn" />
-    <input type="submit" name="khong-huy" value="Không hủy" class="khong-huy btn" />
+	<textarea name="lydo_huy" class="validate[required]" rows="5" placeholder="Lý do hủy"></textarea>
+	<div class="action">
+	    <input type="submit" name="huy" value="Hủy" class="red btn" />
+	    <input type="submit" name="khong-huy" value="Không hủy" class="btn" />
+    </div>
 </form>
 <?php } else{?>
 <h1 class="huy-error">CÓ LỔI XÃY RA - ĐƠN HÀNG ĐÃ ĐƯỢC HỦY HOẶC KHÔNG CÓ YÊU CẦU HỦY CHO ĐƠN HÀNG NÀY</h1>
 <?php }?>
+</div>

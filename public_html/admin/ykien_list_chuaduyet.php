@@ -13,8 +13,6 @@
 	}
 		
 ?>
-<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css"/>
 <script>
 	$(document).ready(function(e) {
         $('input[name=checkall]').click(function(e) {

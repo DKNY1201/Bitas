@@ -171,20 +171,27 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='khuyenmai_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='ykien_list_chuaduyet')
+								elseif($p=='ykien_list'){
+									echo 'Ý kiến phản hồi';
+								}
+								elseif($p=='ykien_list_daduyet'){
 									echo '<li><a href=""></a></li>';
-								elseif($p=='ykien_list_daduyet')
+								}
+								elseif($p=='ykien_traloi'){
 									echo '<li><a href=""></a></li>';
-								elseif($p=='ykien_traloi')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_sua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_lichsu')
-									echo '<li><a href=""></a></li>';
+								}
+								elseif($p=='user_list'){
+									echo 'Danh sách khách hàng';
+								}
+								elseif($p=='user_them'){
+									echo 'Thêm khách hàng';
+								}
+								elseif($p=='user_sua'){
+									echo 'Sửa thông tin khách hàng';
+								}
+								elseif($p=='user_lichsu'){
+									echo 'Lịch sử mua hàng';
+								}
 								elseif($p=='color_list'){
 									echo 'Màu';
 								}
@@ -306,20 +313,28 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='khuyenmai_sua')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='ykien_list_chuaduyet')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='ykien_list'){
+									echo '<li>Ý kiến phản hồi</li>';
+								}
 								elseif($p=='ykien_list_daduyet')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='ykien_traloi')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='user_list')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_them')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_sua')
-									echo '<li><a href=""></a></li>';
-								elseif($p=='user_lichsu')
-									echo '<li><a href=""></a></li>';
+								elseif($p=='user_list'){
+									echo '<li>Khách hàng</li>';
+								}
+								elseif($p=='user_them'){
+									echo '<li><a href="index2.php?p=user_list">Khách hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Thêm khách hàng</li>';
+								}
+								elseif($p=='user_sua'){
+									echo '<li><a href="index2.php?p=user_list">Khách hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Sửa thông tin khách hàng</li>';
+								}
+								elseif($p=='user_lichsu'){
+									echo '<li><a href="index2.php?p=user_list">Khách hàng</a><i class="icon-angle-right"></i></li>';
+									echo '<li>Lịch sử mua hàng</li>';
+								}
 								elseif($p=='color_list'){
 									echo '<li>Màu</li>';
 								}
@@ -435,10 +450,8 @@
 						require_once "khuyenmai_them.php";
 					elseif($p=='khuyenmai_sua')
 						require_once "khuyenmai_sua.php";
-					elseif($p=='ykien_list_chuaduyet')
-						require_once "ykien_list_chuaduyet.php";
-					elseif($p=='ykien_list_daduyet')
-						require_once "ykien_list_daduyet.php";
+					elseif($p=='ykien_list')
+						require_once "ykien_list.php";
 					elseif($p=='ykien_traloi')
 						require_once "ykien_traloi.php";
 					elseif($p=='user_list')
@@ -540,7 +553,6 @@
 	<script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
 	<script src="assets/plugins/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
 	<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
-	<script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
 	<script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 	<script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
 	<script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
