@@ -304,7 +304,10 @@
 		}
 		function SaveSearchKeywork($keywork){
 			$ip = $_SERVER['REMOTE_ADDR'];
-			$submitDate = date("Y-m-d H:i:s");
+			
+			date_default_timezone_set('Asia/Jakarta');
+			$submitDate = date('Y-m-d H:i:s', time());
+
 			$sql = "INSERT INTO search_result (SubmitDate,Keywork,IP) VALUES ('$submitDate','$keywork','$ip')";
 			mysql_query($sql) or die(mysql_error());
 		}
