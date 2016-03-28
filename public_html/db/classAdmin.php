@@ -1024,7 +1024,13 @@
 				settype($idUser,"int");
 				$sql="DELETE FROM user WHERE idUser=$idUser";
 				mysql_query($sql) or die(mysql_error());
-			}	
+			}
+
+			function ListAdmin(){
+				$sql="SELECT idUser,Email,HoTen,DiaChi,idTinh,idQuanHuyen,DienThoai,Email,NgaySinh,GioiTinh,Ten,NgayDangKi,LastLoginDate FROM user,group_user WHERE user.idGroup=group_user.idGroup AND user.idGroup!=3 ORDER BY idUser DESC";
+				$kq=mysql_query($sql) or die(mysql_error());
+				return $kq;
+			}
 //====== NHOM SAN PHAM =====//
 		function ProductGroupCount(){
 			$sql = "SELECT idNSP FROM nhomsp";
@@ -1837,6 +1843,12 @@
 			$sql = "SELECT idEM FROM emailmarketing";
 			$result=mysql_query($sql) or die(mysql_error());
 			return mysql_num_rows($result);
+		}
+
+		function ListEmailMarketing(){
+			$sql = "SELECT * FROM emailmarketing ORDER BY idEM DESC";
+			$result=mysql_query($sql) or die(mysql_error());
+			return $result;
 		}
 		//====== END EMAIL MARKETING =====//
 

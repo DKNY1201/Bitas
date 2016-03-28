@@ -3879,8 +3879,8 @@
 				{
 					$email=mysql_real_escape_string($email);	
 				}
-				//$ngay=date("Y-m-d H:i:s");
-				$sql="INSERT INTO emailmarketing (Email,NgayThem) VALUES ('$email',NOW())";
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$sql="INSERT INTO emailmarketing (Email,NgayThem,IP) VALUES ('$email',NOW(),'$ip')";
 				mysql_query($sql) or die(mysql_error());
 			}
 		/*------END EMAIL MARKETING-----*/
@@ -4522,5 +4522,10 @@
 			return $discount;
 		}
 		/*========== END PROMOTION ==========*/
+
+		function UpdateLastLoginDate($idUser){
+			$sql = "UPDATE user set LastLoginDate = NOW() WHERE idUser = $idUser";
+			mysql_query($sql) or die(mysql_error());
+		}
 	}//END_db
 ?>

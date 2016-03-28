@@ -1,6 +1,6 @@
 <?php 
   require_once "checklogin.php";
-	$sr=$i->ListSearch();
+	$em=$i->ListEmailMarketing();
 ?>
 <script>
 	$(document).ready(function(e) {		
@@ -18,24 +18,24 @@
   <tr>
     <th>Thứ tự</th>
     <th>Ngày giờ</th>
-    <th>Từ khóa</th>
+    <th>Email</th>
     <th>Địa chỉ IP</th>
   </tr>
 </thead>
 <tbody>
-  <?php while($row=mysql_fetch_assoc($sr)){
+  <?php while($row=mysql_fetch_assoc($em)){
 	ob_start();  
   ?>
   <tr>
-    <td>{idSR}</td>
+    <td>{idEM}</td>
     <td>{Date}</td>
-    <td>{Keywork}</td>
+    <td>{Email}</td>
     <td>{IP}</td>
   </tr>
   <?php $str=ob_get_clean();
-	$str=str_replace("{idSR}",$row['idSR'],$str);
-	$str=str_replace("{Date}",$row['SubmitDate'],$str);
-	$str=str_replace("{Keywork}",$row['Keywork'],$str);
+	$str=str_replace("{idEM}",$row['idEM'],$str);
+	$str=str_replace("{Date}",$row['NgayThem'],$str);
+	$str=str_replace("{Email}",$row['Email'],$str);
 	$str=str_replace("{IP}",$row['IP'],$str);
 	echo $str;
   }

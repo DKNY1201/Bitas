@@ -250,6 +250,9 @@
 								elseif($p=='search_list'){
 									echo 'Từ khóa khách hàng tìm kiếm';
 								}
+								elseif($p=='email_marketing_list'){
+									echo 'Email nhan tin';
+								}
 								else{
 									echo 'Dashboard <small>statistics and more</small>';
 								}
@@ -413,6 +416,12 @@
 								elseif($p=='search_list'){
 									echo '<li>Tìm kiếm</li>';
 								}
+								elseif($p=='email_marketing_list'){
+									echo '<li>Email nhan tin</li>';
+								}
+								elseif($p=='admin_list'){
+									echo '<li>Tai khoan Admin</li>';
+								}
 								else{
 									echo '<li><a href="index2.php">Dashboard</a></li>';
 								}
@@ -515,6 +524,10 @@
 						require_once "Temp_UpdateSKUSP.php";
 					elseif($p=='search_list')
 						require_once "search_list.php";
+					elseif($p=='email_marketing_list')
+						require_once "email_marketing_list.php";
+					elseif($p=='admin_list')
+						require_once "admin_list.php";
 					else require_once "main2.php";
 				?>
 			</div>

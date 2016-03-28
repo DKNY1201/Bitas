@@ -77,10 +77,10 @@
 				<i class="icon-dashboard"></i> 
 				<span class="title">Tài khoản Admin</span>
 				<span class="arrow "></span>
-				<?php if($p=='user_list'){?><span class="selected"></span><?php } ?>
+				<?php if($p=='admin_list'){?><span class="selected"></span><?php } ?>
 			</a>
 			<ul class="sub-menu">
-				<li class="<?php if($p=='user_list'){ echo 'active';}?>"><a href="index2.php?p=user_list">Danh sách tài khoản</a></li>
+				<li class="<?php if($p=='admin_list'){ echo 'active';}?>"><a href="index2.php?p=admin_list">Danh sách tài khoản</a></li>
 			</ul>
 		</li>
 		<li class="<?php if($p=='info'){ echo 'active';}?>">
