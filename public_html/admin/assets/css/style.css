@@ -5758,3 +5758,38 @@ table#table.edit-order{
 #table.customer-comment td.action{
   min-width: 100px;
 }
+
+.warning_email {
+    height: 25px;
+    width: 280px;
+    border: 1px solid #FF6;
+    background: #FFC;
+    border-radius: 2px;
+    color: #9d0404;
+    margin: 5px 0;
+    padding: 0 10px;
+    font-size: 10px;
+    line-height: 25px;
+    font-weight: bold;
+    display: none;
+}
+
+.box_shadow {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#warning_email {
+    height: 25px;
+    width: 280px;
+    border: 1px solid #FF6;
+    background: #FFC;
+    border-radius: 5px;
+    color: #9d0404;
+    padding: 0 10px;
+    font-size: 10px;
+    line-height: 25px;
+    font-weight: bold;
+    display: none;
+    margin: 3px 0 0;
+}

@@ -253,6 +253,9 @@
 								elseif($p=='email_marketing_list'){
 									echo 'Email nhan tin';
 								}
+								elseif($p=='admin_list'){
+									echo 'Tai khoan Admin';
+								}
 								else{
 									echo 'Dashboard <small>statistics and more</small>';
 								}

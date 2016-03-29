@@ -906,12 +906,16 @@
 				$dienthoai=$_POST['dienthoai'];
 				$diachi=$_POST['diachi'];
 				$tinhthanh=$_POST['tinhthanh'];
+				$quanhuyen=$_POST['quanhuyen'];
+				$phuongxa=$_POST['phuongxa'];
 				$ngaysinh=$_POST['ngaysinh'];
-				$group=$_POST['group'];
+				$group=3;
 				//Solve Data
 				settype($gioitinh,"int");
 				settype($group,"int");
 				settype($tinhthanh,"int");
+				settype($quanhuyen,"int");
+				settype($phuongxa,"int");
 				$email=trim(strip_tags($email));
 				$pass=trim(strip_tags($pass));
 				$hoten=trim(strip_tags($hoten));
@@ -954,7 +958,7 @@
 				$pass=md5($pass);
 				if($success==true)
 				{
-					$sql="INSERT INTO user (Email,password,HoTen,DiaChi,idTinh,DienThoai,NgaySinh,NgayDangKi,GioiTinh,idGroup) VALUES ('$email','$pass','$hoten','$diachi',$tinhthanh,'$dienthoai','$ngaysinh','$ngaydangki',$gioitinh,$group)";
+					$sql="INSERT INTO user (Email,password,HoTen,DiaChi,idTinh,idQuanHuyen,idPhuong,DienThoai,NgaySinh,NgayDangKi,GioiTinh,idGroup) VALUES ('$email','$pass','$hoten','$diachi',$tinhthanh,$quanhuyen,$phuongxa,'$dienthoai','$ngaysinh','$ngaydangki',$gioitinh,$group)";
 					mysql_query($sql) or die(mysql_error());		
 				}
 				return $success;
@@ -967,12 +971,14 @@
 				$dienthoai=$_POST['dienthoai'];
 				$diachi=$_POST['diachi'];
 				$tinhthanh=$_POST['tinhthanh'];
+				$quanhuyen=$_POST['quanhuyen'];
+				$phuongxa=$_POST['phuongxa'];
 				$ngaysinh=$_POST['ngaysinh'];
-				$group=$_POST['group'];
 				//Solve Data
 				settype($gioitinh,"int");
-				settype($group,"int");
 				settype($tinhthanh,"int");
+				settype($quanhuyen,"int");
+				settype($phuongxa,"int");
 				$hoten=trim(strip_tags($hoten));
 				$dienthoai=trim(strip_tags($dienthoai));
 				$diachi=trim(strip_tags($diachi));
@@ -1005,7 +1011,7 @@
 				$ngaydangki=date("Y-m-d H:i:s");
 				if($success==true)
 				{
-					$sql="UPDATE user SET HoTen='$hoten',DiaChi='$diachi',idTinh=$tinhthanh,DienThoai='$dienthoai',NgaySinh='$ngaysinh',GioiTinh=$gioitinh,idGroup=$group WHERE idUser=$idUser";
+					$sql="UPDATE user SET HoTen='$hoten',DiaChi='$diachi',idTinh=$tinhthanh,idQuanHuyen=$quanhuyen,idPhuong=$phuongxa,DienThoai='$dienthoai',NgaySinh='$ngaysinh',GioiTinh=$gioitinh WHERE idUser=$idUser";
 					mysql_query($sql) or die(mysql_error());		
 				}
 				return $success;

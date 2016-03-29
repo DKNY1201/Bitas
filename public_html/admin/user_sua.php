@@ -9,14 +9,18 @@
 	$idTinh=$row_us['idTinh'];
 	$tt_my=$i->ChiTietTinhThanh($idTinh);
 	$row_tt_my=mysql_fetch_assoc($tt_my);
-	
-	$gr=$i->ListGroup();
+
+  $idQH=$row_us['idQuanHuyen'];
+  $qh=$i->ListQuanHuyenByTinhThanh($idTinh);
+  $idPX=$row_us['idPhuong'];
+  $px=$i->ListPhuongByQH($idQH);
+
 	$error=array();
 	if(isset($_POST['submit']))
 	{
 		$success=$i->SuaUser($error,$idUser);
 		if($success==true)
-			header("location:index.php?p=user_list");
+			header("location:index2.php?p=user_list");
 	}
 ?>
 
@@ -30,6 +34,15 @@ $(document).ready(function(e) {
 	});	 
 	//VALIDATE
 	$('#formthemuser').validationEngine();
+
+   $("#tt").change(function(e) {
+    var idTT=$(this).val();
+        $("#qh").load("../ajax_load_quanhuyen.php?idTT="+idTT);
+    });
+  $("#qh").change(function(e) {
+    var idQH=$(this).val();
+        $("#px").load("../ajax_load_phuongxa.php?idQH="+idQH);
+    });
 });
 </script>
 
@@ -48,7 +61,7 @@ $(document).ready(function(e) {
       <tr>
         <td>Tỉnh thành</td>
        	<td colspan="3">
-        	<select name="tinhthanh">
+        	<select name="tinhthanh" id="tt">
             	<?php while($row_tt=mysql_fetch_assoc($tt)){
 					$s="";
 					if($row_tt_my['idTinh']==$row_tt['idTinh'])
@@ -57,6 +70,38 @@ $(document).ready(function(e) {
                 <option value="<?php echo $row_tt['idTinh']?>" <?php echo $s?>><?php echo $row_tt['Ten']?></option>
                 <?php }?>
             </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Quan huyen</td>
+        <td colspan="3">
+          <select name="quanhuyen" id="qh" class="select_tt validate[required]">
+            <option value="">Chon quan huyen</option>
+              <?php 
+                while($row_qh=mysql_fetch_assoc($qh)) {
+                $s="";
+                if($idQH==$row_qh['idQuanHuyen'])
+                  $s="selected=selected";
+              ?>
+              <option value="<?php echo $row_qh['idQuanHuyen']?>" <?php echo $s?>><?php echo $row_qh['type']." ".$row_qh['Ten']?></option>
+             <?php }?>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Phuong xa</td>
+        <td colspan="3">
+          <select name="phuongxa" id="px" class="select_tt validate[required]">
+            <option value="">Chon phuong xa</option>
+              <?php 
+              while($row_px=mysql_fetch_assoc($px)) {
+                $s="";
+                if($idPX==$row_px['idPhuong'])
+                  $s="selected=selected";
+              ?>
+              <option value="<?php echo $row_px['idPhuong']?>" <?php echo $s?>><?php echo $row_px['type']." ".$row_px['Ten']?></option>
+              <?php }?>
+          </select>
         </td>
       </tr>
       <tr>
@@ -74,22 +119,18 @@ $(document).ready(function(e) {
       <tr>
         <td>Giới tính</td>
         <td colspan="3">
-        <input type="radio" name="gioitinh" value="0" <?php echo ($row_us['GioiTinh']==0)?"checked=checked":""?> /> Nữ
-        <input type="radio" name="gioitinh" value="1" <?php echo ($row_us['GioiTinh']==1)?"checked=checked":""?>/> Nam
-        </td>
-      </tr>
-      <tr <?php	if($_SESSION['group']!=1) { echo 'style="display: none"';}?>>
-        <td>Phân quyền</td>
-        <td colspan="3">
-        	<select name="group">
-            <?php while($row_gr=mysql_fetch_assoc($gr)){
-				$s="";
-				if($row_us['idGroup']==$row_gr['idGroup'])
-					$s='selected=selected';	
-			?>
-            	<option value="<?php echo $row_gr['idGroup']?>" <?php echo $s?>><?php echo $row_gr['Ten']?></option>
-            <?php }?>
-            </select>
+          <div class="control-group">
+            <div class="controls">
+              <label class="radio">
+              <div class="radio"><span class="checked"><input type="radio" name="gioitinh" value="0" <?php echo ($row_us['GioiTinh']==0)?"checked=checked":""?>></span></div>
+              Nữ
+              </label>
+              <label class="radio">
+              <div class="radio"><span class=""><input type="radio" name="gioitinh" value="1" <?php echo ($row_us['GioiTinh']==1)?"checked=checked":""?>></span></div>
+              Nam
+              </label>  
+            </div>
+          </div>
         </td>
       </tr>
       <tr>

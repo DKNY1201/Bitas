@@ -1,6 +1,5 @@
-<?php require_once "checklogin.php";
-	
-	$gr=$i->ListGroup();
+<?php
+  require_once "checklogin.php";
 	$error=array();
 	
 	$tt=$i->ListTinhThanh();
@@ -8,10 +7,9 @@
 	{
 		$success=$i->ThemUser($error);
 		if($success==true)
-			header("location:index.php?p=user_list");
+			header("location:index2.php?p=user_list");
 	}
 ?>
-
 <script type="text/javascript" src="../js/jquery.validationEngine-vi.js"></script>
 <script type="text/javascript" src="../js/jquery.validationEngine.js"></script>
 <script>
@@ -22,6 +20,15 @@ $(document).ready(function(e) {
 	});	 
 	//VALIDATE
 	$('#formthemuser').validationEngine();
+  //Load Quan Huyen
+  $("#tt").change(function(e) {
+    var idTT=$(this).val();
+        $("#qh").load("../ajax_load_quanhuyen.php?idTT="+idTT);
+    });
+  $("#qh").change(function(e) {
+    var idQH=$(this).val();
+        $("#px").load("../ajax_load_phuongxa.php?idQH="+idQH);
+    });
 });
 </script>
 
@@ -52,11 +59,28 @@ $(document).ready(function(e) {
       <tr>
         <td>Tỉnh thành</td>
        	<td colspan="3">
-        	<select name="tinhthanh">
+        	<select id="tt" name="tinhthanh">
+             <option value="">Chọn tinh thanh</option>
             <?php while($row_tt=mysql_fetch_assoc($tt)) {?>
             	<option value="<?php echo $row_tt['idTinh']?>"><?php echo $row_tt['Ten']?></option>
             <?php }?>
             </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Quận huyện</td>
+        <td colspan="3">
+          <select id="qh" name="quanhuyen" class="validate[required]">
+            <option value="">Chọn quận huyện</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Phường xã</td>
+        <td colspan="3">
+          <select id="px" name="phuongxa" class="validate[required]">
+            <option value="">Chọn phường xã</option>
+          </select>
         </td>
       </tr>
       <tr>
@@ -74,18 +98,18 @@ $(document).ready(function(e) {
       <tr>
         <td>Giới tính</td>
         <td colspan="3">
-        <input type="radio" name="gioitinh" value="0" checked="checked" /> Nữ
-        <input type="radio" name="gioitinh" value="1" /> Nam
-        </td>
-      </tr>
-      <tr>
-        <td>Phân quyền</td>
-        <td colspan="3">
-        	<select name="group">
-            <?php while($row_gr=mysql_fetch_assoc($gr)){?>
-            	<option value="<?php echo $row_gr['idGroup']?>"><?php echo $row_gr['Ten']?></option>
-            <?php }?>
-            </select>
+          <div class="control-group">
+            <div class="controls">
+              <label class="radio">
+              <div class="radio"><span class="checked"><input type="radio" name="gioitinh" value="0"></span></div>
+              Nữ
+              </label>
+              <label class="radio">
+              <div class="radio"><span class=""><input type="radio" name="gioitinh" value="1" checked=""></span></div>
+              Nam
+              </label>  
+            </div>
+          </div>
         </td>
       </tr>
       <tr>

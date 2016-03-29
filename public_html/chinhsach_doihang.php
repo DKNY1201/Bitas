@@ -168,7 +168,7 @@
                                 103 Nguyễn Trãi, P. An Hội, Q. Ninh Kiều, TP. Cần Thơ<br />
                                 Tel: (071) 0381.1857<br />
                                 <b>2.	Cửa hàng Nguyễn Văn Cừ</b><br />
-                                288/31 -388/33 Nguyễn Văn Cừ, p. An Hòa, Q. Ninh Kiều, Tp. Cần Thơ<br />
+                                288/31 - 288/33 Nguyễn Văn Cừ, p. An Hòa, Q. Ninh Kiều, Tp. Cần Thơ<br />
                                 Tel: (071) 0381.7754<br />
                                 <a href="http://bitas.com.vn/cat/dia-diem-doi-bao-hanh/">Xem bản đồ</a><br />
                             </td>
