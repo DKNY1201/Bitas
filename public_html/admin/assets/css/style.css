@@ -5793,3 +5793,12 @@ table#table.edit-order{
     display: none;
     margin: 3px 0 0;
 }
+
+.textarea-expand{
+  width: 350px;
+  height: 100px;
+}
+
+.input-long{
+  width: 90%;
+}

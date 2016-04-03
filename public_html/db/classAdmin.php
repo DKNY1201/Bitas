@@ -12,6 +12,10 @@
 			$fb=$_POST['fb'];
 			$youtube=$_POST['youtube'];
 			$gg=$_POST['gg'];
+			$pagetitle=$_POST['pagetitle'];
+			$pagedesc=$_POST['pagedesc'];
+			$pagekeyword=$_POST['pagekeyword'];
+
 			$companyName=trim(strip_tags($companyName));
 			$address=trim(strip_tags($address));
 			$hotline=trim(strip_tags($hotline));
@@ -21,6 +25,9 @@
 			$fb=trim(strip_tags($fb));
 			$youtube=trim(strip_tags($youtube));
 			$gg=trim(strip_tags($gg));
+			$pagetitle=trim(strip_tags($pagetitle));
+			$pagedesc=trim(strip_tags($pagedesc));
+			$pagekeyword=trim(strip_tags($pagekeyword));
 			if(get_magic_quotes_gpc()==false){
 				$companyName=mysql_real_escape_string($companyName);
 				$address=mysql_real_escape_string($address);
@@ -31,6 +38,9 @@
 				$fb=mysql_real_escape_string($fb);
 				$youtube=mysql_real_escape_string($youtube);
 				$gg=mysql_real_escape_string($gg);
+				$pagetitle=mysql_real_escape_string($pagetitle);
+				$pagedesc=mysql_real_escape_string($pagedesc);
+				$pagekeyword=mysql_real_escape_string($pagekeyword);
 			}
 			if($companyName==""){
 				$success=false;
@@ -72,8 +82,20 @@
 				$success=false;
 				$error['gg']="Google Plus không được để trống";
 			}
+			if($pagetitle==""){
+				$success=false;
+				$error['pagetitle']="Page title không được để trống";
+			}
+			if($pagedesc==""){
+				$success=false;
+				$error['pagedesc']="Page description không được để trống";
+			}
+			if($pagekeyword==""){
+				$success=false;
+				$error['pagekeyword']="Page keyword không được để trống";
+			}
 			if($success){
-				$sql="UPDATE info SET companyName='$companyName',address='$address',hotline='$hotline',phone='$phone',fax='$fax',email='$email',fb='$fb',youtube='$youtube',gg='$gg' WHERE idInfo=1";
+				$sql="UPDATE info SET companyName='$companyName',address='$address',hotline='$hotline',phone='$phone',fax='$fax',email='$email',fb='$fb',youtube='$youtube',gg='$gg',pagetitle='$pagetitle',pagedesc='$pagedesc',pagekeyword='$pagekeyword' WHERE idInfo=1";
 				mysql_query($sql) or die(mysql_error());
 			}
 			return $success;
@@ -909,7 +931,7 @@
 				$quanhuyen=$_POST['quanhuyen'];
 				$phuongxa=$_POST['phuongxa'];
 				$ngaysinh=$_POST['ngaysinh'];
-				$group=3;
+				$group=$_POST['group'] ? $_POST['group'] : 3;
 				//Solve Data
 				settype($gioitinh,"int");
 				settype($group,"int");
@@ -954,7 +976,8 @@
 					$success=false;
 					$error['ngaysinh']="Ngày sinh không hợp lệ";
 				}
-				$ngaydangki=date("Y-m-d H:i:s");
+				date_default_timezone_set('Asia/Jakarta');
+				$ngaydangki = date('Y-m-d H:i:s', time());
 				$pass=md5($pass);
 				if($success==true)
 				{
@@ -974,11 +997,13 @@
 				$quanhuyen=$_POST['quanhuyen'];
 				$phuongxa=$_POST['phuongxa'];
 				$ngaysinh=$_POST['ngaysinh'];
+				$group=$_POST['group'] ? $_POST['group'] : 3;
 				//Solve Data
 				settype($gioitinh,"int");
 				settype($tinhthanh,"int");
 				settype($quanhuyen,"int");
 				settype($phuongxa,"int");
+				settype($group,"int");
 				$hoten=trim(strip_tags($hoten));
 				$dienthoai=trim(strip_tags($dienthoai));
 				$diachi=trim(strip_tags($diachi));
@@ -1011,7 +1036,7 @@
 				$ngaydangki=date("Y-m-d H:i:s");
 				if($success==true)
 				{
-					$sql="UPDATE user SET HoTen='$hoten',DiaChi='$diachi',idTinh=$tinhthanh,idQuanHuyen=$quanhuyen,idPhuong=$phuongxa,DienThoai='$dienthoai',NgaySinh='$ngaysinh',GioiTinh=$gioitinh WHERE idUser=$idUser";
+					$sql="UPDATE user SET HoTen='$hoten',DiaChi='$diachi',idTinh=$tinhthanh,idQuanHuyen=$quanhuyen,idPhuong=$phuongxa,DienThoai='$dienthoai',NgaySinh='$ngaysinh',GioiTinh=$gioitinh,idGroup=$group WHERE idUser=$idUser";
 					mysql_query($sql) or die(mysql_error());		
 				}
 				return $success;

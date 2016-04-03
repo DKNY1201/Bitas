@@ -115,7 +115,7 @@
 <head>
 <base href="http://bitas.com.vn" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<META name="description" content="
+<meta name="description" content="
 <?php
 	// for My account page
 	if(isset($_GET['pi']))
@@ -147,10 +147,11 @@
 	if(!empty($meta)){
 		echo $meta;
 	}else{
-		echo 'Bitas.com.vn là website bán giày dép online với mức giá tốt nhất. Bao gồm: giày dép nam, giày dép nữ, giày dép trẻ em, giày dép thời trang với tiêu chí rẻ, đẹp, bền';
+		echo $row_info['pagedesc'];
 	}
 ?>
 " />
+<meta name="keywords" content="<?php echo $row_info['pagekeyword']?>">
 <?php
 	if(isset($_GET['idNSP']) || isset($_GET['idTin'])){
 		if(isset($_GET['idNSP'])){

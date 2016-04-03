@@ -72,17 +72,19 @@
 				<li class="<?php if($p=='email_marketing_list'){ echo 'active';}?>"><a href="index2.php?p=email_marketing_list">Email nhận tin</a></li>
 			</ul>
 		</li>
-		<li class="<?php if($p=='admin_list'){ echo 'active';}?>">
+		<?php if($_SESSION['group']==1){ ?>
+		<li class="<?php if($p=='admin_list' || $p=='admin_them' || $p=='admin_sua'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-dashboard"></i> 
 				<span class="title">Tài khoản Admin</span>
 				<span class="arrow "></span>
-				<?php if($p=='admin_list'){?><span class="selected"></span><?php } ?>
+				<?php if($p=='admin_list' || $p=='admin_them' || $p=='admin_sua'){?><span class="selected"></span><?php } ?>
 			</a>
 			<ul class="sub-menu">
-				<li class="<?php if($p=='admin_list'){ echo 'active';}?>"><a href="index2.php?p=admin_list">Danh sách tài khoản</a></li>
+				<li class="<?php if($p=='admin_list' || $p=='admin_them' || $p=='admin_sua'){ echo 'active';}?>"><a href="index2.php?p=admin_list">Danh sách tài khoản</a></li>
 			</ul>
 		</li>
+		<?php } ?>
 		<li class="<?php if($p=='info'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-cogs"></i> 

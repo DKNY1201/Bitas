@@ -226,10 +226,12 @@
 									echo '<li><a href=""></a></li>';
 								elseif($p=='donhang_baohanh_chitiet')
 									echo '<li><a href=""></a></li>';
-								elseif($p=='donhang_huy')
+								elseif($p=='donhang_huy'){
 									echo 'Hủy đơn hàng';
-								elseif($p=='info')
-									echo '<li><a href=""></a></li>';
+								}
+								elseif($p=='info'){
+									echo 'Thông tin chung';
+								}
 								elseif($p=='cskh_main')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='tienthuong_list')
@@ -251,10 +253,16 @@
 									echo 'Từ khóa khách hàng tìm kiếm';
 								}
 								elseif($p=='email_marketing_list'){
-									echo 'Email nhan tin';
+									echo 'Email nhận tin';
 								}
 								elseif($p=='admin_list'){
-									echo 'Tai khoan Admin';
+									echo 'Tài khoản Admin';
+								}
+								elseif($p=='admin_them'){
+									echo 'Thêm tài khoản Admin';
+								}
+								elseif($p=='admin_sua'){
+									echo 'Sửa tài khoản Admin';
 								}
 								else{
 									echo 'Dashboard <small>statistics and more</small>';
@@ -386,7 +394,7 @@
 									echo '<li>Hủy đơn hàng</li>';
 								}
 								elseif($p=='info')
-									echo '<li><a href=""></a></li>';
+									echo '<li>Thông tin chung</li>';
 								elseif($p=='cskh_main')
 									echo '<li><a href=""></a></li>';
 								elseif($p=='tienthuong_list')
@@ -420,10 +428,16 @@
 									echo '<li>Tìm kiếm</li>';
 								}
 								elseif($p=='email_marketing_list'){
-									echo '<li>Email nhan tin</li>';
+									echo '<li>Email nhận tin</li>';
 								}
 								elseif($p=='admin_list'){
-									echo '<li>Tai khoan Admin</li>';
+									echo '<li>Tài khoản Admin</li>';
+								}
+								elseif($p=='admin_them'){
+									echo '<li>Thêm tài khoản Admin</li>';
+								}
+								elseif($p=='admin_sua'){
+									echo '<li>Sửa tài khoản Admin</li>';
 								}
 								else{
 									echo '<li><a href="index2.php">Dashboard</a></li>';
@@ -531,6 +545,10 @@
 						require_once "email_marketing_list.php";
 					elseif($p=='admin_list')
 						require_once "admin_list.php";
+					elseif($p=='admin_them')
+						require_once "admin_them.php";
+					elseif($p=='admin_sua')
+						require_once "admin_sua.php";
 					else require_once "main2.php";
 				?>
 			</div>

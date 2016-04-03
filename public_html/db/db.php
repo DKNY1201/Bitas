@@ -81,14 +81,19 @@
 					}
 				}
 			}else{
-				$meta = 'Bitas.com.vn là website bán giày dép online với mức giá tốt nhất. Bao gồm: giày dép nam, giày dép nữ, giày dép trẻ em, giày dép thời trang với tiêu chí rẻ, đẹp, bền';
+				$meta = $this->detailInfo();
+				$meta_row = mysql_fetch_assoc($meta);
+				$meta = $meta_row['pagedesc'];
 			}
 			return $meta;
 		}
 		
 		function title($p,$pi,$idNSP,$idLoaispGT,$idLoaispDSG,$option,$lsp,$idTin){
-			if($p=="")
-				$title="Trang mua sắm giày dép online Bita’s | Bitas.com.vn";
+			if($p==""){
+				$title = $this->detailInfo();
+				$title_row = mysql_fetch_assoc($title);
+				$title = $title_row['pagetitle'];
+			}
 			elseif($p=='product'){
 				if($idLoaispGT!=''){
 					$loaisp=$this->LayChiTietLSPGT($idLoaispGT);

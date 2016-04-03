@@ -1,13 +1,14 @@
 <?php
-  require_once "checklogin.php";
+  require_once "checkadmin.php";
 	$error=array();
 	
+  $gr=$i->ListGroup();
 	$tt=$i->ListTinhThanh();
 	if(isset($_POST['submit']))
 	{
 		$success=$i->ThemUser($error);
 		if($success==true)
-			header("location:index2.php?p=user_list");
+			header("location:index2.php?p=admin_list");
 	}
 ?>
 <script type="text/javascript" src="../js/jquery.validationEngine-vi.js"></script>
@@ -110,6 +111,16 @@ $(document).ready(function(e) {
               </label>  
             </div>
           </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Phân quyền</td>
+        <td colspan="3">
+          <select name="group">
+            <?php while($row_gr=mysql_fetch_assoc($gr)){?>
+              <option value="<?php echo $row_gr['idGroup']?>"><?php echo $row_gr['Ten']?></option>
+            <?php }?>
+            </select>
         </td>
       </tr>
       <tr>

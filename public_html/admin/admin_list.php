@@ -1,5 +1,5 @@
 <?php 
-  require_once "checklogin.php";
+  require_once "checkadmin.php";
 	$us=$i->ListAdmin();
 ?>
 <script>
@@ -14,17 +14,17 @@
   });
 </script>
 <?php if($_SESSION['group']==1){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=admin_them"><i class="fa fa-plus"></i> Thêm tai khoan Admin</a>
+	<a class="btn-action btn-info" href="index2.php?p=admin_them"><i class="fa fa-plus"></i> Thêm tài khoản Admin</a>
 <?php }?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
   <tr>
     <th>Thứ tự</th>
-    <th>Ngay Tao</th>
-    <th>Email dang nhap</th>
-    <th>Ho Ten</th>
-    <th>Nhom nguoi dung</th>
-    <th>Dang nhap gan nhat</th>
+    <th>Ngày tạo</th>
+    <th>Email đăng nhập</th>
+    <th>Họ tên</th>
+    <th>Nhóm người dùng</th>
+    <th>Đăng nhập gần nhất</th>
     <th>Hành động</th>
   </tr>
 </thead>
@@ -41,15 +41,15 @@
     <td>{LastLoginDate}</td>
     <td width="80px">
         <?php if($_SESSION['group']==1){ ?>
-	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=admin_sua&idadmin={idUser}"></a>
-          <a onclick="return confirm('Bạn muốn xóa tai khoan admin {HoTen}?')" class="fa fa-trash" title="Xóa" href="admin_xoa.php?idadmin={idUser}"></a>
+	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=admin_sua&iduser={idUser}"></a>
+          <a onclick="return confirm('Bạn muốn xóa tài khoản admin {HoTen}?')" class="fa fa-trash" title="Xóa" href="admin_xoa.php?idadmin={idUser}"></a>
         <?php } ?>
     </td>
   </tr>
   <?php 
     $str=ob_get_clean();
     $ngaydangki = date("d-m-Y H:i:s",strtotime($row_us['NgayDangKi']));
-    $lastlogindate = $row_us['LastLoginDate']!='0000-00-00 00:00:00' ? date("d-m-Y H:i:s",strtotime($row_us['LastLoginDate'])) : "Chua dang nhap";
+    $lastlogindate = is_null($row_us['LastLoginDate']) ? "Chưa đăng nhập" : date("d-m-Y H:i:s",strtotime($row_us['LastLoginDate']));
   	$str=str_replace("{idUser}",$row_us['idUser'],$str);
   	$str=str_replace("{Email}",$row_us['Email'],$str);
   	$str=str_replace("{HoTen}",$row_us['HoTen'],$str);

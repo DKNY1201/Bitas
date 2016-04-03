@@ -5,5 +5,5 @@
 	if(isset($_GET['idadmin']))
 		$idadmin=$_GET['idadmin'];
 	$i->XoaUser($idadmin);
-	header("location:index.php?p=admin_list");
+	header("location:index2.php?p=admin_list");
 ?>
