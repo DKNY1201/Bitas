@@ -22,7 +22,7 @@
     });
 </script>
 <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=color_them"><i class="fa fa-plus"></i> Thêm màu</a>
+	<a class="btn-action btn-info" href="index.php?p=color_them"><i class="fa fa-plus"></i> Thêm màu</a>
 <?php } ?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -43,7 +43,7 @@
     <td>{Ten_vn}</td>    
     <td>
     	<?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=color_sua&idcl={idCL}"></a>
+    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=color_sua&idcl={idCL}"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){ ?>
         	<a onclick="return confirm('Bạn muốn xóa màu {MaMau}?')" class="fa fa-trash" title="Xóa" href="color_xoa.php?idcl={idCL}"></a>

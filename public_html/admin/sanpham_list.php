@@ -21,7 +21,7 @@
     });
 </script>
 <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=sanpham_themnhieu_sosp"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
+	<a class="btn-action btn-info" href="index.php?p=sanpham_themnhieu_sosp"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
 <?php } ?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -45,14 +45,14 @@
     <td>{idSP}</td>
     <td>{AnHien}</td>
     <td>{SKU}</td>
-    <td><a href="index2.php?p=sanpham_sua&idsp={idSP}">{Ten}</a></td>
+    <td><a href="index.php?p=sanpham_sua&idsp={idSP}">{Ten}</a></td>
     <td>{Mau}</td>
     <td>{Size}</td>
     <td>{Gia_vn}</td>
     <td>{GiaChuaGiam_vn}</td>
     <td class="action">
     	<?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=sanpham_sua&idsp={idSP}"></a>
+    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=sanpham_sua&idsp={idSP}"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){ ?>
         	<a onclick="return confirm('Bạn muốn xóa sản phẩm {Ten}?')" class="fa fa-trash" title="Xóa" href="sanpham_xoa.php?idsp={idSP}"></a>

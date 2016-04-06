@@ -20,7 +20,7 @@
 	{
 		$success=$i->SuaUser($error,$idUser);
 		if($success==true)
-			header("location:index2.php?p=user_list");
+			header("location:index.php?p=user_list");
 	}
 ?>
 

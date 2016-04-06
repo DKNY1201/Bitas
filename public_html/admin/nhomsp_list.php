@@ -79,7 +79,7 @@
     });
 </script>
 <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-<a class="btn-action btn-info" href="index2.php?p=nhomsp_them"><i class="fa fa-plus"></i> Thêm nhóm sản phẩm</a>
+<a class="btn-action btn-info" href="index.php?p=nhomsp_them"><i class="fa fa-plus"></i> Thêm nhóm sản phẩm</a>
 <?php } ?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -112,7 +112,7 @@
     </td>
     <td>{SKU}</td>
     <td>{Hinh}</td>
-    <td><a class="action" href="index2.php?p=sanpham_list&idNSP={idNSP}">{Ten}</a></td>
+    <td><a class="action" href="index.php?p=sanpham_list&idNSP={idNSP}">{Ten}</a></td>
     <td>{Mau}</td>
     <td>{LoaiSP}</td>   
     <td>
@@ -121,9 +121,9 @@
 		<?php if($n>=1){?>
         	<a class="fa fa-chain-broken" onclick="return confirm('Bạn muốn hình ảnh zoom của sản phẩm {Ten}?')" href="nhomsp_xoahinhzoom.php?idNSP={idNSP}" title="Xóa ảnh zoom"></a>
 		<?php } else {?>
-        	<a class="fa fa-picture-o" href="index2.php?p=nhomsp_themhinhzoom&idNSP={idNSP}" title="Thêm ảnh zoom"></a>
+        	<a class="fa fa-picture-o" href="index.php?p=nhomsp_themhinhzoom&idNSP={idNSP}" title="Thêm ảnh zoom"></a>
 		<?php }?>
-	        <a class="fa fa-pencil-square-o" href="index2.php?p=nhomsp_sua&idnsp={idNSP}" title="Chỉnh sửa"></a>
+	        <a class="fa fa-pencil-square-o" href="index.php?p=nhomsp_sua&idnsp={idNSP}" title="Chỉnh sửa"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){?>
 	        <a onclick="return confirm('Bạn muốn xóa nhóm sản phẩm {Ten}?')" class="fa fa-trash" href="nhomsp_xoa.php?idnsp={idNSP}" title="Xóa"></a>

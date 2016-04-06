@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	require_once "../db/classAdmin.php";
+	$i=new admin;
+	$i->WriteLog($_SESSION['id'],"Đăng xuất");
 	unset($_SESSION['id']);
 	unset($_SESSION['email']);
 	unset($_SESSION['group']);

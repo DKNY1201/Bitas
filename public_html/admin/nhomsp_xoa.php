@@ -5,5 +5,5 @@
 	if(isset($_GET['idnsp']))
 		$idnsp=$_GET['idnsp'];
 	$i->XoaNhomSP($idnsp);
-	header("location:index2.php?p=nhomsp_list");
+	header("location:index.php?p=nhomsp_list");
 ?>

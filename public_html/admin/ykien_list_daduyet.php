@@ -9,7 +9,7 @@
 		{
 			$i->BoDuyetYKien($listyk_arr[$j]);
 		}
-		header("location:index2.php?p=ykien_list_daduyet");
+		header("location:index.php?p=ykien_list_daduyet");
 	}
 		
 ?>

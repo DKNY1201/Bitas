@@ -5,5 +5,5 @@
 	if(isset($_GET['iduser']))
 		$iduser=$_GET['iduser'];
 	$i->XoaUser($iduser);
-	header("location:index2.php?p=user_list");
+	header("location:index.php?p=user_list");
 ?>

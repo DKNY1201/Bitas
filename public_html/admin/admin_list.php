@@ -14,7 +14,7 @@
   });
 </script>
 <?php if($_SESSION['group']==1){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=admin_them"><i class="fa fa-plus"></i> Thêm tài khoản Admin</a>
+	<a class="btn-action btn-info" href="index.php?p=admin_them"><i class="fa fa-plus"></i> Thêm tài khoản Admin</a>
 <?php }?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -41,7 +41,7 @@
     <td>{LastLoginDate}</td>
     <td width="80px">
         <?php if($_SESSION['group']==1){ ?>
-	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=admin_sua&iduser={idUser}"></a>
+	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=admin_sua&iduser={idUser}"></a>
           <a onclick="return confirm('Bạn muốn xóa tài khoản admin {HoTen}?')" class="fa fa-trash" title="Xóa" href="admin_xoa.php?idadmin={idUser}"></a>
         <?php } ?>
     </td>

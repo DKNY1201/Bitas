@@ -50,7 +50,7 @@
     <td>{KhuyenMai}%</td>
     <td>{ThanhTien} VNĐ</td>
     <td>
-    	<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=donhang_chinhsua_edit&idDHCT={idDHCT}"></a>
+    	<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=donhang_chinhsua_edit&idDHCT={idDHCT}"></a>
         <a onclick="return confirm('Bạn muốn xóa màu {SP}?')" class="fa fa-trash" title="Xóa" href="donhang_chinhsua_del.php?idDHCT={idDHCT}"></a>
     </td>
   </tr>
@@ -81,4 +81,4 @@
   ?>
 </tbody>
 </table>
-<a href="index2.php?p=donhang_chinhsua_add&idDH=<?php echo $idDH; ?>" class="btn-action btn-info"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
+<a href="index.php?p=donhang_chinhsua_add&idDH=<?php echo $idDH; ?>" class="btn-action btn-info"><i class="fa fa-plus"></i> Thêm sản phẩm</a>

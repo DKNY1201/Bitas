@@ -32,12 +32,13 @@
     <td>{Email}</td>
     <td>{IP}</td>
   </tr>
-  <?php $str=ob_get_clean();
-	$str=str_replace("{idEM}",$row['idEM'],$str);
-	$str=str_replace("{Date}",$row['NgayThem'],$str);
-	$str=str_replace("{Email}",$row['Email'],$str);
-	$str=str_replace("{IP}",$row['IP'],$str);
-	echo $str;
+  <?php 
+    $str=ob_get_clean();
+  	$str=str_replace("{idEM}",$row['idEM'],$str);
+  	$str=str_replace("{Date}",date("d-m-Y H:i:s",strtotime($row['NgayThem'])),$str);
+  	$str=str_replace("{Email}",$row['Email'],$str);
+  	$str=str_replace("{IP}",$row['IP'],$str);
+  	echo $str;
   }
   ?>
 </tbody>

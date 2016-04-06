@@ -1,6 +1,6 @@
 <?php 
   require_once "checklogin.php";
-	$sr=$i->ListSearch();
+	$log=$i->ListLog();
 ?>
 <script>
 	$(document).ready(function(e) {		
@@ -18,27 +18,30 @@
   <tr>
     <th>Thứ tự</th>
     <th>Ngày giờ</th>
-    <th>Từ khóa</th>
-    <th>Địa chỉ IP</th>
+    <th>Người thực hiện</th>
+    <th>Nội dung</th>
   </tr>
 </thead>
 <tbody>
-  <?php while($row=mysql_fetch_assoc($sr)){
+  <?php while($row_log=mysql_fetch_assoc($log)){
 	ob_start();  
   ?>
   <tr>
-    <td>{idSR}</td>
+    <td>{idLog}</td>
     <td>{Date}</td>
-    <td>{Keywork}</td>
-    <td>{IP}</td>
+    <td>{User}</td>
+    <td>{Content}</td>
   </tr>
-  <?php 
+  <?php
     $str=ob_get_clean();
+    $idUser = $row_log['idUser'];
+    $user = $i->ChiTietUser($idUser);
+    $row_user = mysql_fetch_assoc($user);
 
-  	$str=str_replace("{idSR}",$row['idSR'],$str);
-  	$str=str_replace("{Date}",date("d-m-Y H:i:s",strtotime($row['SubmitDate'])),$str);
-  	$str=str_replace("{Keywork}",$row['Keywork'],$str);
-  	$str=str_replace("{IP}",$row['IP'],$str);
+  	$str=str_replace("{idLog}",$row_log['idLog'],$str);
+  	$str=str_replace("{Date}",date("d-m-Y H:i:s",strtotime($row_log['LogDate'])),$str);
+  	$str=str_replace("{User}",$row_user['HoTen'],$str);
+  	$str=str_replace("{Content}",$row_log['Content'],$str);
   	echo $str;
   }
   ?>

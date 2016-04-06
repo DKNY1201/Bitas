@@ -14,7 +14,7 @@
   });
 </script>
 <?php if($_SESSION['group']==1){ ?>
-	<a class="btn-action btn-info" href="index2.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
+	<a class="btn-action btn-info" href="index.php?p=user_them"><i class="fa fa-plus"></i> Thêm người dùng</a>
 <?php }?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
@@ -46,9 +46,9 @@
     <td>{TinhThanh}</td>
     <td>{QuanHuyen}</td>
     <td width="80px">
-    	<a class="fa fa-history" title="Lịch sử mua hàng" href="index2.php?p=user_lichsu&idUser={idUser}"></a>
+    	<a class="fa fa-history" title="Lịch sử mua hàng" href="index.php?p=user_lichsu&idUser={idUser}"></a>
         <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index2.php?p=user_sua&iduser={idUser}"></a>
+	        <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=user_sua&iduser={idUser}"></a>
         <?php } ?>
         <?php if($_SESSION['group']==1){ ?>
         <a onclick="return confirm('Bạn muốn xóa người dùng {HoTen}?')" class="fa fa-trash" title="Xóa" href="user_xoa.php?iduser={idUser}"></a>

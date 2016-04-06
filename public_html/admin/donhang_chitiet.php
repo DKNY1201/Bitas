@@ -443,7 +443,7 @@
 			    <?php
 					if($_SESSION['group']==1 || $_SESSION['group']==8){
 				?>
-			    <a class="btn blue" href="index2.php?p=donhang_chinhsua&idDH=<?php echo $row_dh['idDH']?>">Chỉnh sửa đơn hàng</a>
+			    <a class="btn blue" href="index.php?p=donhang_chinhsua&idDH=<?php echo $row_dh['idDH']?>">Chỉnh sửa đơn hàng</a>
 			    <?php }?>
 			</div>
 			<div class="huydonhang">

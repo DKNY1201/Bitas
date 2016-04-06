@@ -9,7 +9,7 @@
 		{
 			$i->BoDuyetYKien($listyk_arr[$j]);
 		}
-		header("location:index2.php?p=ykien_list_daduyet");
+		header("location:index.php?p=ykien_list_daduyet");
 	}
 		
 ?>
@@ -86,7 +86,7 @@
     <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
       <a idyk="{idYK}" class="fa approve <?php echo $row_yk['Duyet']==1 ? 'fa-ban' : 'fa-check' ?>" title="<?php echo $row_yk['Duyet']==1 ? 'Bỏ duyệt' : 'Duyệt' ?>"></a>
       <?php if($_SESSION['group']==1){?>
-    	<a class="fa fa-comment" title="Trả lời ý kiến" href="index2.php?p=ykien_traloi&idyk={idYK}"></a>
+    	<a class="fa fa-comment" title="Trả lời ý kiến" href="index.php?p=ykien_traloi&idyk={idYK}"></a>
     	<a onclick="return confirm('Bạn muốn xóa ý kiến của khách hàng {TenKH}?')" class="fa fa-trash" title="Xóa ý kiến" href="ykien_xoa.php?idyk={idYK}"></a>
       <?php }?>
     <?php } ?>
@@ -98,7 +98,7 @@
 	$str=str_replace("{Email}","<a class='action' href='mailto:$row_yk[Email]'>$row_yk[Email]</a>",$str);
 	$str=str_replace("{IP}",$row_yk['IP'],$str);
 	$str=str_replace("{Agent}",$row_yk['Agent'],$str);
-	$str=str_replace("{Ngay}",date("d/m/Y H:i:s",strtotime($row_yk['NgayYK'])),$str);
+	$str=str_replace("{Ngay}",date("d-m-Y H:i:s",strtotime($row_yk['NgayYK'])),$str);
 	$str=str_replace("{NoiDung}",$row_yk['NoiDung'],$str);
 	$str=str_replace("{idNSP}",$row_nsp_m['idNSP'],$str);
 	$str=str_replace("{TraLoi}",$row_yk['TraLoi'],$str);

@@ -6,7 +6,7 @@
 	{
 		$success=$i->updateInfo($error);
 		if($success==true)
-			header("location:index2.php?p=info");
+			header("location:index.php?p=info");
 	}
 ?>
 <script>

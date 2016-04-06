@@ -7,7 +7,7 @@
 	{
 		$success=$i->ThemUser($error);
 		if($success==true)
-			header("location:index2.php?p=user_list");
+			header("location:index.php?p=user_list");
 	}
 ?>
 <script type="text/javascript" src="../js/jquery.validationEngine-vi.js"></script>

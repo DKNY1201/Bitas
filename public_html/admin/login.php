@@ -34,6 +34,7 @@ if (isset($_POST['submit'])==true){
 		$_SESSION['ngaysinh'] = $row_user['NgaySinh'];
 
 		$i->UpdateLastLoginDate($row_user['idUser']);
+		$i->WriteLog($row_user['idUser'],"Đăng nhập");
 
 		if (strlen($_SESSION['back'])>0){
 			if($row_user['idGroup']==6)

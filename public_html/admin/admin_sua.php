@@ -22,7 +22,7 @@
 	{
 		$success=$i->SuaUser($error,$idUser);
 		if($success==true)
-			header("location:index2.php?p=admin_list");
+			header("location:index.php?p=admin_list");
 	}
 ?>
 

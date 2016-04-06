@@ -1560,6 +1560,7 @@
 			$sql="INSERT INTO tintuc (TieuDe, ogTitle, ogDesc, ogImg, TieuDe_KhongDau, TomTat, NoiDung, Hinh, NgayDang, NgayCapNhat, idLT, idUser, SoLanXem, ThuTu, AnHien) VALUES ('$tieude', '$og_title', '$og_desc', '$og_img', '$tieude_khongdau', '$tomtat', '$noidung', '$hinh', '$ngaydang', '$ngaycapnhat', $loaitin, $iduser, 0, $thutu, $anhien)";
 			//echo $sql; exit();
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Thêm tin tức có tiêu đề \"" . $tieude . "\"");
 		}
 		function ChiTietTin($idtin){
 			$sql="SELECT * FROM tintuc WHERE idTin=$idtin";
@@ -1603,11 +1604,13 @@
 			//update data
 			$sql="UPDATE tintuc SET TieuDe='$tieude',ogTitle='$og_title',ogDesc='$og_desc',ogImg='$og_img',TieuDe_KhongDau='$tieude_khongdau',TomTat='$tomtat',NoiDung='$noidung',Hinh='$hinh',NgayCapNhat='$ngaycapnhat',idLT=$loaitin,ThuTu=$thutu,AnHien=$anhien WHERE idTin=$idtin";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Sửa tin tức có id \"" . $idtin . "\"");
 		}
 		function XoaTin($idtin){
 			settype($idtin,"int");
 			$sql="DELETE FROM tintuc WHERE idTin=$idtin";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Xóa tin tức có id \"" . $idtin . "\"");
 		}
 //====== KHUYEN MAI =====//
 		function ListKhuyenMai(){
@@ -1887,6 +1890,17 @@
 			$sql = "SELECT * FROM search_result ORDER BY idSR DESC";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
-		}	
+		}
+
+		function WriteLog($idUser,$content){
+			$sql = "INSERT INTO log (LogDate,idUser,Content) VALUES (NOW(),$idUser,'$content')";
+			mysql_query($sql) or die(mysql_error());
+		}
+
+		function ListLog(){
+			$sql = "SELECT * FROM log ORDER BY idLog DESC";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
 	}
 ?>
