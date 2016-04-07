@@ -21,16 +21,12 @@
     );
     });
 </script>
-<?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-	<a class="btn-action btn-info" href="index.php?p=color_them"><i class="fa fa-plus"></i> Thêm màu</a>
-<?php } ?>
 <table id="table" class="display" width="100%" cellspacing="0" cellpadding="4">
 <thead>
   <tr>
     <th>Thứ tự</th>
     <th>Mã màu</th>
     <th>Tên màu</th>
-    <th>Hành động</th>
   </tr>
 </thead>
 <tbody>
@@ -41,14 +37,6 @@
     <td>{idCL}</td>
     <td>{MaMau}</td>
     <td>{Ten_vn}</td>    
-    <td>
-    	<?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
-    		<a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=color_sua&idcl={idCL}"></a>
-        <?php } ?>
-        <?php if($_SESSION['group']==1){ ?>
-        	<a onclick="return confirm('Bạn muốn xóa màu {MaMau}?')" class="fa fa-trash" title="Xóa" href="color_xoa.php?idcl={idCL}"></a>
-        <?php } ?>
-    </td>
   </tr>
   <?php $str=ob_get_clean();
 	$str=str_replace("{idCL}",$row_cl['idMau'],$str);
