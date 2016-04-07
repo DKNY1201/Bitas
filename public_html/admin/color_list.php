@@ -14,9 +14,9 @@
 	  $('#table').dataTable(
     {
       "sPaginationType": "full_numbers",
-      "iDisplayLength": 25,
+      "iDisplayLength": -1,
       "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
-      "aaSorting" : [[0, 'desc']],
+      "aaSorting" : [[0, 'asc']],
     }
     );
     });
@@ -30,19 +30,21 @@
   </tr>
 </thead>
 <tbody>
-  <?php while($row_cl=mysql_fetch_assoc($cl)){
+  <?php
+    $i=1;
+    while($row_cl=mysql_fetch_assoc($cl)){
 	ob_start();
   ?>
   <tr>
-    <td>{idCL}</td>
+    <td><?php echo $i ?></td>
     <td>{MaMau}</td>
     <td>{Ten_vn}</td>    
   </tr>
   <?php $str=ob_get_clean();
-	$str=str_replace("{idCL}",$row_cl['idMau'],$str);
 	$str=str_replace("{MaMau}",$row_cl['MaMau'],$str);
 	$str=str_replace("{Ten_vn}",$row_cl['Ten_vn'],$str);	
 	echo $str;
+  $i++;
   }
   ?>
 </tbody>
