@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once "../db/classAdmin.php";
 	$i=new admin;
 	if(!empty($_POST['idNSP'])){

@@ -146,7 +146,7 @@ function ShowThumbnails( fileUrl, data ){
         <td colspan="3">
         	<input type="text" name="ogimg" id="ogimg" class="txt" value="<?php echo $row_nsp['ogImg']?>" />
         	<label>
-            <input onclick="BrowseServer('Images:/','ogimg')" type="button" name="btnChonFile" id="btnChonFile" value="Chọn file" class="btn" />
+            <input onclick="BrowseServer('Images:/','ogimg')" type="button" name="btnChonFile" id="btnChonFile" value="Chọn file" class="btn green" />
             </label>
         </td>
       </tr>      
@@ -246,7 +246,7 @@ function ShowThumbnails( fileUrl, data ){
         <td colspan="3">
         	<input type="text" name="hinh" id="hinh" class="txt validate[required]" value="<?php echo $row_nsp['Hinh']?>" />
             <label>
-            <input onclick="BrowseServer('Images:/','hinh')" type="button" name="btnChonFile" id="btnChonFile" value="Chọn file" class="btn" />
+            <input onclick="BrowseServer('Images:/','hinh')" type="button" name="btnChonFile" id="btnChonFile" value="Chọn file" class="btn green" />
             </label>
             <div id="preview">
                <div id="thumbnails"></div>
@@ -274,7 +274,7 @@ function ShowThumbnails( fileUrl, data ){
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="3"><input type="submit" name="submit" value="Sửa" class="btn" /></td>
+        <td colspan="3"><input type="submit" name="submit" value="Sửa" class="btn blue" /></td>
       </tr>
     </table>
 </form>

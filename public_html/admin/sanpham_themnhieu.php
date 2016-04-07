@@ -64,6 +64,6 @@
     </table>
 <?php }?>
 <div class="submit">
-	<input type="submit" name="submit" value="Thêm" class="btn" />
+	<input type="submit" name="submit" value="Thêm" class="btn blue" style="margin-top: 10px;" />
 </div>
 </form>

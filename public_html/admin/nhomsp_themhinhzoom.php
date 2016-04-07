@@ -47,25 +47,25 @@ function ShowThumbnails( fileUrl, data ){
         <td>
         <input type="text" name="lg-<?php echo $j?>" id="lg-<?php echo $j?>" class="txt" style="width:175px;" />
             <label>
-            <input onclick="BrowseServer('Images:/','lg-<?php echo $j?>')" type="button" name="lg-<?php echo $j?>" id="lg-<?php echo $j?>" value="Chọn file" class="btn" />
+            <input onclick="BrowseServer('Images:/','lg-<?php echo $j?>')" type="button" name="lg-<?php echo $j?>" id="lg-<?php echo $j?>" value="Chọn file" class="btn green" />
             </label>
         </td>
         <td>
         <input type="text" name="sm-<?php echo $j?>" id="sm-<?php echo $j?>" class="txt" style="width:175px;"/>
             <label>
-            <input onclick="BrowseServer('Images:/','sm-<?php echo $j?>')" type="button" name="sm-<?php echo $j?>" id="sm-<?php echo $j?>" value="Chọn file" class="btn" />
+            <input onclick="BrowseServer('Images:/','sm-<?php echo $j?>')" type="button" name="sm-<?php echo $j?>" id="sm-<?php echo $j?>" value="Chọn file" class="btn green" />
             </label>
         </td>
         <td>
         <input type="text" name="th-<?php echo $j?>" id="th-<?php echo $j?>" class="txt" style="width:175px;"/>
             <label>
-            <input onclick="BrowseServer('Images:/','th-<?php echo $j?>')" type="button" name="th-<?php echo $j?>" id="th-<?php echo $j?>" value="Chọn file" class="btn" />
+            <input onclick="BrowseServer('Images:/','th-<?php echo $j?>')" type="button" name="th-<?php echo $j?>" id="th-<?php echo $j?>" value="Chọn file" class="btn green" />
             </label>
         </td>
       </tr>
       <?php }?>
       <tr>
-        <td colspan="4"><input type="submit" name="submit" value="Thêm hình" class="btn" /></td>
+        <td colspan="4"><input type="submit" name="submit" value="Thêm hình" class="btn blue" /></td>
       </tr>
     </table>
 </form>

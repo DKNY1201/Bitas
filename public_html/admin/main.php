@@ -61,7 +61,7 @@
 						Ý kiến chưa duyệt
 					</div>
 				</div>
-				<a class="more" href="index.php?p=ykien_list_chuaduyet">
+				<a class="more" href="index.php?p=ykien_list">
 				Xem thêm <i class="m-icon-swapright m-icon-white"></i>
 				</a>                 
 			</div>

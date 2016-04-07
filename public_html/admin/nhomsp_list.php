@@ -116,7 +116,7 @@
     <td>{Mau}</td>
     <td>{LoaiSP}</td>   
     <td>
-    	<a href="http://bitas.com.vn/<?php echo $i->changeTitle($row_sp['Ten']) . '-' . $row_sp['idNSP']?>/" class="preview btn" target="_blank">Xem trước</a>
+    	<a href="http://bitas.com.vn/<?php echo $i->changeTitle($row_sp['Ten']) . '-' . $row_sp['idNSP']?>/" class="preview btn green" target="_blank">Xem trước</a>
         <?php if($_SESSION['group']==1 || $_SESSION['group']==8){ ?>
 		<?php if($n>=1){?>
         	<a class="fa fa-chain-broken" onclick="return confirm('Bạn muốn hình ảnh zoom của sản phẩm {Ten}?')" href="nhomsp_xoahinhzoom.php?idNSP={idNSP}" title="Xóa ảnh zoom"></a>

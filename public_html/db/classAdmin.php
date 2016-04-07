@@ -1169,6 +1169,8 @@
 			//Insert Data
 			$sql="INSERT INTO nhomsp (Ten,SKU,ogTitle,ogDesc,ogImg,MoTa_vn,MoTa_en,NgayTao,NgayCapNhat,follow,idBST,represent,New,Discount,idMau,Size1,Gia1_vn,Gia2_vn,Gia3_vn,GiaChuaGiam1_vn,GiaChuaGiam2_vn,GiaChuaGiam3_vn,Hinh,SoLanXem,idlspdsg,NguoiTao,ThuTu) VALUES ('$ten','$sku','$og_title','$og_desc','$og_img','$mota_vn','$mota_en','$ngaytao','$ngaycapnhat',$follow,$bst,$daidien,$moi,$giamgia,$mau,'$size1','$gia1_vn','$gia2_vn','$gia3_vn','$giachuagiam1_vn','$giachuagiam2_vn','$giachuagiam3_vn','$hinh',0,$loaisp,$nguoitao,$thutu)";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Thêm nhóm sản phẩm (ID: " . mysql_insert_id() . ", Tên: " . $ten . ")");
+
 			if($follow==0)
 			{
 				$follow=mysql_insert_id();
@@ -1261,6 +1263,7 @@
 			//Update Data
 			$sql="UPDATE nhomsp SET Ten='$ten', SKU='$sku', ogTitle='$og_title', ogDesc='$og_desc', ogImg='$og_img', MoTa_vn='$mota_vn', MoTa_en='$mota_en', NgayCapNhat='$ngaycapnhat', follow=$follow,idBST=$bst, represent=$daidien, New=$moi, Discount=$giamgia, idMau=$mau, Size1='$size1', Size2='$size2', Size3='$size3', Gia1_vn='$gia1_vn', Gia2_vn='$gia2_vn', Gia3_vn='$gia3_vn', GiaChuaGiam1_vn='$giachuagiam1_vn', GiaChuaGiam2_vn='$giachuagiam2_vn', GiaChuaGiam3_vn='$giachuagiam3_vn', Hinh='$hinh', idlspdsg=$loaisp, ThuTu=$thutu WHERE idNSP=$idnsp";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Sửa nhóm sản phẩm (ID: " . $idnsp . ", Tên: " . $ten . ")");
 		}
 		function XoaNhomSP($idnsp){
 			settype($idnsp,"int");
@@ -1270,6 +1273,7 @@
 			mysql_query($sql) or die(mysql_error());
 			$sql="DELETE FROM nhomsp WHERE idNSP=$idnsp";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Xóa nhóm sản phẩm (ID: " . $idnsp . ")");
 		}	
 		function ListNhomSPFollow(){
 			$sql="SELECT idNSP,Ten FROM nhomsp WHERE represent=1 ORDER BY idNSP DESC";
@@ -1367,10 +1371,12 @@
 				$sql="INSERT INTO hinh (urlHL,urlHS,urlHT,idNSP) VALUES ('$lg6','$sm6','$th6',$idNSP)";
 				mysql_query($sql) or die(mysql_error());
 			}
+			$this->WriteLog($_SESSION['id'],"Thêm hình zoom cho nhóm sản phẩm (ID: " . $idNSP . ")");
 		}
 		function XoaHinhZoom($idnsp){
 			$sql="DELETE FROM hinh WHERE idNSP=$idnsp";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Xóa hình zoom của nhóm sản phẩm (ID: " . $idnsp . ")");
 		}
 //====== SAN PHAM =====//
 		function ListSanPham(){
@@ -1443,6 +1449,7 @@
 				//insert data
 				$sql="INSERT INTO sanpham (Ten,NgayTao,NgayCapNhat,Gia_vn,GiaChuaGiam_vn,Size,SoLanMua,idNSP,ThuTu,AnHien) VALUES ('$ten','$ngaytao','$ngaycapnhat',$gia_vn,$gia_chua_giam_vn,$size,0,$nsp,$thutu,$anhien)";
 				mysql_query($sql) or die(mysql_error());
+				$this->WriteLog($_SESSION['id'],"Thêm sản phẩm (ID: " . mysql_insert_id() . ", Tên: " . $ten . ")");
 			}
 		}
 		function SuaSanPham($idsp){
@@ -1472,6 +1479,7 @@
 			//update data
 			$sql="UPDATE sanpham SET Ten='$ten',NgayCapNhat='$ngaycapnhat',Gia_vn=$gia_vn,GiaChuaGiam_vn=$giachuagiam_vn,Size=$size,idNSP=$nsp,ThuTu=$thutu,AnHien=$anhien WHERE idSP=$idsp";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Sửa sản phẩm (ID: " . $idsp . ", Tên: " . $ten . ")");
 		}
 		function ChiTietSP($idsp){
 			$sql="SELECT * FROM sanpham WHERE idSP=$idsp";
@@ -1482,6 +1490,7 @@
 			settype($idsp,"int");
 			$sql="DELETE FROM sanpham WHERE idSP=$idsp";
 			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Xóa sản phẩm (ID: " . $idsp . ")");
 		}
 		function ProductCount(){
 			$sql="SELECT idSP FROM sanpham";
@@ -1560,7 +1569,7 @@
 			$sql="INSERT INTO tintuc (TieuDe, ogTitle, ogDesc, ogImg, TieuDe_KhongDau, TomTat, NoiDung, Hinh, NgayDang, NgayCapNhat, idLT, idUser, SoLanXem, ThuTu, AnHien) VALUES ('$tieude', '$og_title', '$og_desc', '$og_img', '$tieude_khongdau', '$tomtat', '$noidung', '$hinh', '$ngaydang', '$ngaycapnhat', $loaitin, $iduser, 0, $thutu, $anhien)";
 			//echo $sql; exit();
 			mysql_query($sql) or die(mysql_error());
-			$this->WriteLog($_SESSION['id'],"Thêm tin tức có tiêu đề \"" . $tieude . "\"");
+			$this->WriteLog($_SESSION['id'],"Thêm tin tức (ID: " . mysql_insert_id() . ", Tiêu đề: " . $tieude . ")");
 		}
 		function ChiTietTin($idtin){
 			$sql="SELECT * FROM tintuc WHERE idTin=$idtin";
@@ -1604,13 +1613,13 @@
 			//update data
 			$sql="UPDATE tintuc SET TieuDe='$tieude',ogTitle='$og_title',ogDesc='$og_desc',ogImg='$og_img',TieuDe_KhongDau='$tieude_khongdau',TomTat='$tomtat',NoiDung='$noidung',Hinh='$hinh',NgayCapNhat='$ngaycapnhat',idLT=$loaitin,ThuTu=$thutu,AnHien=$anhien WHERE idTin=$idtin";
 			mysql_query($sql) or die(mysql_error());
-			$this->WriteLog($_SESSION['id'],"Sửa tin tức có id \"" . $idtin . "\"");
+			$this->WriteLog($_SESSION['id'],"Sửa tin tức (ID: " . $idtin . ", Tiêu đề: " . $tieude . ")");
 		}
 		function XoaTin($idtin){
 			settype($idtin,"int");
 			$sql="DELETE FROM tintuc WHERE idTin=$idtin";
 			mysql_query($sql) or die(mysql_error());
-			$this->WriteLog($_SESSION['id'],"Xóa tin tức có id \"" . $idtin . "\"");
+			$this->WriteLog($_SESSION['id'],"Xóa tin tức (ID: " . $idtin . ")");
 		}
 //====== KHUYEN MAI =====//
 		function ListKhuyenMai(){
@@ -1851,6 +1860,16 @@
 			mysql_query($sql) or die(mysql_error());
 			$sql = "UPDATE sanpham SET LyDoAn = '$text' WHERE idNSP = $idNSP";
 			if(mysql_query($sql)){
+				$sql = "SELECT AnHien FROM nhomsp WHERE idNSP = $idNSP";
+				$re = mysql_query($sql) or die(mysql_error());
+				$row = mysql_fetch_assoc($re);
+				$anhien = $row['AnHien'];
+				if($anhien){
+					$content = "Hiện nhóm sản phẩm (ID: " . $idNSP . ")";
+				}else{
+					$content = "Ẩn nhóm sản phẩm (ID: " . $idNSP . ", Lý do: " . $text . ")";
+				}
+				$this->WriteLog($_SESSION['id'],$content);
 				return 1;
 			}else{
 				return 0;
