@@ -390,6 +390,18 @@
 								if($pro_code=='832016'){
 									echo '<strong>(Bạn được giảm 10% cho sản phẩm "Nam" và "Bé trai", 20% cho sản phẩm "Nữ" và "Bé gái" <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';
 								}
+								if($pro_code=='30042016'){
+									if($tongtien_khongtinhhanggiamgia >= 500000){
+										echo '<strong>(Bạn được giảm 25% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}
+									elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+										echo '<strong>(Bạn được giảm 20% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+										echo '<strong>(Bạn được giảm 15% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}else{
+										echo '<strong>(Mua trên 150,000 VNĐ để được giảm giá <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+									}
+								}
 							}
                         ?>
                     </div>
@@ -558,6 +570,18 @@
 										$discount = $i->CalcDiscountFor832016($listID,$listQuantity);
 										echo number_format($discount,0,".",",");
 									}
+									// 30042016
+									if($pro_code=='30042016'){
+										if($tongtien_khongtinhhanggiamgia >= 500000){
+											echo number_format($tongtien_khongtinhhanggiamgia * 0.25,0,".",",");
+										}elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+											echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+										}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+											echo number_format($tongtien_khongtinhhanggiamgia * 0.15,0,".",",");
+										}else{
+											echo '0';
+										}
+									}
 								}else{
 									echo "0";
 								}
@@ -704,6 +728,21 @@
 									if($pro_code=='832016'){
 										$remain_total = $tongtien - $discount;
 										echo number_format($remain_total,0,".",",");
+									}
+									// 30042016
+									if($pro_code=='30042016'){
+										if($tongtien_khongtinhhanggiamgia >= 500000){
+											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.75;
+											echo number_format($tongtien_promotion,0,".",",");
+										}elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+											echo number_format($tongtien_promotion,0,".",",");
+										}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+											$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.85;
+											echo number_format($tongtien_promotion,0,".",",");
+										}else{
+											echo number_format($tongtien,0,".",",");
+										}
 									}
 								}else{
 									echo number_format($tongtien,0,".",",");
@@ -1033,6 +1072,18 @@
 							if($pro_code=='832016'){
 								echo '<strong>(Bạn được giảm 10% cho sản phẩm "Nam" và "Bé trai", 20% cho sản phẩm "Nữ" và "Bé gái" <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline" target="_blank">xem thêm</a>)</strong>';
 							}
+							if($pro_code=='30042016'){
+								if($tongtien_khongtinhhanggiamgia >= 500000){
+									echo '<strong>(Bạn được giảm 25% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}
+								elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+									echo '<strong>(Bạn được giảm 20% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+									echo '<strong>(Bạn được giảm 15% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}else{
+									echo '<strong>(Mua trên 150,000 VNĐ để được giảm giá <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong>';
+								}
+							}
 						}
                     ?>
                 </div>
@@ -1195,6 +1246,18 @@
 								if($pro_code=='832016'){
 									echo number_format($discount,0,".",",");
 								}
+								// 30042016
+								if($pro_code=='30042016'){
+									if($tongtien_khongtinhhanggiamgia >= 500000){
+										echo number_format($tongtien_khongtinhhanggiamgia * 0.25,0,".",",");
+									}elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+										echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+									}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+										echo number_format($tongtien_khongtinhhanggiamgia * 0.15,0,".",",");
+									}else{
+										echo '0';
+									}
+								}
 							}else{
 								echo "0";
 							}
@@ -1344,6 +1407,21 @@
 								// 832016
 								if($pro_code=='832016'){
 									echo number_format($remain_total,0,".",",");
+								}
+								// 30042016
+								if($pro_code=='30042016'){
+									if($tongtien_khongtinhhanggiamgia >= 500000){
+										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.75;
+										echo number_format($tongtien_promotion,0,".",",");
+									}elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+										echo number_format($tongtien_promotion,0,".",",");
+									}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+										$tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.85;
+										echo number_format($tongtien_promotion,0,".",",");
+									}else{
+										echo number_format($tongtien,0,".",",");
+									}
 								}
 							}else{
 								echo number_format($tongtien,0,".",",");

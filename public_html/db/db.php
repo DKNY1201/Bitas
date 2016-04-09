@@ -1552,7 +1552,7 @@
 								$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 								mysql_query($sql_t) or die(mysql_error());
 							}
-						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016' || $row_promo['code']=='KHAITRUONG2016' || $row_promo['code']=='832016'){
+						}elseif($row_promo['code']=='TRIANNHAGIAO2015' || $row_promo['code']=='NOEL2015' || $row_promo['code']=='DONXUAN2016' || $row_promo['code']=='TETTA2016' || $row_promo['code']=='KHAITRUONG2016' || $row_promo['code']=='832016' || $row_promo['code']=='30042016'){
 							$sql_t="UPDATE donhang SET proCode='$pro_code' WHERE idDH=$idDH";
 							mysql_query($sql_t) or die(mysql_error());
 						}
@@ -2138,6 +2138,33 @@
 						$discount = $this->CalcDiscountFor832016($listID,$listQuantity);
 						$tongtien = $tongtien - $discount;
 					}// 832016
+					elseif($row_pro['code']=="30042016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongsl=0;
+						$tongtien=0;
+						$tongtiengiam=0;
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$soluong=$row_dhct['SoLuong'];
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongtien+=$tien;
+							$giachuagiam=$row_dhct['GiaChuaGiam'];
+							//PROMOTION
+							if($dongia<$giachuagiam){
+								$tiengiam=$soluong*$dongia;
+								$tongtiengiam+=$tiengiam;
+							}
+						}
+						$tongtien_khongtinhhanggiamgia=$tongtien - $tongtiengiam;
+						if($tongtien_khongtinhhanggiamgia >= 500000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.75;
+						}
+						if($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+						}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.85;
+						}
+					}// 30042016
 				}// $pro_code
 				if($row_pro['code'] != "HAPPYHOUR"){
 					$dh = $this -> ChiTietDonHang($idDH);
@@ -2646,6 +2673,32 @@
 						$discount = $this->CalcDiscountFor832016($listID,$listQuantity);
 						$tongtien = $tongtien - $discount;
 					}// 832016
+					elseif($row_pro['code']=="30042016"){
+						$dhct=$this->DonHangChiTiet($idDH);
+						$tongtien=0;
+						$tongtiengiam=0;
+						while($row_dhct=mysql_fetch_assoc($dhct)){
+							$soluong=$row_dhct['SoLuong'];
+							$dongia=$row_dhct['Gia'];
+							$tien=$soluong*$dongia;
+							$tongtien+=$tien;
+							$giachuagiam=$row_dhct['GiaChuaGiam'];
+							//PROMOTION
+							if($dongia<$giachuagiam){
+								$tiengiam=$soluong*$dongia;
+								$tongtiengiam+=$tiengiam;
+							}
+						}
+						$tongtien_khongtinhhanggiamgia=$tongtien - $tongtiengiam;
+						if($tongtien_khongtinhhanggiamgia >= 500000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.75;
+						}
+						if($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+						}elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+							$tongtien = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.85;
+						}
+					}// 30042016
 				}
 				return $tongtien;				
 			}
@@ -4255,7 +4308,7 @@
 					}else{
 						$saleoff=$tongtienchuagiam * 0.1;
 					}
-				}// DONXUAN2016
+				}// TRIANNHAGIAO2015 || NOEL2015 || TETTA2016
 				elseif($row_pro['code']=="DONXUAN2016"){
 					$dhct=$this->DonHangChiTiet($idDH);
 					while($row_dhct=mysql_fetch_assoc($dhct)){
@@ -4315,6 +4368,28 @@
 
 					$saleoff = $this->CalcDiscountFor832016($listID,$listQuantity);
 				}// 832016
+				elseif($row_pro['code']=="30042016"){
+					$dhct=$this->DonHangChiTiet($idDH);
+					while($row_dhct=mysql_fetch_assoc($dhct)){
+						$soluong = $row_dhct['SoLuong'];
+						$dongia=$row_dhct['Gia'];						
+						$giachuagiam=$row_dhct['GiaChuaGiam'];
+						//PROMOTION
+						if($dongia==$giachuagiam){
+							$tienchuagiam=$soluong*$dongia;
+							$tongtienchuagiam+=$tienchuagiam;
+						}
+					}
+					if($tongtienchuagiam >= 500000){
+						$saleoff=$tongtienchuagiam * 0.25;
+					}elseif($tongtienchuagiam >= 300000 && $tongtienchuagiam < 500000){
+						$saleoff=$tongtienchuagiam * 0.2;
+					}elseif($tongtienchuagiam >= 150000 && $tongtienchuagiam < 300000){
+						$saleoff=$tongtienchuagiam * 0.15;
+					}else{
+						$saleoff=0;
+					}
+				}// DONXUAN2016
 				else{
 					$saleoff=0;
 				}

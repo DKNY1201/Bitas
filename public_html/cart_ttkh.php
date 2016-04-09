@@ -930,6 +930,20 @@ $(document).ready(function(e) {
                             echo '<p class="promotion_text"><strong>(Bạn được giảm 10% cho sản phẩm "Nam" và "Bé trai", 20% cho sản phẩm "Nữ" và "Bé gái" <a href="http://bitas.com.vn/news/detail/56/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
                             echo '</td></tr>';
                         }
+                        // 30042016
+                        if($pro_code=='30042016'){
+                            echo '<tr class="tongcong"><td colspan="3">';
+                            if($tongtien_khongtinhhanggiamgia >= 500000){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 25% giá trị đơn hàng <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 20% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+                                echo '<p class="promotion_text"><strong>(Bạn được giảm 15% giá trị đơn hàng, mua trên 500,000 VNĐ để được giảm 25% <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }else{
+                                echo '<p class="promotion_text"><strong>(Mua trên 150,000 VNĐ để được giảm giá <a href="http://bitas.com.vn/news/detail/60/" style="color: #2980b9; text-decoration: underline">xem thêm</a>)</strong></p>';
+                            }
+                            echo '</td></tr>';
+                        }
 					}// end checkPA
 					?>
                     <tr class="tongcong">
@@ -1092,6 +1106,18 @@ $(document).ready(function(e) {
                                         $listQuantity = implode(",",$_SESSION['SoLuong']);
                                         $discount = $i->CalcDiscountFor832016($listID,$listQuantity);
                                         echo number_format($discount,0,".",",");
+                                    }
+                                    // 30042016
+                                    if($pro_code=='30042016'){
+                                        if($tongtien_khongtinhhanggiamgia >= 500000){
+                                            echo number_format($tongtien_khongtinhhanggiamgia * 0.25,0,".",",");
+                                        }elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+                                            echo number_format($tongtien_khongtinhhanggiamgia * 0.2,0,".",",");
+                                        }elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+                                            echo number_format($tongtien_khongtinhhanggiamgia * 0.15,0,".",",");
+                                        }else{
+                                            echo '0';
+                                        }
                                     }
 								}else{
 									echo "0";
@@ -1259,7 +1285,24 @@ $(document).ready(function(e) {
                                         $remain_total = $tongtien - $discount;
                                         echo number_format($remain_total,0,".",",");
                                         echo '<input type="hidden" name="tongtien" value="'.$remain_total.'" />';
-                                    }			
+                                    }
+                                    // 30042016
+                                    if($pro_code=='30042016'){
+                                        if($tongtien_khongtinhhanggiamgia >= 500000){
+                                            $tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.75;
+                                            echo number_format($tongtien_promotion,0,".",",");
+                                        }elseif($tongtien_khongtinhhanggiamgia >= 300000 && $tongtien_khongtinhhanggiamgia < 500000){
+                                            $tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.8;
+                                            echo number_format($tongtien_promotion,0,".",",");
+                                        }elseif($tongtien_khongtinhhanggiamgia >= 150000 && $tongtien_khongtinhhanggiamgia < 300000){
+                                            $tongtien_promotion = $tongtiengiam + $tongtien_khongtinhhanggiamgia * 0.85;
+                                            echo number_format($tongtien_promotion,0,".",",");
+                                        }else{
+                                            $tongtien_promotion = $tongtien;
+                                            echo number_format($tongtien,0,".",",");
+                                        }
+                                        echo '<input type="hidden" name="tongtien" value="'.$tongtien_promotion.'" />';
+                                    }	
 								}else{
 									echo '<input type="hidden" name="tongtien" value="'.$tongtien.'" />';
 									echo number_format($tongtien,0,".",",");
