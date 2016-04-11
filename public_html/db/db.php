@@ -3136,7 +3136,7 @@
 				return $kq;
 			}
 			function ListQuanHuyenByTinhThanh($idTinh){
-				$sql="SELECT * FROM quanhuyen WHERE idTinh=$idTinh ORDER BY Ten ASC";
+				$sql="SELECT * FROM quanhuyen WHERE idTinh=$idTinh AND AnHien=1 ORDER BY Ten ASC";
 				$kq=mysql_query($sql) or die(mysql_error());
 				return $kq;
 			}
