@@ -1581,30 +1581,27 @@
 				$idPTTT=$row_dh['idPTTT'];
 				$idTinh=$row_dh['idTinh'];
 				$idQH=$row_dh['idQuanHuyen'];
-
 				$cpvc=$this->ChiPhiVanChuyen($tongtien,$idTinh,$idQH);
 				$tongtien+=$cpvc;
 				$pdv=$this->PhiDichVu($tongtien,$idPTTT);
-
-				/*===== PROMOTION =====*/
 				$tongtien += $pdv;
+				/*===== PROMOTION =====*/
 				//$tongtien = $this->TongGiaTriDonHang($idDH,$idTinh,$idQH,$idPTTT);
 				//$tongtien = str_replace(",","",$tongtien);
 				//$tongtien = (int)$tongtien;
 				$saleoff = $this->PromotionSaleoffCalc($idDH);
-				$tongtien -= $saleoff;
 
 				$sql = "UPDATE donhang SET TongGTDH = $tongtien, TongGTKM = $saleoff, TongCPVC = $cpvc, TongPDV = $pdv WHERE idDH=$idDH";
 				mysql_query($sql) or die(mysql_error());
 			}
-			
+			/*
 			function UpdateTongAll(){
-				$sql = "SELECT idDH FROM donhang WHERE idDH >= 7011";
+				$sql = "SELECT idDH FROM donhang WHERE proCode = '30042016' ORDER BY idDH DESC";
 				$dh = mysql_query($sql) or die(mysql_error());
 				while($row_dh = mysql_fetch_assoc($dh)){
 					$this->UpdateTong($row_dh['idDH']);
 				}
-			}
+			}*/
 
 			function LayDonHangTheoUser($idKH){
 				$sql="SELECT * FROM donhang WHERE idKH=$idKH ORDER BY NgayDH DESC";

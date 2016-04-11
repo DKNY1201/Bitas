@@ -13,8 +13,9 @@
         <div class="slider-wrapper theme-default">
             <div id="slider" class="nivoSlider">
             	<?php if($checkPA){ ?>
-            		<a href="http://bitas.com.vn/news/detail/60/"><img alt="ba muoi thang tu 2016" src="img/slider_home/ba-muoi-thang-tu-2016.jpg" /></a>
+            		
             	<?php } ?>
+                <a href="http://bitas.com.vn/news/detail/60/"><img alt="ba muoi thang tu 2016" src="img/slider_home/ba-muoi-thang-tu-2016.jpg" /></a>
                 <a href="http://bitas.com.vn/news/detail/56/"><img alt="quoc te phu nu 2016" src="img/slider_home/quoc-te-phu-nu-2016.jpg" /></a>
             	<a href="http://bitas.com.vn/news/detail/55/"><img alt="khai truong ron rang 2016" src="img/slider_home/khai-truong-ron-rang-2016.jpg" /></a>
             	<a href="http://bitas.com.vn/news/detail/53/"><img alt="tet nguyen dan 2016" src="img/slider_home/tet-nguyen-dan-2016.jpg" /></a>        
