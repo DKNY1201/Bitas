@@ -40,8 +40,8 @@ $(document).ready(function(e) {
         <td>Email</td>
         <td colspan="3"><input type="text" name="email" class="txt validate[required,custom[email]] text-input" value="<?php if(isset($_POST['email'])) echo $_POST['email']?>" />
         <?php if(isset($error['email'])==true) {?> 
-			<p style="display:block" id="warning_email" class="box_size"><?php echo $error['email']?></p>
-		<?php }?>
+    			<p style="display:block" id="warning_email" class="box_size"><?php echo $error['email']?></p>
+    		<?php }?>
         </td>
       </tr>
       <tr>

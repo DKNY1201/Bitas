@@ -1921,5 +1921,51 @@
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
+
+		//====== SLIDER =====//
+		function ListSlider(){
+			$sql = "SELECT * FROM slider";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
+
+
+		function ThemSlider(&$error){
+				$success=true;
+				//Get Data
+				$imgSrc=$_POST['imgSrc'];
+				$url=$_POST['url'];
+				$altText=$_POST['altText'];
+				$thutu=$_POST['thutu'];
+				//Solve Data
+				settype($thutu,"int");
+				$imgSrc=trim(strip_tags($imgSrc));
+				$url=trim(strip_tags($url));
+				$altText=trim(strip_tags($altText));
+				if (get_magic_quotes_gpc()==false) {
+					$imgSrc = mysql_real_escape_string($imgSrc);
+					$url = mysql_real_escape_string($url);
+					$altText = mysql_real_escape_string($altText);
+				}
+				
+				if($imgSrc == ""){
+					$success=false;
+					$error['imgSrc']="Vui lòng chọn hình";
+				}
+				if($url == ""){
+					$success=false;
+					$error['url']="Vui lòng nhập link hình";
+				}
+
+
+				if($success==true)
+				{
+					$sql="INSERT INTO slider (imgSrc,url,altText,ThuTu) VALUES ('$imgSrc','$url','$altText',$thutu)";
+					mysql_query($sql) or die(mysql_error());		
+				}
+				return $success;
+			}
+		//====== END SLIDER =====//
+
 	}
 ?>

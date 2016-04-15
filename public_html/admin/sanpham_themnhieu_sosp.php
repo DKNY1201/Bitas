@@ -17,5 +17,5 @@
         <?php }?>
     </select>
     <br /><br />
-    <input type="submit" value="Thêm" class="btn" id="sub">
+    <input type="submit" value="Thêm" class="btn blue" id="sub">
 </div>

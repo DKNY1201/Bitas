@@ -94,7 +94,7 @@
 			</a>
 			<ul class="sub-menu">
 				<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index.php?p=info">Thông tin chung</a></li>
-				<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index.php?p=info">Banner quảng cáo</a></li>
+				<li class="<?php if($p=='slider_list'){ echo 'active';}?>"><a href="index.php?p=slider_list">Banner quảng cáo</a></li>
 			</ul>
 		</li>
 		<li class="<?php if($p=='log_list'){ echo 'active';}?>">
