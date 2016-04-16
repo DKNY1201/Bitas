@@ -9,7 +9,7 @@
       "sPaginationType": "full_numbers",
       "iDisplayLength": -1,
       "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
-      "aaSorting" : [[0, 'desc']],
+      "aaSorting" : [[0, 'asc']],
     });
   });
 </script>
@@ -21,19 +21,25 @@
     <th>Hình ảnh</th>
     <th>Link</th>
     <th>Mô tả hình ảnh</th>
-    <th>Thứ tự</th>
+    <th>Ngày bắt đầu hiển thị</th>
+    <th>Ngày kết thúc hiển thị</th>
+    <th>Thứ tự hiển thị</th>
     <th>Hành động</th>
   </tr>
 </thead>
 <tbody>
-  <?php while($row_sli=mysql_fetch_assoc($sli)){
+  <?php
+  	$i = 1;
+  	while($row_sli=mysql_fetch_assoc($sli)){
 	ob_start();  
   ?>
   <tr>
-    <td>{idSlider}</td>
-    <td><img src="{imgSrc}" alt="{altText}" /></td>
+    <td><?php echo $i; ?></td>
+    <td><img width="150px" src="{imgSrc}" alt="{altText}" /></td>
     <td><a href="{url}" target="blank">{url}</a></td>
     <td>{altText}</td>
+    <td>{beginDate}</td>
+    <td>{endDate}</td>
     <td>{ThuTu}</td>
     <td width="80px">
       <a class="fa fa-pencil-square-o" title="Chỉnh sửa" href="index.php?p=slider_sua&idSlider={idSlider}"></a>
@@ -42,12 +48,15 @@
       <?php } ?>
     </td>
   </tr>
-  <?php 
+  <?php
     $str=ob_get_clean();
+    $i++;
     $str=str_replace("{idSlider}",$row_sli['idSlider'],$str);
     $str=str_replace("{altText}",$row_sli['altText'],$str);
     $str=str_replace("{url}",$row_sli['url'],$str);
     $str=str_replace("{imgSrc}",$row_sli['imgSrc'],$str);
+    $str=str_replace("{beginDate}",date("d-m-Y H:i:s",strtotime($row_sli['beginDate'])),$str);
+    $str=str_replace("{endDate}",date("d-m-Y H:i:s",strtotime($row_sli['endDate'])),$str);
     $str=str_replace("{ThuTu}",$row_sli['ThuTu'],$str);
     echo $str;
   }

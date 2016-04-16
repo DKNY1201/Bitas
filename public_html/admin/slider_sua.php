@@ -1,9 +1,19 @@
 <?php
   require_once "checklogin.php";
+
+  // Fetch data of Slider from idSlider
+  $idSli = isset($_GET['idSlider']) ? $_GET['idSlider'] : "";
+  if(empty($idSli)){
+  	header("location:index.php?p=slider_list");
+  }
+  $sli = $i->DetailSlider($idSli);
+  $row_sli = mysql_fetch_assoc($sli);
+
+  // Submit edit information
   $error=array();
   if(isset($_POST['submit']))
   {
-    $success=$i->ThemSlider($error);
+    $success=$i->EditSlider($idSli,$error);
     if($success==true)
       header("location:index.php?p=slider_list");
   }
@@ -14,9 +24,6 @@
 $(document).ready(function(e) {
   //VALIDATE
   $('#sliderform').validationEngine();
-  $(".date").datepicker({
-    dateFormat: 'dd/mm/yy'
-  });
 });
 </script>
 <script type="text/javascript">
@@ -51,53 +58,35 @@ function ShowThumbnails( fileUrl, data ){
       <tr>
         <td>Hình ảnh</td>
         <td colspan="3">
-          <input type="text" name="imgSrc" id="imgSrc" class="txt validate[required]" value="<?php echo $_POST['imgSrc'] ? $_POST['imgSrc'] : ''?>" />
+          <input type="text" name="imgSrc" id="imgSrc" class="txt validate[required]" value="<?php echo $_POST['imgSrc'] ? $_POST['imgSrc'] : $row_sli['imgSrc']?>" />
           <label>
             <input onclick="BrowseServer('Images:/','imgSrc')" type="button" name="btnChonFile" id="btnChonFile" value="Chọn file" class="btn green" />
           </label>
           <?php if(isset($error['imgSrc'])==true) {?> 
-            <p style="display:block" class="input-error"><?php echo $error['imgSrc']?></p>
+            <p style="display:block" class="box_size"><?php echo $error['imgSrc']?></p>
           <?php }?>
         </td>
       </tr>
       <tr>
         <td>Url của hình ảnh</td>
         <td colspan="3">
-          <input type="text" name="url" class="txt validate[required]" value="<?php echo $_POST['url'] ? $_POST['url'] : ''?>" />
+          <input type="text" name="url" class="txt validate[required]" value="<?php echo $_POST['url'] ? $_POST['url'] : $row_sli['url']?>" />
           <?php if(isset($error['url'])==true) {?> 
-            <p style="display:block" class="input-error"><?php echo $error['url']?></p>
+            <p style="display:block" class="box_size"><?php echo $error['url']?></p>
           <?php }?>
         </td>
       </tr>
       <tr>
         <td>Mô tả</td>
-        <td colspan="3"><input type="text" name="altText" class="txt validate[required]" value="<?php echo $_POST['altText'] ? $_POST['altText'] : ''?>" /></td>
-      </tr>
-      <tr>
-        <td>Ngày bắt đầu hiển thị</td>
-        <td colspan="3">
-          <input type="text" name="beginDate" class="txt validate[required] date" value="<?php echo $_POST['beginDate'] ? $_POST['beginDate'] : ''?>" />
-          <?php if(isset($error['beginDate'])==true) {?> 
-            <p style="display:block" class="input-error"><?php echo $error['beginDate']?></p>
-          <?php }?>
-        </td>
-      </tr>
-      <tr>
-        <td>Ngày kết thúc hiển thị</td>
-        <td colspan="3">
-          <input type="text" name="endDate" class="txt validate[required] date" value="<?php echo $_POST['endDate'] ? $_POST['endDate'] : ''?>" />
-          <?php if(isset($error['endDate'])==true) {?> 
-            <p style="display:block" class="input-error"><?php echo $error['endDate']?></p>
-          <?php }?>
-        </td>
+        <td colspan="3"><input type="text" name="altText" class="txt validate[required]" value="<?php echo $_POST['altText'] ? $_POST['altText'] : $row_sli['altText']?>" /></td>
       </tr>
       <tr>
         <td>Thứ tự hiển thị</td>
-        <td colspan="3"><input type="text" name="thutu" class="txt validate[required]" value="<?php echo $_POST['thutu'] ? $_POST['thutu'] : ''?>" /></td>
+        <td colspan="3"><input type="text" name="thutu" class="txt validate[required]" value="<?php echo $_POST['thutu'] ? $_POST['thutu'] : $row_sli['ThuTu']?>"/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="3"><input type="submit" name="submit" value="Thêm" class="btn blue" /></td>
+        <td colspan="3"><input type="submit" name="submit" value="Sửa" class="btn blue" /></td>
       </tr>
     </table>
 </form>

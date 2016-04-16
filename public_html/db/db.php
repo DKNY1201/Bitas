@@ -4604,5 +4604,11 @@
 			$sql = "UPDATE user set LastLoginDate = NOW() WHERE idUser = $idUser";
 			mysql_query($sql) or die(mysql_error());
 		}
+
+		function ListSlider(){
+			$sql = "SELECT * FROM slider ORDER BY ThuTu ASC";
+			$kq=mysql_query($sql) or die(mysql_error());
+			return $kq;
+		}
 	}//END_db
 ?>

@@ -85,7 +85,7 @@
 			</ul>
 		</li>
 		<?php } ?>
-		<li class="<?php if($p=='info'){ echo 'active';}?>">
+		<li class="<?php if($p=='info' || $p=='slider_list' || $p=='slider_them' || $p=='slider_sua'){ echo 'active';}?>">
 			<a href="javascript:;">
 				<i class="icon-cogs"></i> 
 				<span class="title">Cấu hình chung</span>
@@ -94,7 +94,7 @@
 			</a>
 			<ul class="sub-menu">
 				<li class="<?php if($p=='info'){ echo 'active';}?>"><a href="index.php?p=info">Thông tin chung</a></li>
-				<li class="<?php if($p=='slider_list'){ echo 'active';}?>"><a href="index.php?p=slider_list">Banner quảng cáo</a></li>
+				<li class="<?php if($p=='slider_list' || $p=='slider_them' || $p=='slider_sua'){ echo 'active';}?>"><a href="index.php?p=slider_list">Banner quảng cáo</a></li>
 			</ul>
 		</li>
 		<li class="<?php if($p=='log_list'){ echo 'active';}?>">

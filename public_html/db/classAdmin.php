@@ -1923,48 +1923,132 @@
 		}
 
 		//====== SLIDER =====//
-		function ListSlider(){
-			$sql = "SELECT * FROM slider";
+		function DetailSlider($id){
+			$sql = "SELECT * FROM slider WHERE idSlider = $id";
 			$kq=mysql_query($sql) or die(mysql_error());
 			return $kq;
 		}
 
-
 		function ThemSlider(&$error){
-				$success=true;
-				//Get Data
-				$imgSrc=$_POST['imgSrc'];
-				$url=$_POST['url'];
-				$altText=$_POST['altText'];
-				$thutu=$_POST['thutu'];
-				//Solve Data
-				settype($thutu,"int");
-				$imgSrc=trim(strip_tags($imgSrc));
-				$url=trim(strip_tags($url));
-				$altText=trim(strip_tags($altText));
-				if (get_magic_quotes_gpc()==false) {
-					$imgSrc = mysql_real_escape_string($imgSrc);
-					$url = mysql_real_escape_string($url);
-					$altText = mysql_real_escape_string($altText);
-				}
-				
-				if($imgSrc == ""){
-					$success=false;
-					$error['imgSrc']="Vui lòng chọn hình";
-				}
-				if($url == ""){
-					$success=false;
-					$error['url']="Vui lòng nhập link hình";
-				}
-
-
-				if($success==true)
-				{
-					$sql="INSERT INTO slider (imgSrc,url,altText,ThuTu) VALUES ('$imgSrc','$url','$altText',$thutu)";
-					mysql_query($sql) or die(mysql_error());		
-				}
-				return $success;
+			$success=true;
+			//Get Data
+			$imgSrc=$_POST['imgSrc'];
+			$url=$_POST['url'];
+			$altText=$_POST['altText'];
+			$beginDate=$_POST['beginDate'];
+			$endDate=$_POST['endDate'];
+			$thutu=$_POST['thutu'];
+			//Solve Data
+			settype($thutu,"int");
+			$imgSrc=trim(strip_tags($imgSrc));
+			$url=trim(strip_tags($url));
+			$altText=trim(strip_tags($altText));
+			if (get_magic_quotes_gpc()==false) {
+				$imgSrc = mysql_real_escape_string($imgSrc);
+				$url = mysql_real_escape_string($url);
+				$altText = mysql_real_escape_string($altText);
 			}
+			
+			if($imgSrc == ""){
+				$success=false;
+				$error['imgSrc']="Vui lòng chọn hình";
+			}
+			if($url == ""){
+				$success=false;
+				$error['url']="Vui lòng nhập link hình";
+			}
+
+			$beginDate_arr=explode("/",$beginDate);
+			if(count($beginDate_arr)==3)
+			{
+				$d=$beginDate_arr[0];	
+				$m=$beginDate_arr[1];
+				$y=$beginDate_arr[2];
+				if(checkdate($m,$d,$y)==true)
+					$beginDate=$y."-".$m."-".$d;
+				else
+				{
+					$success=false;
+					$error['beginDate']="Ngày bắt đầu không hợp lệ";
+				}
+			}
+			else
+			{
+				$success=false;
+				$error['beginDate']="Ngày bắt đầu không hợp lệ";
+			}
+
+			$endDate_arr=explode("/",$endDate);
+			if(count($endDate_arr)==3)
+			{
+				$d=$endDate_arr[0];	
+				$m=$endDate_arr[1];
+				$y=$endDate_arr[2];
+				if(checkdate($m,$d,$y)==true)
+					$endDate=$y."-".$m."-".$d;
+				else
+				{
+					$success=false;
+					$error['endDate']="Ngày kết thúc không hợp lệ";
+				}
+			}
+			else
+			{
+				$success=false;
+				$error['endDate']="Ngày kết thúc không hợp lệ";
+			}
+
+			if($success==true)
+			{
+				$sql="INSERT INTO slider (imgSrc,url,altText,beginDate,endDate,ThuTu) VALUES ('$imgSrc','$url','$altText','$beginDate','$endDate',$thutu)";
+				mysql_query($sql) or die(mysql_error());
+				$this->WriteLog($_SESSION['id'],"Thêm banner quảng cáo (ID: " . mysql_insert_id() . ", Mô tả: " . $altText . ")");
+			}
+			return $success;
+		}
+
+		function EditSlider($idSlider,&$error){
+			$success=true;
+			//Get Data
+			$imgSrc=$_POST['imgSrc'];
+			$url=$_POST['url'];
+			$altText=$_POST['altText'];
+			$thutu=$_POST['thutu'];
+			//Solve Data
+			settype($thutu,"int");
+			$imgSrc=trim(strip_tags($imgSrc));
+			$url=trim(strip_tags($url));
+			$altText=trim(strip_tags($altText));
+			if (get_magic_quotes_gpc()==false) {
+				$imgSrc = mysql_real_escape_string($imgSrc);
+				$url = mysql_real_escape_string($url);
+				$altText = mysql_real_escape_string($altText);
+			}
+			
+			if($imgSrc == ""){
+				$success=false;
+				$error['imgSrc']="Vui lòng chọn hình";
+			}
+			if($url == ""){
+				$success=false;
+				$error['url']="Vui lòng nhập link hình";
+			}
+
+
+			if($success==true)
+			{
+				$sql="UPDATE slider SET imgSrc = '$imgSrc', url = '$url',altText = '$altText', ThuTu = $thutu WHERE idSlider = $idSlider";
+				mysql_query($sql) or die(mysql_error());
+				$this->WriteLog($_SESSION['id'],"Sửa banner quảng cáo (ID: " . $idSlider . ")");	
+			}
+			return $success;
+		}
+
+		function XoaSlider($id){
+			$sql="DELETE FROM slider WHERE idSlider=$id";
+			mysql_query($sql) or die(mysql_error());
+			$this->WriteLog($_SESSION['id'],"Xóa banner quảng cáo (ID: " . $id . ")");
+		}
 		//====== END SLIDER =====//
 
 	}

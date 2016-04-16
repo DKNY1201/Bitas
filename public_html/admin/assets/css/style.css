@@ -5802,3 +5802,9 @@ table#table.edit-order{
 .input-long{
   width: 90%;
 }
+
+.input-error{
+  color: red;
+  padding: 5px;
+  border: 1px solid red;
+}

@@ -494,11 +494,11 @@
 									echo '<li>Danh sách banner quảng cáo</li>';
 								}
 								elseif($p=='slider_them'){
-									echo '<li><a href="index.php?p=slider_list">Danh sách banner quảng cáo</a></li>';
+									echo '<li><a href="index.php?p=slider_list">Danh sách banner quảng cáo</a><i class="icon-angle-right"></i></li>';
 									echo '<li>Thêm banner quảng cáo</li>';
 								}
 								elseif($p=='slider_sua'){
-									echo '<li><a href="index.php?p=slider_list">Danh sách banner quảng cáo</a></li>';
+									echo '<li><a href="index.php?p=slider_list">Danh sách banner quảng cáo</a><i class="icon-angle-right"></i></li>';
 									echo '<li>Sửa banner quảng cáo</li>';
 								}
 								else{
@@ -670,7 +670,7 @@
 					elseif($p=='slider_them'){
 						require_once "slider_them.php";
 					}
-					elseif($p=='slider_edit'){
+					elseif($p=='slider_sua'){
 						require_once "slider_sua.php";
 					}
 					else{

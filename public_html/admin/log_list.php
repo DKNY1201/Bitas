@@ -7,7 +7,7 @@
 		//data table
 		$('#table').dataTable({
 			"sPaginationType": "full_numbers",
-			"iDisplayLength": 25,
+			"iDisplayLength": 200,
 			"aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
       "aaSorting" : [[0, 'desc']],
 		});

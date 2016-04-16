@@ -12,17 +12,16 @@
 
         <div class="slider-wrapper theme-default">
             <div id="slider" class="nivoSlider">
-            	<?php if($checkPA){ ?>
-            		
-            	<?php } ?>
-                <a href="http://bitas.com.vn/news/detail/60/"><img alt="ba muoi thang tu 2016" src="img/slider_home/ba-muoi-thang-tu-2016.jpg" /></a>
-                <a href="http://bitas.com.vn/news/detail/56/"><img alt="quoc te phu nu 2016" src="img/slider_home/quoc-te-phu-nu-2016.jpg" /></a>
-            	<a href="http://bitas.com.vn/news/detail/55/"><img alt="khai truong ron rang 2016" src="img/slider_home/khai-truong-ron-rang-2016.jpg" /></a>
-            	<a href="http://bitas.com.vn/news/detail/53/"><img alt="tet nguyen dan 2016" src="img/slider_home/tet-nguyen-dan-2016.jpg" /></a>        
-                <a href="http://bitas.com.vn/news/detail/51/"><img alt="don xuan 2016" src="img/slider_home/don-xuan-2016.jpg" /></a>
-                <a href="http://bitas.com.vn/news/detail/50/"><img alt="giang sinh 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>
-            	<a href="javascript:void(0)"><img alt="trung thu 2015" src="img/slider_home/banner-giang-sinh-2015.jpg" /></a>
-            	<a href="http://bitas.com.vn/san-pham/option/hang-giam-gia/thoi-trang/"><img alt="thoi trang giam gia" src="img/slider_home/thoi-trang-giam-gia.jpg" /></a>
+                <?php
+                    $sli = $i->ListSlider();
+                    while ($row_sli = mysql_fetch_assoc($sli)) {
+                    
+                ?>
+                    <a href="<?php echo $row_sli['url']; ?>"><img alt="<?php echo $row_sli['altText']; ?>" src="<?php echo $row_sli['imgSrc']; ?>" /></a>
+                <?php
+                    }
+                ?>
+            	
             </div>
 
         </div>
